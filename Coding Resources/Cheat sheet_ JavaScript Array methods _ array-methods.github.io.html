@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://array-methods.github.io/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Cheat sheet: JavaScript Array methods | array-methods.github.io</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="Cheat sheet: JavaScript Array methods">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Examples Array Methods">
+<meta property="og:description" content="Examples Array Methods">
+<link rel="canonical" href="https://array-methods.github.io/">
+<meta property="og:url" content="https://array-methods.github.io/">
+<meta property="og:site_name" content="array-methods.github.io">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Cheat sheet: JavaScript Array methods">
+<script type="application/ld+json">
+{"description":"Examples Array Methods","url":"https://array-methods.github.io/","@type":"WebSite","headline":"Cheat sheet: JavaScript Array methods","name":"array-methods.github.io","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./Cheat sheet_ JavaScript Array methods _ array-methods.github.io_files/style.css">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://array-methods.github.io/">array-methods.github.io</a></h1>
+      
+
+      <h2 id="cheat-sheet-javascript-array-methods">Cheat sheet: JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array methods</a><a class="anchorjs-link " href="https://array-methods.github.io/#cheat-sheet-javascript-array-methods" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>Credits: <a href="https://gist.github.com/rauschma/6cdeb4af7586aa03baed2f925e0a084b">Axel Rauschmayer</a></p>
+
+<p><strong>Adding or removing an element at either end of an Array:</strong> (return value: item or new array length)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array before</th>
+      <th>method</th>
+      <th>return value</th>
+      <th>array after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">.push(“🟩”)</a></td>
+      <td><strong>4</strong></td>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">.pop()</a></td>
+      <td>“🔺”</td>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">.unshift(“🟩”)</a></td>
+      <td><strong>4</strong></td>
+      <td><sup>[“🟩”,”🟦”,”🟡”,”🔺”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">.shift()</a></td>
+      <td>“🟦”</td>
+      <td><sup>[“🟡”,”🔺”]</sup></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td>.unshift(arr.pop())</td>
+      <td><strong>3</strong></td>
+      <td><sup>[“🔺”,”🟦”,”🟡”]</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Changing all of an Array (the input Array is modified and returned):</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array before</th>
+      <th>method</th>
+      <th>return value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">.fill(“🟡”)</a></td>
+      <td><sup>[“🟡”,”🟡”,”🟡”,”🟡”]</sup></td>
+    </tr>
+    <tr>
+      <td>Array(4)</td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">.fill(“🔺”)</a></td>
+      <td><sup>[“🔺”,”🔺”,”🔺”,”🔺”]</sup></td>
+    </tr>
+    <tr>
+      <td>Array(4)</td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">.fill(“🔺”).map( (val,idx) =&gt; idx )</a></td>
+      <td>[ 0, 1, 2, 3 ]</td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">.reverse()</a></td>
+      <td><sup>[“🟩”,”🔺”,”🟡”,”🟦”]</sup></td>
+    </tr>
+    <tr>
+      <td>[“c”,”a”,”d”,”b”]</td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">.sort()</a></td>
+      <td>[“a”,”b”,”c”,”d”]</td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">.sort()</a></td>
+      <td><sup>[“🔺”,”🟡”,”🟦”,”🟩”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩” ]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin">.copyWithin(1,2,3)</a></td>
+      <td><sup>[“🟦”,🔺”,”🔺”,”🟩” ]</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Finding Array elements:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array</th>
+      <th>method</th>
+      <th>return value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">.includes( “🟦” )</a></td>
+      <td><strong>true</strong></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexof">.indexOf( “🟦” )</a></td>
+      <td><strong>0</strong></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🟦”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastindexof">.lastIndexOf( “🟦” )</a></td>
+      <td><strong>2</strong></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">.find( x =&gt; x===”🟦” )</a></td>
+      <td><sup>“🟦”</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">.findIndex( x =&gt; x===”🟦” )</a></td>
+      <td><strong>0</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Creating a new Array from an existing Array:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array before</th>
+      <th>method (links to MDN)</th>
+      <th>return value</th>
+      <th>array after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">.slice(1, 2)</a></td>
+      <td><sup>[“🟡”,”🔺”]</sup></td>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">.splice(1, 2)</a></td>
+      <td><sup>[“🟡”,”🔺”]</sup></td>
+      <td><sup>[“🟦”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🟦”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">.filter( x =&gt; x===”🟦”)</a></td>
+      <td><sup>[“🟦”,”🟦”]</sup></td>
+      <td><sup>[“🟦”,”🟡”,”🟦”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">.map( x =&gt; x+x )</a></td>
+      <td><sup>[“🟦🟦”, “🟡🟡”]</sup></td>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">.map( x =&gt; [x+x] )</a></td>
+      <td><sup>[[“🟦🟦”], [“🟡🟡”]]</sup></td>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/FlatMap">.flatMap( x =&gt; [x,x] )</a></td>
+      <td><sup>[“🟦”,”🟦”,”🟡”,”🟡”]</sup></td>
+      <td><sup>[“🟦”,”🟡”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">.concat( [“🟩”,”🔴”] )</a></td>
+      <td><sup>[“🟦”,”🟡”,”🔺”,”🟩”,”🔴”]</sup></td>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Computing a summary of an Array:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array</th>
+      <th>method</th>
+      <th>return value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">.some( x =&gt; x===”🟡” )</a></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">.every( x =&gt; x===”🟡” )</a></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join">.join( “🟩” )</a></td>
+      <td><sup>“🟦🟩🟡🟩🔺”</sup></td>
+    </tr>
+    <tr>
+      <td>[ 2, 3, 4 ]</td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">.reduce( (result,x) =&gt; result+x, 10 )</a></td>
+      <td><strong>19</strong><sup> 10+2+3+4</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">.reduce( (result,x) =&gt; result+x,”🟩”)</a></td>
+      <td><sup>“🟩🟦🟡🔺”</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceright">.reduceRight( (result,x) =&gt; result+x,”🟩”)</a></td>
+      <td><sup>“🟩🔺🟡🟦”</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Listing elements:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>array</th>
+      <th>method</th>
+      <th>return value (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators">iterators</a>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys">.keys()</a></td>
+      <td><sup>[0,1,2]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values">.values()</a></td>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+    </tr>
+    <tr>
+      <td><sup>[“🟦”,”🟡”,”🔺”]</sup></td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries">.entries()</a></td>
+      <td><sup>[ [0,”🟦”], [1,”🟡”], [2,”🔺”] ]</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>spreading <code class="language-plaintext highlighter-rouge">...</code> required<br>because the above methods return <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators">iterators</a></th>
+      <th>return value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>[ …[“🟦”,”🟡”,”🔺”,”🟩”].entries() ]<br>&nbsp;&nbsp;&nbsp;&nbsp;.map( ([key,val]) =&gt; val.repeat(key) )</td>
+      <td>[””,”🟡”,”🔺🔺”,”🟩🟩🟩”]</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/array-methods/array-methods.github.io/edit/main/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="./Cheat sheet_ JavaScript Array methods _ array-methods.github.io_files/anchor.min.js.изтеглен файл" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  
+
+</body></html>
