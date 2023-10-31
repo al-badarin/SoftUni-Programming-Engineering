@@ -1,29 +1,51 @@
-import { homePage } from "./home.js";
-import { loginPage } from "./login.js";
-import { registerPage } from "./register.js";
-import { updateNavBar } from "./utils.js";
-import { logout } from "./logout.js";
+import { homeView } from './home.js';
+import { loginView } from './login.js';
+import { signupView } from './signup.js';
+import { createView } from './create.js';
+import { detailsView } from './detail.js';
+import { editView } from './edit.js';
+import { logout } from './logout.js';
+import { updateNav } from './util.js';
 
-const routes = {
-    '/': homePage,
-    '/login': loginPage,
-    '/register': registerPage,
-    '/logout': logout,
+const html = {
+    navBar: document.querySelector('nav'),
+
+    createButton: document.querySelector('#add-movie-button a')
+
 }
 
-document.querySelector('nav').addEventListener('click', onNavigate);
+const routes = {
+    '/': homeView,
+    '/login': loginView,
+    '/register': signupView,
+    '/logout': logout,
 
-function onNavigate(event){
-    if(event.target.tagName === 'A' && event.target.href){
+    '/create': createView,
+    // more routes?
+};
+
+// add event listeners
+
+
+html.navBar.addEventListener('click', onNavigation);
+html.createButton.addEventListener('click', onNavigation);
+
+function onNavigation(event) {
+    if (event.target.tagName === 'A' && event.target.href) {
         event.preventDefault();
 
-        const url = new URL(event.target.href);
+        const href = new URL(event.target.href).pathname;
 
-        const view = routes[url.pathname];
+        const view = routes[href];
 
-        view();
+        if (typeof view == 'function') {
+            view();
+        }
+
+        updateNav();
     }
 }
 
-updateNavBar();
-homePage();
+// start application from home page
+updateNav();
+homeView();

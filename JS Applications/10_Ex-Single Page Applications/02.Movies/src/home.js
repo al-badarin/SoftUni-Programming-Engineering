@@ -1,61 +1,82 @@
-import { showView } from "./utils.js";
-import { detailsPage } from "./details.js";
+import { detailsView } from './detail.js';
+import { displayView, elementFactory } from './util.js';
 
-const section = document.getElementById('home-page');
+const section = document.querySelector('#home-page');
+const catalog = document.querySelector('#movies-list');
+catalog.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        event.preventDefault();
 
-const catalog = section.querySelector(
-    '#movie .card-deck.d-flex.justify-content-center'
-);
+        const id = event.target.dataset.id;
 
-catalog.addEventListener("click", (event) => {
-    if (event.target.tagName === "BUTTON") {
-      event.preventDefault();
-  
-      // TODO:
-      // movieDetailsPage => should accept `id`
-      // - get movie data by `id`
-      // - show/hide content
-  
-      const selectedMovieId = event.target.dataset.id;
-  
-      detailsPage(selectedMovieId);
+        detailsView(id);
     }
-  });
+})
 
-export function homePage() {
-
-    showView(section);
-
+export function homeView() {
+    displayView(section);
     displayMovies();
 }
 
-async function displayMovies() {
+export async function displayMovies() {
     const movies = await getMovies();
 
-    catalog.replaceChildren(...movies.map(createMoviePreview));
+    catalog.replaceChildren(...movies.map(createMoviePreview))
 }
 
 function createMoviePreview(movie) {
-    const liElem = document.createElement('li');
-    liElem.className = 'card mb-4';
-    liElem.innerHTML = `
-    <img class="card-img-top" src="${movie.img}" alt="Card image cap" width="400">
-    <div class="card-body">
-        <h4 class="card-title">${movie.title}</h4>
-        <a href="/details/${movie._id}">
-            <button data-id="${movie._id}" type="button" class="btn btn-info">Details</button>
-        </a>
-    </div>
-    <div class="card-footer">
-    </div>
-  `;
+    // const ownerId = movie._ownerId;
+    const id = movie._id;
+    const title = movie.title;
+    // const description = movie.description;
+    const imgUrl = movie.img;
 
-    return liElem;
+
+    const detailsButton = elementFactory('button', {
+        'data-id': `${id}`,
+        'class': 'btn btn-info'
+    }, 'Details');
+    const aElement = elementFactory('a', {
+        'href': `#/details/${id}`
+    }, detailsButton);
+    const cardFooterDiv = elementFactory('div', {
+        'class': 'card-footer'
+    }, aElement);
+
+    const titleElement = elementFactory('h4', {
+        'class': 'card-title'
+    }, `${title}`);
+    const cardBodyDiv = elementFactory('div', {
+        'class': 'card-body'
+    }, titleElement);
+
+    const imgElement = elementFactory('img', {
+        'class': 'card-img-top',
+        'src': `${imgUrl}`,
+        'alt': 'Card image cap',
+        'width': '400'
+    });
+
+    const movieCardElement = elementFactory('li', {
+        'class': 'card mb-4'
+    }, imgElement, cardBodyDiv, cardFooterDiv);
+
+    return movieCardElement;
 }
 
 async function getMovies() {
-    const res = await fetch('http://localhost:3030/data/movies');
-    const movies = await res.json();
+    try {
+        const res = await fetch('http://localhost:3030/data/movies');
+        if (!res.ok) {
+            const error = (await res.json())
+            throw new Error(error.message)
+        }
+        const data = await res.json();
 
-    return movies;
+        return data;
+    } catch (err) {
+        alert(err.message)
+    }
+
+
 }
