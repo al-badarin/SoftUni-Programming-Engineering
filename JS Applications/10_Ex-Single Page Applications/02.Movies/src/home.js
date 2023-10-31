@@ -1,10 +1,26 @@
-import { showView } from "./util.js";
+import { showView } from "./utils.js";
+import { detailsPage } from "./details.js";
 
 const section = document.getElementById('home-page');
 
 const catalog = section.querySelector(
     '#movie .card-deck.d-flex.justify-content-center'
 );
+
+catalog.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+      event.preventDefault();
+  
+      // TODO:
+      // movieDetailsPage => should accept `id`
+      // - get movie data by `id`
+      // - show/hide content
+  
+      const selectedMovieId = event.target.dataset.id;
+  
+      detailsPage(selectedMovieId);
+    }
+  });
 
 export function homePage() {
 
@@ -23,16 +39,16 @@ function createMoviePreview(movie) {
     const liElem = document.createElement('li');
     liElem.className = 'card mb-4';
     liElem.innerHTML = `
-    <img class="card-img-top" src="${movie.img}"
-        alt="Card image cap" width="400">
+    <img class="card-img-top" src="${movie.img}" alt="Card image cap" width="400">
     <div class="card-body">
         <h4 class="card-title">${movie.title}</h4>
         <a href="/details/${movie._id}">
-            <button data-id="${movie._id} type="button" class="btn btn-info">Details</button>
+            <button data-id="${movie._id}" type="button" class="btn btn-info">Details</button>
         </a>
     </div>
     <div class="card-footer">
-    </div>`;
+    </div>
+  `;
 
     return liElem;
 }

@@ -1,5 +1,5 @@
 import { homePage } from "./home.js";
-import { showView, updateNavBar } from "./util.js";
+import { showView, updateNavBar } from "./utils.js";
 
 const section = document.getElementById('form-login');
 

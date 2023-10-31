@@ -1,7 +1,7 @@
 import { homePage } from "./home.js";
 import { loginPage } from "./login.js";
 import { registerPage } from "./register.js";
-import { updateNavBar } from "./util.js";
+import { updateNavBar } from "./utils.js";
 import { logout } from "./logout.js";
 
 const routes = {

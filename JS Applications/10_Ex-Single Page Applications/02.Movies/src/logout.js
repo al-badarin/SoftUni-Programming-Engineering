@@ -1,5 +1,5 @@
 import { loginPage } from "./login.js";
-import { updateNavBar } from "./util.js";
+import { updateNavBar } from "./utils.js";
 
 export async function logout(){
     const user = JSON.parse(sessionStorage.user);
@@ -13,6 +13,6 @@ export async function logout(){
 
     sessionStorage.removeItem('user');
 
-    updateNavBar();
     loginPage();
+    updateNavBar();
 }
