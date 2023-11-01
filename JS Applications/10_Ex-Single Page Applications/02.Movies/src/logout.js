@@ -1,12 +1,6 @@
 import { homeView } from "./home.js";
 import { updateNav, displayView } from "./util.js";
 
-// export async function logout() {
-//     localStorage.removeItem('user');
-
-//     updateNav();
-//     homeView();
-// }
 const loginSection = document.querySelector('#form-login')
 
 export async function logout() {
@@ -24,23 +18,9 @@ export async function logout() {
         localStorage.removeItem('user')
         localStorage.removeItem('accessToken')
 
-        updateNav()
-        displayView(loginSection)
+        updateNav();
+        displayView(loginSection);
     } catch (err) {
         alert(err)
-
     }
-
-    //   fetch(url,options).then(response=> {
-    //       if(response.status != 204) {
-    //           throw new Error("Failed to logout");
-    //       }
-
-    //       sessionStorage.clear();
-    //      updateNavigation()
-    //      window.location.href="/"
-    //   }).catch(err => {
-    //       alert(err);
-    //   })
-
 }

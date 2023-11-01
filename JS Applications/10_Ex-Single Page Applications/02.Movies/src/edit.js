@@ -1,4 +1,3 @@
-
 import { homeView, displayMovies } from './home.js';
 import { displayView } from './util.js';
 const details = document.querySelector('#movie-example')
@@ -45,8 +44,6 @@ function onEdit(event) {
     edit(eEvent, title, description, img);
 
     currMovieId = '';
-
-
 }
 
 async function edit(e, title, description, img) {
@@ -74,9 +71,7 @@ async function edit(e, title, description, img) {
         }
 
         homeView();
-        //  displayView(details)
-
-
+        //  displayView(details);
 
     } catch (err) {
         alert(err.message);
@@ -87,14 +82,12 @@ async function getMovie(id) {
     try {
         const res = await fetch(`http://localhost:3030/data/movies/${id}`);
         if (!res.ok) {
-            throw new Error
+            throw new Error('Error!')
         }
         const movie = await res.json();
 
         return movie;
     } catch (err) {
-        alert(err.message)
-
+        alert(err.message);
     }
-
 }

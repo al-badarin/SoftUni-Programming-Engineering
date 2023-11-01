@@ -26,19 +26,20 @@ export async function displayMovies() {
 
 function createMoviePreview(movie) {
     // const ownerId = movie._ownerId;
+    // const description = movie.description;
     const id = movie._id;
     const title = movie.title;
-    // const description = movie.description;
     const imgUrl = movie.img;
-
 
     const detailsButton = elementFactory('button', {
         'data-id': `${id}`,
         'class': 'btn btn-info'
     }, 'Details');
+
     const aElement = elementFactory('a', {
         'href': `#/details/${id}`
     }, detailsButton);
+
     const cardFooterDiv = elementFactory('div', {
         'class': 'card-footer'
     }, aElement);
@@ -46,6 +47,7 @@ function createMoviePreview(movie) {
     const titleElement = elementFactory('h4', {
         'class': 'card-title'
     }, `${title}`);
+
     const cardBodyDiv = elementFactory('div', {
         'class': 'card-body'
     }, titleElement);
@@ -77,6 +79,4 @@ async function getMovies() {
     } catch (err) {
         alert(err.message)
     }
-
-
 }

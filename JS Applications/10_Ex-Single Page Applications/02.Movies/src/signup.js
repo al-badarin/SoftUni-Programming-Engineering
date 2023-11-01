@@ -39,7 +39,6 @@ async function register(email, password) {
         body: JSON.stringify(body)
     }
     try {
-
         const response = await fetch('http://localhost:3030/users/register', options)
 
         if (response.status == 409) {
@@ -51,11 +50,9 @@ async function register(email, password) {
         form.reset()
         updateNav()
         homeView()
-        // alert('Successfully registered.');
+        alert('Successfully registered.');
         return data
     } catch (err) {
         alert(err.message);
     }
-
-
 }

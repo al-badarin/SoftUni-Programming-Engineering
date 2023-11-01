@@ -37,8 +37,10 @@ async function loginUser(email, password) {
 
         const user = await res.json();
         const token = user.accessToken;
+
         localStorage.setItem('accessToken', token);
         localStorage.setItem('user', JSON.stringify(user));
+        
         form.reset()
         updateNav();
         homeView();
@@ -46,6 +48,4 @@ async function loginUser(email, password) {
         alert(error.message);
         throw error;
     }
-
-
 }

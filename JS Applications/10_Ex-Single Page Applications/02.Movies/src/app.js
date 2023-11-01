@@ -11,7 +11,6 @@ const html = {
     navBar: document.querySelector('nav'),
 
     createButton: document.querySelector('#add-movie-button a')
-
 }
 
 const routes = {
@@ -19,14 +18,10 @@ const routes = {
     '/login': loginView,
     '/register': signupView,
     '/logout': logout,
-
     '/create': createView,
-    // more routes?
 };
 
 // add event listeners
-
-
 html.navBar.addEventListener('click', onNavigation);
 html.createButton.addEventListener('click', onNavigation);
 

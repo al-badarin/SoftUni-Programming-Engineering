@@ -4,11 +4,13 @@ function hideAllViews() {
     views.forEach(v => v.style.display = 'none');
 }
 
+
 export function displayView(section) {
     hideAllViews();
 
     section.style.display = 'block';
 }
+
 
 export function elementFactory(type, attributes, ...children) {
     const el = document.createElement(type);
@@ -30,6 +32,7 @@ export function elementFactory(type, attributes, ...children) {
     return el;
 }
 
+
 export function updateNav() {
     const user = JSON.parse(localStorage.getItem('user'));
     const msgContainer = document.getElementById('welcome-msg');
@@ -50,6 +53,8 @@ export function updateNav() {
             .forEach(e => e.style.display = 'none');
     }
 }
+
+
 export function showSection(section) {
     views.forEach(v => v.style.display = 'none');
     section.style.display = 'block';
