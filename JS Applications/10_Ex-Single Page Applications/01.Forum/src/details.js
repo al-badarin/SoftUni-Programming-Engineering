@@ -68,3 +68,44 @@ function createCommentElement(comment) {
 
     return element;
 }
+
+async function onSubmit(ev) {
+    ev.preventDefault();
+
+    const formData = new FormData(form);
+    const username = formData.get('username').trim();
+    const content = formData.get('postText').trim();
+    const postId = form.id;
+
+    try {
+        if (username == '' || content == '') {
+            throw new Error('All fields are required!');
+        }
+
+        const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/comments/', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                content,
+                postId,
+                dateCreated: new Date()
+            })
+        });
+
+        if (res.ok != true) {
+            const error = await res.json();
+            throw new Error(error.message);
+        }
+
+        form.reset();
+
+        showPost(postId);
+
+    }
+    catch (err) {
+        alert(err.message);
+    }
+}

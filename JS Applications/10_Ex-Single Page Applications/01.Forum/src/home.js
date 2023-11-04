@@ -19,7 +19,7 @@ export async function showHome(ev) {
 
     //Loading
     document.getElementById('main').replaceChildren('Loading...');
-    const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts')
+    const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts');
     const posts = await res.json();
 
     container.replaceChildren(...Object.values(posts).map(createPostPreview));
