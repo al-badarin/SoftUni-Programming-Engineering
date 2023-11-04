@@ -9,7 +9,7 @@ const postElement = {
 const commentsList = document.getElementById('user-comment');
 
 const form = section.querySelector('form');
-form.addEventListener('submit', onsubmit);
+form.addEventListener('submit', onSubmit);
 
 section.remove();
 
