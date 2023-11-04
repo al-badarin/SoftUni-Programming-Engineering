@@ -27,7 +27,7 @@ export async function showHome(ev) {
     document.getElementById('main').replaceChildren(section);
 }
 
-function createPostPreview(post){
+function createPostPreview(post) {
     const element = document.createElement('div');
     element.className = 'topic-name-wrapper';
     element.innerHTML = `
@@ -42,8 +42,6 @@ function createPostPreview(post){
                     <p>Username: <span>${post.username}</span></p>
                 </div>
             </div>
-
-
         </div>
     </div>`;
 
@@ -54,11 +52,15 @@ async function onSubmit(ev) {
     ev.preventDefault();
 
     const formData = new FormData(form);
-    const title = formData.get('topicName');
-    const username = formData.get('username');
-    const content = formData.get('postText');
+    const title = formData.get('topicName').trim();
+    const username = formData.get('username').trim();
+    const content = formData.get('postText').trim();
 
     try {
+        if (title == '' || username == '' || content == '') {
+            throw new Error('All fields are required!');
+        }
+
         const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts', {
             method: 'post',
             headers: {

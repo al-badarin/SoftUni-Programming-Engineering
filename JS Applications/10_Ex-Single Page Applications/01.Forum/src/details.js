@@ -101,7 +101,6 @@ async function onSubmit(ev) {
         }
 
         form.reset();
-
         showPost(postId);
 
     }
