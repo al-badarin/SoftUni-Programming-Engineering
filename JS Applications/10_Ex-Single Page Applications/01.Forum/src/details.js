@@ -47,10 +47,24 @@ async function showPost(postId) {
         .map(createCommentElement));
 
     form.id = postId;
-    postElement.title.textContent = post.title; 
-    postElement.username.textContent = post.username; 
-    postElement.time.textContent = post.dateCreated; 
-    postElement.content.textContent = post.content; 
+    postElement.title.textContent = post.title;
+    postElement.username.textContent = post.username;
+    postElement.time.textContent = post.dateCreated;
+    postElement.content.textContent = post.content;
 
     document.getElementById('main').replaceChildren(section);
+}
+
+function createCommentElement(comment) {
+    const element = document.createElement('div');
+    element.className = 'topic-name-wrapper';
+    element.innerHTML = `
+    <div class="topic-name">
+        <p><strong>${comment.username}</strong> commented on <time>${comment.dateCreated}</time></p>
+        <div class="post-content">
+            <p>${comment.content}</p>
+        </div>
+    </div>`;
+
+    return element;
 }
