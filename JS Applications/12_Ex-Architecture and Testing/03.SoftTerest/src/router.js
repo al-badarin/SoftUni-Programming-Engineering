@@ -4,7 +4,7 @@ export function initialize(links) {
 
     const context = {
         showSection,
-        goto
+        goTo
     };
 
     return context;
@@ -22,11 +22,11 @@ export function initialize(links) {
         if (target.tagName == 'A') {
             event.preventDefault();
             const url = new URL(target.href);
-            goto(url.pathname);
+            goTo(url.pathname);
         }
     }
 
-    function goto(name) {
+    function goTo(name) {
         const handler = links[name];
         if (typeof handler == 'function') {
             handler(context);

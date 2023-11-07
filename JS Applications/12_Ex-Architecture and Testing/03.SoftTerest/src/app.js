@@ -20,4 +20,4 @@ const links = {
 const router = initialize(links);
 
 //Start application in home view
-router.goto('/');
+router.goTo('/');
