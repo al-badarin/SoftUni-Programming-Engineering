@@ -13,11 +13,12 @@ const links = {
     '/catalog': showCatalog,
     '/login': showLogin,
     '/register': showRegister,
-    '/detail': showDetails,
+    '/details': showDetails,
     '/create': showCreate,
 };
 
 const router = initialize(links);
+router.updateNav();
 
 //Start application in home view
 router.goTo('/');

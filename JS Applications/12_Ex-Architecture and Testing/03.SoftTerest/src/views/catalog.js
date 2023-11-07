@@ -2,8 +2,11 @@ import { getAllIdeas } from '../api/data.js';
 
 
 const section = document.getElementById('dashboard-holder');
+section.addEventListener('click', onDetailsSelect);
+let ctx = null;
 
 export async function showCatalog(context) {
+    ctx = context;
     context.showSection(section);
     const ideas = await getAllIdeas();
     if (ideas.length == 0) {
@@ -23,7 +26,17 @@ function createIdeaPreview(idea) {
         <p class="card-text">${idea.title}</p>
     </div>
     <img class="card-image" src=${idea.img} alt="Card image cap">
-    <a class="btn" href="">Details</a>`;
+    <a data-id="${idea._id}"class="btn" href="/details">Details</a>`;
 
 return element;
+}
+
+function onDetailsSelect(event){
+    if(event.target.tagName == 'A'){
+        event.preventDefault();
+        const id = event.target.dataset.id;
+        if(id){
+            ctx.goTo('/details', id);
+        }
+    }
 }
