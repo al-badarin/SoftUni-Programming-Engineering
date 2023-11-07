@@ -4,10 +4,9 @@ import { showLogin } from './views/login.js';
 import { showRegister } from './views/register.js';
 import { showDetails } from './views/details.js';
 import { showCreate } from './views/create.js';
-
+import { initialize } from './router.js'
 
 document.getElementById('views').remove;
-
 
 const links = {
     '/': showHome,
@@ -18,6 +17,7 @@ const links = {
     '/create': showCreate,
 };
 
+const router = initialize(links);
 
 //Start application in home view
-goto('/');
+router.goto('/');
