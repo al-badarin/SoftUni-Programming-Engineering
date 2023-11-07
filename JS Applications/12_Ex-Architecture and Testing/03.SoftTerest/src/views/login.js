@@ -4,7 +4,6 @@ const section = document.getElementById('loginPage');
 const form = section.querySelector('form');
 form.addEventListener('submit', onSubmit);
 
-
 let ctx = null;
 
 export function showLogin(context){
