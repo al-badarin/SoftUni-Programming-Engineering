@@ -13,7 +13,7 @@ async function request(method, url, data) {
     }
 
     const user = JSON.parse(localStorage.getItem('user'));
-    if(user){
+    if (user) {
         const token = user.accessToken;
         options.headers['X-Authorization'] = token;
     }
@@ -22,7 +22,7 @@ async function request(method, url, data) {
         const response = await fetch(host + url, options);
 
         if (response.ok != true) {
-            if(response.status == 403){
+            if (response.status == 403) {
                 localStorage.removeItem('user');
             }
             const error = await response.json();

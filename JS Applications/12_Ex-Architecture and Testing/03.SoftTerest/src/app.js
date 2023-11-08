@@ -5,6 +5,7 @@ import { showRegister } from './views/register.js';
 import { showDetails } from './views/details.js';
 import { showCreate } from './views/create.js';
 import { initialize } from './router.js'
+import { logout } from './api/users.js';
 
 document.getElementById('views').remove;
 
@@ -15,6 +16,7 @@ const links = {
     '/register': showRegister,
     '/details': showDetails,
     '/create': showCreate,
+    '/logout': onLogout
 };
 
 const router = initialize(links);
@@ -22,3 +24,9 @@ router.updateNav();
 
 //Start application in home view
 router.goTo('/');
+
+function onLogout() {
+    logout();
+    router.updateNav();
+    router.goTo('/');
+}

@@ -1,6 +1,5 @@
 import { getAllIdeas } from '../api/data.js';
 
-
 const section = document.getElementById('dashboard-holder');
 section.addEventListener('click', onDetailsSelect);
 let ctx = null;
@@ -28,14 +27,14 @@ function createIdeaPreview(idea) {
     <img class="card-image" src=${idea.img} alt="Card image cap">
     <a data-id="${idea._id}"class="btn" href="/details">Details</a>`;
 
-return element;
+    return element;
 }
 
-function onDetailsSelect(event){
-    if(event.target.tagName == 'A'){
+function onDetailsSelect(event) {
+    if (event.target.tagName == 'A') {
         event.preventDefault();
         const id = event.target.dataset.id;
-        if(id){
+        if (id) {
             ctx.goTo('/details', id);
         }
     }

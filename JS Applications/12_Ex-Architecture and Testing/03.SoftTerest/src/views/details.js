@@ -2,7 +2,6 @@ import { deleteById, getById } from "../api/data.js";
 
 const section = document.getElementById('detailsPage');
 
-
 export async function showDetails(context, id) {
     const idea = await getById(id);
     context.showSection(section);

@@ -1,6 +1,5 @@
 const section = document.getElementById('homePage');
 
-
-export function showHome(context){
+export function showHome(context) {
     context.showSection(section);
 }

@@ -1,4 +1,4 @@
-import {register} from '../api/users.js';
+import { register } from '../api/users.js';
 
 const section = document.getElementById('registerPage');
 const form = section.querySelector('form');
@@ -6,12 +6,12 @@ form.addEventListener('submit', onSubmit);
 
 let ctx = null;
 
-export function showRegister(context){
+export function showRegister(context) {
     ctx = context;
     context.showSection(section);
 }
 
-async function onSubmit(event){
+async function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(form);
 

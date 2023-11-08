@@ -6,12 +6,12 @@ form.addEventListener('submit', onSubmit);
 
 let ctx = null;
 
-export function showCreate(context){
+export function showCreate(context) {
     ctx = context;
     context.showSection(section);
 }
 
-async function onSubmit(event){
+async function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(form);
 

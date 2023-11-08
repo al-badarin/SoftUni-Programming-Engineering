@@ -1,4 +1,4 @@
-import {login} from '../api/users.js';
+import { login } from '../api/users.js';
 
 const section = document.getElementById('loginPage');
 const form = section.querySelector('form');
@@ -6,12 +6,12 @@ form.addEventListener('submit', onSubmit);
 
 let ctx = null;
 
-export function showLogin(context){
+export function showLogin(context) {
     ctx = context;
     context.showSection(section);
 }
 
-async function onSubmit(event){
+async function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(form);
 
