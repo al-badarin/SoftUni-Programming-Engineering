@@ -1,5 +1,5 @@
-import { html } from '//node_modules/lit-html/lit-html.js';
+import { html } from '/node_modules/lit-html/lit-html.js';
 
-export function loadButtonTemplate(){
-
-}
+export const loadButtonTemplate = () => html`
+ <button id="loadBooks">LOAD ALL BOOKS</button>
+`;
