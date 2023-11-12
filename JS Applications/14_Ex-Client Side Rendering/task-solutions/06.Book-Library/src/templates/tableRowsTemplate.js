@@ -1,8 +1,8 @@
 import { html } from '/node_modules/lit-html/lit-html.js';
 
-export const tableRowsTemplate = () => html`
-${context.books.map((book) =>
-    rowTemplate(book, context.deleteHandler, context.updateHandler)
+export const tableRowsTemplate = (context) => html`
+  ${context.books.map((book) =>
+  rowTemplate(book, context.deleteHandler, context.updateHandler)
 )}
 `;
 

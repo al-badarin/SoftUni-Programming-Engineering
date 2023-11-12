@@ -4,9 +4,9 @@ import { tableTemplate } from './tableTemplate.js';
 import { html } from '/node_modules/lit-html/lit-html.js';
 
 export const mainTemplate = () => html`
-${loadButtonTemplate()} ${tableTemplate()}
+  ${loadButtonTemplate()} ${tableTemplate()}
 
-<form id="add-form">${addFormTemplate()}</form>
+  <form id="add-form">${addFormTemplate()}</form>
 
-<form id="edit-form" style="display: none"></form>
+  <form id="edit-form" style="display: none"></form>
 `;

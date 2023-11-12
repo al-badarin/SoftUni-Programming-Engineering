@@ -9,14 +9,15 @@ export const addFormTemplate = () => html`
   <input type="submit" value="Submit" />
 `;
 
-export const editFormTemplate = () => html`
-<input type="hidden" name="id" value="${id}" />
+export const editFormTemplate = (id, book) => html`
+  <input type="hidden" name="id" value="${id}" />
   <h3>Edit book</h3>
   <label>TITLE</label>
   <input
     type="text"
     name="title"
     placeholder="Title..."
+    id="edit-title"
     value="${book.title}"
   />
   <label>AUTHOR</label>
@@ -24,6 +25,7 @@ export const editFormTemplate = () => html`
     type="text"
     name="author"
     placeholder="Author..."
+    id="edit-author"
     value="${book.author}"
   />
   <input type="submit" value="Save" />
