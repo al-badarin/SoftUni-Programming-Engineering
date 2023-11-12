@@ -7,13 +7,13 @@ export function getAllBooks() {
 
 export async function createBook(bookObj) {
     return fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookObj),
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify(bookObj),
     }).then((res) => res.json());
-  }
+}
 
 export function getBookById(id) {
     return fetch(`${url}/${id}`)

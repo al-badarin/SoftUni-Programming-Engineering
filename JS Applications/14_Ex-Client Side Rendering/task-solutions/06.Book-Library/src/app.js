@@ -1,6 +1,6 @@
 import { mainTemplate } from './templates/mainTemplate.js';
 import { html, render } from '/node_modules/lit-html/lit-html.js';
-import { getAllBooks, deleteBook, getBookById, updateBook} from './api.js';
+import { getAllBooks, deleteBook, getBookById, updateBook } from './api.js';
 import { tableRowsTemplate } from './templates/tableRowsTemplate.js';
 import { editFormTemplate } from './templates/formTemplates.js';
 
@@ -37,6 +37,7 @@ function deleteHandler(id) {
     document.getElementById("loadBooks").click();
 }
 
+
 // ADDED FUNCTIONALITY FOR CREATING A NEW BOOK
 let addBookForm = document.getElementById('add-form');
 addBookForm.addEventListener('submit', handleFormSubmit);
@@ -58,12 +59,12 @@ async function handleFormSubmit(e) {
 }
 
 async function createBook(formData) {
-    if(inputAuthorEl.value !== '' && inputAuthorEl.value !== ''){
+    if (inputAuthorEl.value !== '' && inputAuthorEl.value !== '') {
         let newBook = {
             title: formData.get('title'),
             author: formData.get('author')
         };
-    
+
         let url = 'http://localhost:3030/jsonstore/collections/books';
         let createResponse = await fetch(url, {
             headers: {
@@ -72,45 +73,48 @@ async function createBook(formData) {
             method: 'POST',
             body: JSON.stringify(newBook)
         });
-    
+
         inputTitleEl.value = '';
         inputAuthorEl.value = '';
 
         document.getElementById("loadBooks").click();
     }
-    
 }
-
 
 
 // ADDED FUNCTIONALITY FOR EDITING BOOK
+let editForm = document.getElementById('edit-form');
+
+let editTitleEl = document.querySelector('input[name="edit-title"]');
+let editAuthorEl = document.querySelector('input[name="edit-author"]');
+let addForm = document.getElementById('add-form');
+
 async function updateHandler(id) {
-//     console.log("updateHandler ...", id);
 
-//     let book = await getBookById(id);
-//     console.log(book);
+    let book = await getBookById(id);
+    console.log(book);
 
-//     let editForm = document.getElementById('edit-form');
-//     editForm.style.display = 'block';
+    addForm.replaceChildren(editForm);
+    render(editFormTemplate(id, book), addForm);
 
-//     let formData = new FormData(editForm);
-//     // book = {
-//     //     title: formData.get('title'),
-//     //     author: formData.get('author')
-//     // };
+    let saveBtn = document.querySelector('input[type="submit"]');
 
-//     let addForm = document.getElementById('add-form');
-//     addForm.replaceChildren(editForm);
-//     render(editFormTemplate(id, book), addForm);
+    saveBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('clicked');
 
-//     let editResult = updateBook(id);
-//     let editedBook = document.getElementById('edit-title');
-//     // let editedHtmlBook = createHtmlBook(editResult, editResult._id);
-//     // editedBook.replaceWith(editedHtmlBook);
+        let formData = new FormData(editForm);
+        let book = {
+            title: formData.get('edit-title'),
+            author: formData.get('edit-author')
+        };
 
+        //TODO EDIT FUNC
+        // render(editFormTemplate(id, book), addForm);
 
-/////// LECTOR INSTRUCTIONS ///////
-//     // book = request => getBookById(id)
-//     // display form element (....style.display = 'block')
-//     // render editFormTemplate(id, book)
+        // editAuthorEl.value = '';
+        // editTitleEl.value = '';
+    })
 }
+
+

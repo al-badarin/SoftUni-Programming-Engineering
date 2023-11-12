@@ -15,7 +15,7 @@ export const editFormTemplate = (id, book) => html`
   <label>TITLE</label>
   <input
     type="text"
-    name="title"
+    name="edit-title"
     placeholder="Title..."
     id="edit-title"
     value="${book.title}"
@@ -23,7 +23,7 @@ export const editFormTemplate = (id, book) => html`
   <label>AUTHOR</label>
   <input
     type="text"
-    name="author"
+    name="edit-author"
     placeholder="Author..."
     id="edit-author"
     value="${book.author}"
