@@ -1,6 +1,6 @@
 import { render, html } from "../../node_modules/lit-html/lit-html.js";
 import { getFurnitureById } from "../api/data.js";
-import { onDelete } from "./deleteView.js";
+import { onDelete } from "../views/deleteView.js";
 
 const detailsTemplate = (furniture) => {
   // const isFurnitureOwner =
