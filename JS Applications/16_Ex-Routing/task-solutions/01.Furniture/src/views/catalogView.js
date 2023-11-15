@@ -31,7 +31,7 @@ const catalogTemplate = (data) => html`
   `;
 
 export async function catalogView() {
-    const data = await getAllFurniture();
+  const data = await getAllFurniture();
 
-    render(catalogTemplate(data), document.querySelector('body div.container'))
+  render(catalogTemplate(data), document.querySelector('body div.container'))
 }
