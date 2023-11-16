@@ -139,20 +139,20 @@ function onSubmit(event) {
     //         return;
     //     }
 
-    valueOf(model) !== '' && model.length >= 4
+    model.length >= 4
         ? validate(newModelElem, true)
         : validate(newModelElem, false);
-    valueOf(make) !== '' && make.length >= 4
+    make.length >= 4
         ? validate(newMakeElem, true)
         : validate(newMakeElem, false);
-    valueOf(price) !== '' && Number(price) > 0
+    Number(price) > 0
         ? validate(newPriceElem, true)
         : validate(newPriceElem, false);
-    valueOf(description) !== '' && description.length > 10
+    description.length > 10
         ? validate(newDescriptionElem, true)
         : validate(newDescriptionElem, false);
-    valueOf(img) !== '' && img !== "" ? validate(newImgElem, true) : validate(newImgElem, false);
-    valueOf(year) !== '' && Number(year) >= 1950 && Number(year) <= 2050
+    img !== "" ? validate(newImgElem, true) : validate(newImgElem, false);
+    Number(year) >= 1950 && Number(year) <= 2050
         ? validate(newYearElem, true)
         : validate(newYearElem, false);
 

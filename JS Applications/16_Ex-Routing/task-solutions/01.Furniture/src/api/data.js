@@ -2,6 +2,7 @@ import * as api from "./api.js";
 
 const endpoints = {
     allFurniture: "/data/catalog",
+    createFurniture: "/data/catalog",
     furnitureById: "/data/catalog/",
     updateFurniture: "/data/catalog/",
     deleteFurniture: "/data/catalog/",
@@ -21,4 +22,8 @@ export async function updateFurniture(id, data) {
 
 export async function deleteFurniture(id) {
     return api.del(endpoints.deleteFurniture + id);
+}
+
+export async function createFurniture() {
+    return api.post(endpoints.createFurniture);
 }

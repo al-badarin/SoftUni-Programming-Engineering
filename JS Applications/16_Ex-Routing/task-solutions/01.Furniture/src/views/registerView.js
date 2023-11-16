@@ -31,9 +31,7 @@ const registerTemplate = () => html`
         </form>
 `;
 
-export async function registerView(context) {
-    console.log('...registerView...', context);
-
+export async function registerView() {
     render(registerTemplate(), document.querySelector("body div.container"));
 }
 
