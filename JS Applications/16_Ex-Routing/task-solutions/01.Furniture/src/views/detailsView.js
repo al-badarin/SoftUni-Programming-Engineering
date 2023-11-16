@@ -33,12 +33,15 @@ const detailsTemplate = (furniture) => {
         <p>Material: <span>${furniture.material}</span></p>
         <div>
           ${isFurnitureOwner
-            ? html`<a href="/edit/${furniture._id}" class="btn btn-info"
+            ? html`<a 
+            href="/edit/${furniture._id}" 
+            class="btn btn-info"
                 >Edit</a
               >`
             : null}
           ${isFurnitureOwner
             ? html`<a
+            @click="${onDelete}"
                 href="javascript:void(0)"
                 class="btn btn-red"
                 id="${furniture._id}"
@@ -58,5 +61,5 @@ export async function detailsView(context) {
 
   render(detailsTemplate(data), document.querySelector("body div.container"));
 
-  document.querySelector(".btn-red").addEventListener("click", onDelete);
+  //document.querySelector(".btn.btn-red").addEventListener("click", onDelete);
 }

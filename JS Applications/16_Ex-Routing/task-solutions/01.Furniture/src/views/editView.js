@@ -128,18 +128,31 @@ function onSubmit(event) {
     const newDescriptionElem = document.getElementById("new-description");
     const newImgElem = document.getElementById("new-image");
 
-    model.length >= 4
+    // if(newModelElem.value === '' ||
+    //     newPriceElem.value === '' ||
+    //     newMakeElem.value === '' ||
+    //     newYearElem.value === '' ||
+    //     newMaterialElem.value === '' ||
+    //     newDescriptionElem.value === '' ||
+    //     newDescriptionElem.value === '' ||
+    //     newImgElem.value === ''){
+    //         return;
+    //     }
+
+    valueOf(model) !== '' && model.length >= 4
         ? validate(newModelElem, true)
         : validate(newModelElem, false);
-    make.length >= 4 ? validate(newMakeElem, true) : validate(newMakeElem, false);
-    Number(price) > 0
+    valueOf(make) !== '' && make.length >= 4
+        ? validate(newMakeElem, true)
+        : validate(newMakeElem, false);
+    valueOf(price) !== '' && Number(price) > 0
         ? validate(newPriceElem, true)
         : validate(newPriceElem, false);
-    description.length > 10
+    valueOf(description) !== '' && description.length > 10
         ? validate(newDescriptionElem, true)
         : validate(newDescriptionElem, false);
-    img !== "" ? validate(newImgElem, true) : validate(newImgElem, false);
-    Number(year) >= 1950 && Number(year) <= 2050
+    valueOf(img) !== '' && img !== "" ? validate(newImgElem, true) : validate(newImgElem, false);
+    valueOf(year) !== '' && Number(year) >= 1950 && Number(year) <= 2050
         ? validate(newYearElem, true)
         : validate(newYearElem, false);
 
