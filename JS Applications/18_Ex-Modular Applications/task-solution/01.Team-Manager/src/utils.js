@@ -10,3 +10,10 @@ export const getUserData =()=>{
 
     return null;
 }
+
+export const clearUserData = () =>{
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('_id');
+    sessionStorage.removeItem('accessToken');
+}
