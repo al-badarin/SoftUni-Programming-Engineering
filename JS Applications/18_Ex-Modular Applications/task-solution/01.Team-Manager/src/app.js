@@ -1,6 +1,7 @@
 import { html, render } from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
 import { getUserData } from './utils.js';
+import { showDetails } from './view/details.js';
 import { showHome } from './view/home.js';
 import { showLogin } from './view/login.js';
 import { showTeams } from './view/teams.js';
@@ -47,6 +48,7 @@ page(updateNav);
 
 page('/', showHome);
 page('/teams', showTeams);
+page('/teams/:id', showDetails)
 page('/login', showLogin);
 
 page.start()
