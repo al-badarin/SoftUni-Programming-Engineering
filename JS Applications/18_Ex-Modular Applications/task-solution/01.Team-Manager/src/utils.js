@@ -11,6 +11,13 @@ export const getUserData =()=>{
     return null;
 }
 
+export const setUserData =(data)=>{
+    sessionStorage.setItem('email', data.email);
+    sessionStorage.setItem('username', data.username);
+    sessionStorage.setItem('_id', data._id);
+    sessionStorage.setItem('accessToken', data.accessToken);
+}
+
 export const clearUserData = () =>{
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('username');
