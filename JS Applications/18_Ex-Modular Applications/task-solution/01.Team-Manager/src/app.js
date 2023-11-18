@@ -26,7 +26,6 @@ function updateNav(ctx, next) {
 
 function session(ctx, next) {
     const user = getUserData();
-    console.log('user:', user);
     if (user) {
         ctx.user = user;
     }

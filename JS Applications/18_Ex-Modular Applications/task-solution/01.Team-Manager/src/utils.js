@@ -24,3 +24,14 @@ export const clearUserData = () =>{
     sessionStorage.removeItem('_id');
     sessionStorage.removeItem('accessToken');
 }
+
+export const createSubmitHandler = (callback) =>{
+    return function(event){
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+
+        callback(data);
+    }
+}
