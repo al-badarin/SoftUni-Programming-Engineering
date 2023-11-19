@@ -32,10 +32,9 @@ export const registerView = (ctx) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        const { email, password } = Object.fromEntries(formData);
-        const confPass = formData.get('conf-pass');
+        const { email, password, ['conf-pass']: repass } = Object.fromEntries(formData);
 
-        if(confPass != password){
+        if (confPass != password) {
             alert('Password does not match!')
             return;
         }
