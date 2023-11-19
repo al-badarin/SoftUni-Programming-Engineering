@@ -27,6 +27,7 @@ const registerTemplate = (submitHandler) => html`
         </section>
 `;
 
+
 export const registerView = (ctx) => {
     const submitHandler = (e) => {
         e.preventDefault();
@@ -34,7 +35,14 @@ export const registerView = (ctx) => {
         let formData = new FormData(e.currentTarget);
         const { email, password, ['conf-pass']: repass } = Object.fromEntries(formData);
 
-        if (confPass != password) {
+        if (email == '' ||
+            password == '' ||
+            repass == '') {
+            alert('All fields required!')
+            return;
+        }
+
+        if (repass != password) {
             alert('Password does not match!')
             return;
         }
