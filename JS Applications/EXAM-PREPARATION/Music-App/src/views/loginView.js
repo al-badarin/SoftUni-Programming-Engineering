@@ -33,6 +33,9 @@ export const loginView = (ctx) => {
         authService.login(email, password)
             .then(() => {
                 ctx.page.redirect('/');
+            })
+            .catch(err => {
+                alert(err);
             });
     }
 
