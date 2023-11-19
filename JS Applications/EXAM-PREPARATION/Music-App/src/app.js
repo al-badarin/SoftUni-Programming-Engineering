@@ -3,8 +3,8 @@ import { renderContentMiddleware, renderNavigationMiddleware } from './middlewar
 import { homeView } from './views/homeView.js';
 import { loginView } from './views/loginView.js';
 
-page(renderNavigationMiddleware);
 page(renderContentMiddleware);
+page(renderNavigationMiddleware);
 
 page('/', homeView);
 page('/login', loginView);

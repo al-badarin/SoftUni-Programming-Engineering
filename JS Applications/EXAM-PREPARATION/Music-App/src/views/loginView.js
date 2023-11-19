@@ -1,8 +1,10 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, render } from '../../node_modules/lit-html/lit-html.js';
 
-const logintemplate = () => html`
+import * as authService from '../services/authServices.js';
+
+const logintemplate = (submitHandler) => html`
     <section id="loginPage">
-        <form>
+        <form @submit=${submitHandler}>
             <fieldset>
                 <legend>Login</legend>
 
@@ -23,5 +25,16 @@ const logintemplate = () => html`
 `;
 
 export const loginView = (ctx) => {
-    console.log('...loginView...');
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+
+        authService.login(email, password)
+            .then(() => {
+                ctx.page.redirect('/');
+            });
+    }
+
+    ctx.render(logintemplate(submitHandler));
 }
