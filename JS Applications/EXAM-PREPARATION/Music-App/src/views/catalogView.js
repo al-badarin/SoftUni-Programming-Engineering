@@ -1,6 +1,6 @@
 import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 
-import * as albumService from '../services/albumServices.js';
+import * as albumService from '../services/albumService.js';
 
 const albumDetails = (albumId) => html`
         <div class="btn-group">
