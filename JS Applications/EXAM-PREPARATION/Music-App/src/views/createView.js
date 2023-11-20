@@ -70,7 +70,7 @@ export const createView = (ctx) => {
         //     return;
         // }
 
-        albumService.create(albumData)
+        albumService.create(formData)
             .then(() => {
                 ctx.page.redirect('/catalog');
             })

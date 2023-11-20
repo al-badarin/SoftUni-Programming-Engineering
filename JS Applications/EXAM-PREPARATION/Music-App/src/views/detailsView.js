@@ -35,6 +35,6 @@ const detailsTemplate = (album, user) => html`
 export const detailsView = (ctx) => {
     albumService.getOne(ctx.params.albumId)
         .then(album => {
-            ctx.render(detailsTemplate(album));
+            ctx.render(detailsTemplate(album, ctx.user));
         });
 };
