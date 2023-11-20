@@ -1,8 +1,14 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 
 import * as albumService from '../services/albumServices.js';
 
-const albumTemplate = (album) => html`
+const albumDetails = (albumId) => html`
+        <div class="btn-group">
+            <a href="/albums/${albumId}" id="details">Details</a>
+        </div>
+`;
+
+const albumTemplate = (album, withDetails = true) => html`
         <div class="card-box">
             <img src="${album.imgUrl}">
             <div>
@@ -13,28 +19,31 @@ const albumTemplate = (album) => html`
                     <p class="price">Price: ${album.price}</p>
                     <p class="date">Release Date: ${album.releaseDate}</p>
                 </div>
-                <div class="btn-group">
-                    <a href="/albums/${album._id}" id="details">Details</a>
-                </div>
+
+                ${withDetails
+                    ? albumDetails(album._id)
+                    : nothing
+                }
             </div>
         </div>
 `;
 
-const catalogTemplate = (albums) => html`
+const catalogTemplate = (albums, user) => html`
         <section id="catalogPage">
             <h1>All Albums</h1>
 
-            ${albums.map(x => albumTemplate(x))}
+            ${albums.map(x => albumTemplate(x, Boolean(user)))}
 
-            <!--No albums in catalog-->
-            <p>No Albums in Catalog!</p>
-
+            ${albums.length == 0
+                ? html`<p>No Albums in Catalog!</p>`
+                : nothing
+            }
         </section>
 `;
 
 export const catalogView = (ctx) => {
     albumService.getAll()
         .then(albums => {
-            ctx.render(catalogTemplate(albums));
+            ctx.render(catalogTemplate(albums, ctx.user));
         });
 }
