@@ -2,13 +2,17 @@ import * as authService from './authService.js';
 
 const request = (method, url, data) => {
     let options = {};
+    let token = authService.getToken();
 
     if (method != 'GET') {
         options.method = method;
         options.headers = {
             'content-type': 'application/json',
-            'X-Authorization': authService.getToken(),
         };
+
+        if (token) {
+            options.headers['X-Authorization'] = token;
+        }
 
         options.body = JSON.stringify(data);
     }
