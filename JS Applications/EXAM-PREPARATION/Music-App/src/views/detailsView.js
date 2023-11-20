@@ -2,7 +2,7 @@ import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 
 import * as albumService from '../services/albumService.js';
 
-const detailsTemplate = (album) => html`
+const detailsTemplate = (album, user) => html`
         <section id="detailsPage">
             <div class="wrapper">
                 <div class="albumCover">
@@ -20,10 +20,13 @@ const detailsTemplate = (album) => html`
                     </div>
 
                     <!-- Only for registered user and creator of the album-->
-                    <div class="actionBtn">
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="remove">Delete</a>
-                    </div>
+                    ${user._id == album._ownerId
+                        ? html`<div class="actionBtn">
+                            <a href="/albums/${album._id}/edit" class="edit">Edit</a>
+                            <a href="/albums/${album._id}/delete" class="remove">Delete</a>
+                        </div>`
+                        : nothing
+                    }
                 </div>
             </div>
         </section>
