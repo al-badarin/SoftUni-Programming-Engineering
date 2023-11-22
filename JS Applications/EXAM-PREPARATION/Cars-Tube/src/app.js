@@ -1,8 +1,10 @@
 import page from "../node_modules/page/page.mjs";
-import { navigationView } from "./views/navigationView.js";
-import { renderContentMiddleware } from './middlewares/renderMiddleware.js';
+import { renderContentMiddleware, renderNavigationMiddleware } from './middlewares/renderMiddleware.js';
+import { loginView } from "./views/loginView.js";
 
 page(renderContentMiddleware);
-page(navigationView);
+page(renderNavigationMiddleware);
+
+page('/login', loginView);
 
 page.start();

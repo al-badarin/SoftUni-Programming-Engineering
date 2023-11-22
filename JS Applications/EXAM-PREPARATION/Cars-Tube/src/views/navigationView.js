@@ -19,7 +19,6 @@ const userLinks = html`
 `;
 
 const navigationTemplate = (user) => html`
-    <header class="header-navigation">
         <!--All user-->
         <nav>
             <a class="active" href="/">Home</a>
@@ -32,10 +31,9 @@ const navigationTemplate = (user) => html`
             }
 
         </nav>
-    </header>
 `;
 
 
 export const navigationView = (ctx) => {
-    ctx.render(navigationTemplate(ctx.user));
+    return navigationTemplate(ctx.user);
 }
