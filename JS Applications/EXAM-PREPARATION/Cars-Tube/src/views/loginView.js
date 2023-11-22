@@ -6,7 +6,7 @@ const loginTemlate = (submitHandler) => html`
 <!-- Login Page -->
     <section id="login">
         <div class="container">
-            <form id="login-form" action="#" @submit=${submitHandler} method="post">
+            <form id="login-form" action="#" method="post" @submit=${submitHandler}>
                 <h1>Login</h1>
                 <p>Please enter your credentials.</p>
                 <hr>
@@ -28,16 +28,19 @@ const loginTemlate = (submitHandler) => html`
 `;
 
 export const loginView = (ctx) => {
-    console.log('...loginView...');
-    
     const submitHandler = (e) => {
         e.preventDefault();
 
         const { username, password } = Object.fromEntries(new FormData(e.currentTarget));
 
+        if(username == '' || password == ''){
+            alert('All fields required!');
+            return;
+        }
+
         userService.login(username, password)
             .then(() => {
-                ctx.page.redirect('/');
+                ctx.page.redirect('/allListings');
             })
             .catch(err => {
                 alert(err);
