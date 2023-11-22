@@ -51,7 +51,7 @@ export const registerView = (ctx) => {
 
         userService.register(username, password)
             .then(() => {
-                ctx.page.redirect('/allListings');
+                ctx.page.redirect('/catalog');
             })
             .catch(err => {
                 alert(err);

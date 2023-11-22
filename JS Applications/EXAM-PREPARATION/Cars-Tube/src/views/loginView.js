@@ -40,7 +40,7 @@ export const loginView = (ctx) => {
 
         userService.login(username, password)
             .then(() => {
-                ctx.page.redirect('/allListings');
+                ctx.page.redirect('/catalog');
             })
             .catch(err => {
                 alert(err);

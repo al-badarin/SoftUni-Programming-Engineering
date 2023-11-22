@@ -24,3 +24,6 @@ export const logout = () =>
         .then(() => {
             authService.deleteUser();
         });
+
+// localStorage.removeItem(user);
+// return request.get(`${baseUrl}/logout`);
