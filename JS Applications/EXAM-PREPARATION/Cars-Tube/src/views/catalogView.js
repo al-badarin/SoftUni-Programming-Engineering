@@ -1,5 +1,5 @@
 import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
-import { carTemplate } from '../../templates/carTemplate.js';
+import { carTemplate } from '../templates/carTemplate.js';
 
 import * as carService from '../services/carService.js'
 
