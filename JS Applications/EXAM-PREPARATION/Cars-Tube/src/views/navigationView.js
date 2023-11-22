@@ -29,7 +29,6 @@ const navigationTemplate = (user) => html`
                 ? userLinks
                 : guestLinks
             }
-
         </nav>
 `;
 

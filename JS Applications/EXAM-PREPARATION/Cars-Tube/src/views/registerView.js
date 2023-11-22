@@ -32,8 +32,6 @@ const registerTemplate = (submitHandler) => html`
 `;
 
 export const registerView = (ctx) => {
-    console.log('...registerView...');
-
     const submitHandler = (e) => {
         e.preventDefault();
 

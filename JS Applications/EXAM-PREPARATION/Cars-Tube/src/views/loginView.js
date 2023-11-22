@@ -1,6 +1,6 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
 
-import * as userService from '../services/userService.js'
+import * as userService from '../services/userService.js';
 
 const loginTemlate = (submitHandler) => html`
 <!-- Login Page -->

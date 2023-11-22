@@ -4,11 +4,14 @@ import page from "../node_modules/page/page.mjs";
 
 import { loginView } from "./views/loginView.js";
 import { registerView } from './views/registerView.js';
+import { homeView } from './views/homeView.js';
 
 page(renderContentMiddleware);
 page(renderNavigationMiddleware);
 
+page('/', homeView);
 page('/login', loginView);
 page('/register', registerView);
+//page('/logout', );
 
 page.start();
