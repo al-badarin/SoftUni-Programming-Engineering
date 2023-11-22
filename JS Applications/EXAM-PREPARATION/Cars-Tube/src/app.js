@@ -8,6 +8,8 @@ import { homeView } from './views/homeView.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
 import { logoutView } from './views/logoutView.js';
 import { catalogView } from './views/catalogView.js';
+import { createView } from './views/createView.js';
+import { detailsView } from './views/detailsView.js';
 
 page(authMiddleware);
 page(renderContentMiddleware);
@@ -18,5 +20,7 @@ page('/login', loginView);
 page('/register', registerView);
 page('/logout', logoutView);
 page('/catalog', catalogView);
+page('/create', createView);
+page('/cars/:carId', detailsView);
 
 page.start();
