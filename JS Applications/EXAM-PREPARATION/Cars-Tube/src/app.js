@@ -22,5 +22,7 @@ page('/logout', logoutView);
 page('/catalog', catalogView);
 page('/create', createView);
 page('/cars/:carId', detailsView);
+// page('/cars/:carId/edit', editView);
+// page('/cars/:carId/delete', deleteView);
 
 page.start();
