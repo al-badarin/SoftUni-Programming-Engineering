@@ -1,8 +1,8 @@
 import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 
-import * as carService from '../services/carService.js'
+import * as carService from '../services/carService.js';
 
-import {carIsInvalid} from '../utils/validator.js'
+import {carIsInvalid} from '../utils/validator.js';
 
 const createTemplate = (submitHandler) => html`
     <section id="create-listing">

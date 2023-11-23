@@ -10,6 +10,7 @@ import { logoutView } from './views/logoutView.js';
 import { catalogView } from './views/catalogView.js';
 import { createView } from './views/createView.js';
 import { detailsView } from './views/detailsView.js';
+import { editView } from './views/editView.js';
 
 page(authMiddleware);
 page(renderContentMiddleware);
@@ -22,7 +23,7 @@ page('/logout', logoutView);
 page('/catalog', catalogView);
 page('/create', createView);
 page('/cars/:carId', detailsView);
-// page('/cars/:carId/edit', editView);
+page('/cars/:carId/edit', editView);
 // page('/cars/:carId/delete', deleteView);
 
 page.start();
