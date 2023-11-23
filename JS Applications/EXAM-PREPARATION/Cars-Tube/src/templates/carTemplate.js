@@ -1,8 +1,8 @@
 import { html, nothing, render } from '../../../node_modules/lit-html/lit-html.js';
 
-const carDetails = (carId) => html`
+const carDetails = (car) => html`
     <div class="data-buttons">
-        <a href="/cars/${carId}" class="button-carDetails">Details</a>
+        <a href="/cars/${car._id}" class="button-carDetails">Details</a>
     </div>
 `;
 
@@ -19,7 +19,7 @@ export const carTemplate = (car, withDetails = true) => html`
             </div>
 
             ${withDetails
-                ? carDetails(car._id)
+                ? carDetails(car)
                 : nothing
             }
         </div>

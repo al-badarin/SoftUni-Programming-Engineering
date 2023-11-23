@@ -4,7 +4,6 @@ import { carIsInvalid } from '../utils/validator.js';
 import * as carService from '../services/carService.js';
 
 const editTemplate = (car, submitHandler) => html`
-<!-- Edit Listing Page -->
     <section id="edit-listing">
         <div class="container">
 
@@ -45,6 +44,9 @@ export const editView = (ctx) => {
         e.preventDefault();
 
         let carData = Object.fromEntries(new FormData(e.currentTarget));
+       
+        carData.year = Number(carData.year);
+        carData.price = Number(carData.price);
 
         if (carIsInvalid(carData)) {
             alert('All fields should be filled!');

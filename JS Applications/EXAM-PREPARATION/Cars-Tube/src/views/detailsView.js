@@ -2,7 +2,7 @@ import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 
 import * as carService from '../services/carService.js'
 
-const detailsTemplate = (car, isOwner) => html`
+const detailsTemplate = (car, isLogged, user) => html`
     <section id="listing-details">
         <h1>Details</h1>
         <div class="details-info">
@@ -18,7 +18,7 @@ const detailsTemplate = (car, isOwner) => html`
             <p class="description-para">${car.description}</p>
 
             <!-- Only for registered user and creator of the album-->
-            ${isOwner
+            ${(isLogged && car._ownerId == user._id)
                 ? html`<div class="listings-buttons">
                     <a href="/cars/${car._id}/edit" class="button-list">Edit</a>
                     <a href="/cars/${car._id}/delete" class="button-list">Delete</a>
@@ -30,10 +30,13 @@ const detailsTemplate = (car, isOwner) => html`
 `;
 
 export const detailsView = (ctx) => {
+    let isLogged = Boolean(ctx.user);
+
     carService.getOne(ctx.params.carId)
         .then(car => {
-            let isOwner = car._ownerId == ctx.user._id;
+            // VALIDATING IF THE USER IS LOGGED AND IS THE OWNER:
+            // let showButtons = Boolean(ctx.user) && car._ownerId == ctx.user._id;
 
-            ctx.render(detailsTemplate(car, isOwner));
+            ctx.render(detailsTemplate(car, isLogged, ctx.user));
         });
 };

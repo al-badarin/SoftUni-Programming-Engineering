@@ -8,7 +8,7 @@ const catalogTemplate = (cars, user) => html`
         <div class="listings">
 
             <!-- Display all records -->
-            ${cars.map(x => carTemplate(x, Boolean(user)))}
+            ${cars.map(x => carTemplate(x))}
 
             <!-- Display if there are no records -->
             ${cars.length == 0
