@@ -13,6 +13,7 @@ import { detailsView } from './views/detailsView.js';
 import { editView } from './views/editView.js';
 import { deleteView } from './views/deleteView.js';
 import { myListingsView } from './views/myListingsView.js';
+import { searchView } from './views/searchView.js';
 
 page(authMiddleware);
 page(renderContentMiddleware);
@@ -24,6 +25,7 @@ page('/register', registerView);
 page('/logout', logoutView);
 page('/catalog', catalogView);
 page('/create', createView);
+page('/search', searchView);
 page('/profile', myListingsView);
 page('/cars/:carId', detailsView);
 page('/cars/:carId/edit', editView);
