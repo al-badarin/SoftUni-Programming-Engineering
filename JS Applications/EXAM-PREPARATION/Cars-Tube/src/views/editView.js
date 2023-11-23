@@ -3,7 +3,6 @@ import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import { carIsInvalid } from '../utils/validator.js';
 import * as carService from '../services/carService.js';
 
-
 const editTemplate = (car, submitHandler) => html`
 <!-- Edit Listing Page -->
     <section id="edit-listing">
@@ -47,10 +46,13 @@ export const editView = (ctx) => {
 
         let carData = Object.fromEntries(new FormData(e.currentTarget));
 
-        console.log(carData.year);
-
         if (carIsInvalid(carData)) {
             alert('All fields should be filled!');
+            return;
+        }
+
+        if(carData.year < 0 || carData.price < 0){
+            alert('The year and the price of the car must be a positive number!');
             return;
         }
 
