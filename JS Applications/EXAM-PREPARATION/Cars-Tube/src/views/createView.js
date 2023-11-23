@@ -43,6 +43,9 @@ export const createView = (ctx) => {
 
         let carData = Object.fromEntries(new FormData(e.currentTarget));
 
+        carData.year = Number(carData.year);
+        carData.price = Number(carData.price);
+
         if (carIsInvalid(carData)) {
             alert('All fields should be filled!');
             return;
