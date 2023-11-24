@@ -11,3 +11,5 @@ export const getOne = (furnitureId) => request.get(`${baseUrl}/${furnitureId}`);
 export const edit = (furnitureId, furnitureData) => request.put(`${baseUrl}/${furnitureId}`, furnitureData);
 
 export const remove = (furnitureId) => request.del(`${baseUrl}/${furnitureId}`);
+
+export const getOwn = (userId) => request.get(`${baseUrl}?where=_ownerId%3D%22${userId}%22`); 

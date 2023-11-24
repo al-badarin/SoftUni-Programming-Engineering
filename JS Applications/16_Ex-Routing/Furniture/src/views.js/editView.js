@@ -46,7 +46,7 @@ const editTemplate = (furniture, submitHandler) => html`
         </div>
     </form>
 `;
-
+ 
 export const editView = (ctx) => {
     const furnitureId = ctx.params.furnitureId;
 

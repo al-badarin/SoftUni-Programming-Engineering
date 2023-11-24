@@ -13,5 +13,5 @@ export const deleteView = async (ctx) => {
         }
     } catch (err) {
         alert(err);
-    }
+    } 
 };

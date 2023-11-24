@@ -3,7 +3,7 @@ import { html, render, nothing } from '../../node_modules/lit-html/lit-html.js';
 const userLinks = html`
     <div id="user"><!-- style="display: none;" -->
         <a id="createLink" href="/create">Create Furniture</a>
-        <a id="profileLink" href="/catalog">My Publications</a>
+        <a id="profileLink" href="/my-catalog">My Publications</a>
         <a id="logoutBtn" href="/logout">Logout</a>
     </div>
 `;
