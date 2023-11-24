@@ -6,7 +6,7 @@ export const getAll = () => request.get(baseUrl);
 
 export const create = (furnitureData) => request.post(baseUrl, furnitureData);
 
-// export const getOne = (furnitureId) => request.get(`${baseUrl}/${furnitureId}`);
+export const getOne = (furnitureId) => request.get(`${baseUrl}/${furnitureId}`);
 
 // export const edit = (furnitureId, furnitureData) => request.put(`${baseUrl}/${furnitureId}`, furnitureData);
 
