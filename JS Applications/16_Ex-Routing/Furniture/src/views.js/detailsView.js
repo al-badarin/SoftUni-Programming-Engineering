@@ -26,8 +26,8 @@ const detailsTemplate = (furniture, isLogged, user) => html`
             <!-- Only for registered user and creator of the album-->
             ${(isLogged && furniture._ownerId === user._id)
                 ? html`<div>
-                    <a href=”/” class="btn btn-info">Edit</a>
-                    <a href=”/” class="btn btn-red">Delete</a>
+                    <a href="/furnitures/${furniture._id}/edit" class="btn btn-info">Edit</a>
+                    <a href="/furnitures/${furniture._id}/delete" class="btn btn-red">Delete</a>
                 </div>`
                 : nothing
             }
