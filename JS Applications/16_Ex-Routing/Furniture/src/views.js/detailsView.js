@@ -1,7 +1,7 @@
 import { html, render, nothing } from '../../node_modules/lit-html/lit-html.js';
 import * as furnitureService from '../services/furnitureService.js';
 
-const detailsTemplate = (furniture, isLogged) => html`
+const detailsTemplate = (furniture, isLogged, user) => html`
     <div class="row space-top">
         <div class="col-md-12">
             <h1>Furniture Details</h1>
@@ -11,7 +11,7 @@ const detailsTemplate = (furniture, isLogged) => html`
         <div class="col-md-4">
             <div class="card text-white bg-primary">
                 <div class="card-body">
-                    <img src=${furniture.img} />
+                    <img src="../../${furniture.img}" />
                 </div>
             </div>
         </div>
@@ -24,10 +24,10 @@ const detailsTemplate = (furniture, isLogged) => html`
             <p>Material: <span>${furniture.material}</span></p>
             
             <!-- Only for registered user and creator of the album-->
-            ${(isLogged && furniture._ownerId == furniture._id)
+            ${(isLogged && furniture._ownerId === user._id)
                 ? html`<div>
-                    <a href=”#” class="btn btn-info">Edit</a>
-                    <a href=”#” class="btn btn-red">Delete</a>
+                    <a href=”/” class="btn btn-info">Edit</a>
+                    <a href=”/” class="btn btn-red">Delete</a>
                 </div>`
                 : nothing
             }

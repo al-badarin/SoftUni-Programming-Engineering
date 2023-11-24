@@ -82,7 +82,10 @@ export const createView = (ctx) => {
             ? validate(newDescriptionElem, true)
             : validate(newDescriptionElem, false);
 
-        furnitureData.img !== "" ? validate(newImgElem, true) : validate(newImgElem, false);
+        furnitureData.img !== "" 
+        ? validate(newImgElem, true) 
+        : validate(newImgElem, false);
+
         Number(furnitureData.year) >= 1950 && Number(furnitureData.year) <= 2050
             ? validate(newYearElem, true)
             : validate(newYearElem, false);
