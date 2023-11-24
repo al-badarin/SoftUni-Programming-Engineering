@@ -3,6 +3,7 @@ import { authMiddleware } from './middlewares/authMiddleware.js';
 import { renderContentMiddleware, renderNavigationMiddleware } from './middlewares/renderMiddleware.js';
 import { catalogView } from './views.js/catalogView.js';
 import { createView } from './views.js/createView.js';
+import { deleteView } from './views.js/deleteView.js';
 import { detailsView } from './views.js/detailsView.js';
 import { editView } from './views.js/editView.js';
 import { loginView } from './views.js/loginView.js';
@@ -20,6 +21,6 @@ page('/logout', logoutView);
 page('/create', createView);
 page('/furnitures/:furnitureId', detailsView);
 page('/furnitures/:furnitureId/edit', editView);
-// page('/furnitures/:furnitureId/delete', deleteView);
+page('/furnitures/:furnitureId/delete', deleteView);
 
 page.start();
