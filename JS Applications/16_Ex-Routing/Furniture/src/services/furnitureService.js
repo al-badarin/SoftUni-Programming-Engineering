@@ -17,3 +17,15 @@ export const create = (furnitureData) => request.post(baseUrl, furnitureData);
 
 //     return request.get(`${baseUrl}?where=${query}`);
 // };
+
+
+// description: "Medium table"
+// img: "./images/table.png"
+// make: "Table"
+// material: "Hardwood"
+// model: "Swedish"
+// price: 235
+// year: 2015
+// _createdOn: 1615545143015
+// _id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
+// _ownerId:"35c62d76-8152-4626-8712-eeb96381bea8"
