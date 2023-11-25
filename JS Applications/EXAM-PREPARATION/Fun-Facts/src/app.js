@@ -4,6 +4,7 @@ import { renderContentMiddleware, renderNavigationMiddleware } from "./middlewar
 import { logout } from "./services/userService.js";
 import { catalogView } from "./views/catalogView.js";
 import { createView } from "./views/createView.js";
+import { detailsView } from "./views/detailsView.js";
 import { homeView } from "./views/homeView.js";
 import { loginView } from "./views/login.js";
 import { registerView } from "./views/registerView.js";
@@ -18,5 +19,8 @@ page('/register', registerView);
 page('/logout', logout);
 page('/catalog', catalogView);
 page('/create', createView);
+page('/facts/:factId', detailsView);
+// page('/facts/:factId/edit', editView);
+// page('/facts/:factId/delete', deleteView);
 
 page.start();

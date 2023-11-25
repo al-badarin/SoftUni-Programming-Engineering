@@ -1,7 +1,7 @@
 import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 
-const factDetails = (factId) => html`
-    <a class="details-btn" href="/facts/${factId}">More Info</a>
+const factDetails = (fact) => html`
+    <a class="details-btn" href="/facts/${fact._id}">More Info</a>
 `;
 export const funFactsTemplate = (fact, withDetails = true) => html`
     <div class="fact">
@@ -10,7 +10,7 @@ export const funFactsTemplate = (fact, withDetails = true) => html`
         <p class="description">${fact.description}</p>
 
             ${withDetails
-                ? factDetails(fact._id)
+                ? factDetails(fact)
                 : nothing
             }
     </div>

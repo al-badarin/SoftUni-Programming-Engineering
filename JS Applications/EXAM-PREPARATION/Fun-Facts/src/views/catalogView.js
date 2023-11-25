@@ -7,7 +7,7 @@ const catalogTemplate = (facts = [], user) => html`
     <h2>Fun Facts</h2>
     <section id="dashboard">
     
-        ${facts.map(f => funFactsTemplate(f, Boolean(user)))}
+        ${facts.map(f => funFactsTemplate(f))}
 
         ${facts.length == 0
             ? html`<h2>No Fun Facts yet.</h2>`
