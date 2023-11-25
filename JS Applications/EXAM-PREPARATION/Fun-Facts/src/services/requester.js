@@ -17,7 +17,15 @@ const request = (method, url, data) => {
         options.body = JSON.stringify(data);
     }
 
-    return fetch(url, options).then(res => res.json());
+    // return fetch(url, options).then(res => res.json());
+
+    return fetch(url, options)
+        .then(res => {
+            if (res.url.endsWith('logout')) {
+                return res;
+            }
+            return res.json();
+        });
 };
 
 export const get = request.bind({}, 'GET');
