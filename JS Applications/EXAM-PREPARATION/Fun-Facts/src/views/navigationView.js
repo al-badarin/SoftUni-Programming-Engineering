@@ -22,7 +22,7 @@ const navigationTemplate = (user) => html`
 
     <nav>
     <div>
-        <a href="/">Fun Facts</a>
+        <a href="/catalog">Fun Facts</a>
     </div>
 
     ${user
