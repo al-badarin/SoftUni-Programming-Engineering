@@ -8,15 +8,15 @@ export const getOne = (albumId) => request.get(`${baseUrl}/${albumId}`);
 
 export const create = (albumData) => request.post(baseUrl, albumData);
 
-export const edit = (albumId, albumData) => request.put(`${baseUrl}/${albumId}`, albumData);
+export const edit = (albumId, factId, category, imageUrl, description, additionalInfo) => request.put(`${baseUrl}/${albumId}`, factId, category, imageUrl, description, additionalInfo);
 
 export const remove = (albumId) => request.del(`${baseUrl}/${albumId}`);
 
-export const search = (searchText) => {
-    const query = encodeURIComponent(`name LIKE "${searchText}"`);
+// export const search = (searchText) => {
+//     const query = encodeURIComponent(`name LIKE "${searchText}"`);
 
-    return request.get(`${baseUrl}?where=${query}`);
-};
+//     return request.get(`${baseUrl}?where=${query}`);
+// };
 
 // category: "Nature"
 // description: "Prepare to be astounded by the power of hummingbirds!These tiny marvels can flap their wings up to 80 times per second,enabling them to hover, fly backward, and even upside down.Discover more about these delightful creatures and theirextraordinary abilities."
