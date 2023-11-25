@@ -2,7 +2,6 @@ import { html, render } from '../../node_modules/lit-html/lit-html.js';
 import * as userService from '../services/userService.js';
 
 const loginTemplate = (submitHandler) => html`
-    <!-- Login Page (Only for Guest users) -->
     <section id="login">
         <div class="form">
             <h2>Login</h2>
@@ -11,7 +10,7 @@ const loginTemplate = (submitHandler) => html`
             <input type="password" name="password" id="password" placeholder="password" />
             <button type="submit">login</button>
             <p class="message">
-                Not registered? <a href="#">Create an account</a>
+                Not registered? <a href="/register">Create an account</a>
             </p>
             </form>
         </div>
