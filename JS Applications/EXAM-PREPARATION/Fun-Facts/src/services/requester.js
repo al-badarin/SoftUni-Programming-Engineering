@@ -7,7 +7,7 @@ const request = (method, url, data) => {
     if (method != 'GET') {
         options.method = method;
         options.headers = {
-            'content-type': 'application/json',
+            'Content-Type': 'application/json',
         };
 
         if (token) {

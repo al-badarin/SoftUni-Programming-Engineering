@@ -40,7 +40,8 @@ export const registerView = (ctx) => {
                 ctx.page.redirect('/');
             })
             .catch(err => {
-                alert(err);
+                alert(err.message);
+                // window.alert(err);
             });
     }
 

@@ -6,7 +6,7 @@ const createTemplate = (submitHandler) => html`
 <section id="create">
   <div class="form">
     <h2>Add Fact</h2>
-    <form class="create-form" @submit=${submitHandler}>
+    <form class="create-form" @submit=${submitHandler} method="POST">
       <input type="text" name="category" id="category" placeholder="Category" />
       <input type="text" name="image-url" id="image-url" placeholder="Image URL" />
       <textarea id="description" name="description" placeholder="Description" rows="10" cols="50"></textarea>
@@ -34,6 +34,7 @@ export const createView = (ctx) => {
 
         funFactsService.create(factData)
             .then(() => {
+              console.log(factData);
                 ctx.page.redirect('/catalog');
             })
             .catch(err => {

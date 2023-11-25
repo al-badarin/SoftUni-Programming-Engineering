@@ -4,13 +4,13 @@ const baseUrl = 'http://localhost:3030/data/facts';
 
 export const getAll = () => request.get(`${baseUrl}?sortBy=_createdOn%20desc`);
 
-export const getOne = (albumId) => request.get(`${baseUrl}/${albumId}`);
+export const getOne = (factId) => request.get(`${baseUrl}/${factId}`);
 
-export const create = (albumData) => request.post(baseUrl, albumData);
+export const create = (factData) => request.post(baseUrl, factData);
 
-export const edit = (albumId, factId, category, imageUrl, description, additionalInfo) => request.put(`${baseUrl}/${albumId}`, factId, category, imageUrl, description, additionalInfo);
+export const edit = (factId, category, imageUrl, description, additionalInfo) => request.put(`${baseUrl}/${factId}`, factId, category, imageUrl, description, additionalInfo);
 
-export const remove = (albumId) => request.del(`${baseUrl}/${albumId}`);
+export const remove = (factId) => request.del(`${baseUrl}/${factId}`);
 
 // export const search = (searchText) => {
 //     const query = encodeURIComponent(`name LIKE "${searchText}"`);

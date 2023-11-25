@@ -1,7 +1,7 @@
 import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 import * as funFactsService from '../services/funFactsService.js';
 
-const detailsTemplate = (fact, isLogged, user) => html`
+const detailsTemplate = (fact, isLogged, isOwner, user) => html`
 <section id="details">
   <div id="details-wrapper">
     <img id="details-img" src=${fact.imageUrl} alt="example1" />
@@ -27,7 +27,7 @@ const detailsTemplate = (fact, isLogged, user) => html`
         }
 
         <!--Bonus - Only for logged-in users ( not authors )-->
-        ${isLogged
+        ${(isLogged && !isOwner)
             ? html`<div id="action-buttons">
                 <a href="/like" id="like-btn">Like</a></div>`
             : nothing
@@ -43,8 +43,8 @@ export const detailsView = (ctx) => {
 
     funFactsService.getOne(ctx.params.factId)
         .then(fact => {
-            // let isOwner = fact._ownerId == ctx.user._id;
+            let isOwner = fact._ownerId == ctx.user._id;
 
-            ctx.render(detailsTemplate(fact, isLogged, ctx.user));
+            ctx.render(detailsTemplate(fact, isLogged, isOwner, ctx.user));
         });
 };
