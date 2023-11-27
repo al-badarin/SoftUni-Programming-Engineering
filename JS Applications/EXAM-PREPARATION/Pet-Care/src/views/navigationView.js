@@ -1,4 +1,4 @@
-import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const guestLinks = html`
     <li><a href="/login">Login</a></li>
@@ -30,4 +30,4 @@ const navigationTemplate = (user) => html`
 
 export const navigationView = (ctx) => {
     return navigationTemplate(ctx.user);
-}
+};
