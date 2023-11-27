@@ -32,6 +32,11 @@ export const loginView = (ctx) => {
 
         const { email, password } = Object.fromEntries(new FormData(e.currentTarget));
 
+        if (email == '' || password == '') {
+            alert('All fields are required!');
+            return;
+        }
+
         userService.login(email, password)
             .then(() => {
                 ctx.page.redirect('/');
