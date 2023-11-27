@@ -22,7 +22,6 @@ const catalogTemplate = (pets, user) => html`
 export const catalogView = (ctx) => {
     petService.getAll()
         .then(pets => {
-            console.log(pets);
             ctx.render(catalogTemplate(pets, ctx.user))
         })
 };
