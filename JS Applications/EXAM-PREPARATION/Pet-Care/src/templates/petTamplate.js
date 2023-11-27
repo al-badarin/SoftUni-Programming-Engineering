@@ -12,7 +12,7 @@ export const petTemplate = (pet, withDetails = true) => html`
             <img class="animal-image-cover" src=${pet.image}>
         </article>
         <h2 class="name">${pet.name}</h2>
-        <h3 class="breed">${pet.bread}</h3>
+        <h3 class="breed">${pet.breed}</h3>
         
         ${withDetails
             ? petDetails(pet._id)
