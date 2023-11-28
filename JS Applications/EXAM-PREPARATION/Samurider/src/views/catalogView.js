@@ -5,7 +5,7 @@ import { motorTemplate } from '../templates/motorTemplate.js';
 const catalogTemplate = (motors, user) => html`
     <h2>Available Motorcycles</h2>
     <section id="dashboard">
-        ${motors.map(m => motorTemplate(m, Boolean(user)))}
+        ${motors.map(m => motorTemplate(m))}
     </section>
 
         ${motors.length == 0

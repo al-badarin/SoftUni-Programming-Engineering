@@ -1,7 +1,7 @@
 import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 
 const motorDetails = (motorId) => html`
-    <a class="details-btn" href="/motors/${motorId  }">More Info</a>
+    <a class="details-btn" href="/motors/${motorId}">More Info</a>
 `;
 
 export const motorTemplate = (motor, withDetails = true) => html`
