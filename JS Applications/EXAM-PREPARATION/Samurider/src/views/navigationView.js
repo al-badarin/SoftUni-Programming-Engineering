@@ -3,7 +3,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 const guestLinks = html`
     <div class="guest">
         <a href="/login">Login</a>
-        <a href="/logout">Register</a>
+        <a href="/register">Register</a>
     </div>
 `;
 
