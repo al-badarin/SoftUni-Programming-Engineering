@@ -16,8 +16,8 @@ const detailsTemplate = (motor, isOwner, isLogged) => html`
 
         ${(isLogged && isOwner)
             ? html`<div id="action-buttons">
-            <a href="" id="edit-btn">Edit</a>
-            <a href="" id="delete-btn">Delete</a>
+            <a href="/motors/${motor._id}/edit" id="edit-btn">Edit</a>
+            <a href="/motors/${motor._id}/delete" id="delete-btn">Delete</a>
             </div>`
             : nothing
         }

@@ -3,6 +3,7 @@ import { authMiddleware } from './middlewares/authMiddleware.js';
 import { renderContentMiddleware, renderNavigationMiddleware } from './middlewares/renderMiddleware.js';
 import { catalogView } from "./views/catalogView.js";
 import { createView } from "./views/createView.js";
+import { deleteView } from "./views/deleteView.js";
 import { detailsView } from "./views/detailsView.js";
 import { homeView } from "./views/homeView.js";
 import { loginView } from "./views/loginView.js";
@@ -20,5 +21,7 @@ page('/logout', logoutView);
 page('/catalog', catalogView);
 page('/create', createView);
 page('/motors/:motorId', detailsView);
+// page('/motors/:motorId/edit', );
+page('/motors/:motorId/delete', deleteView);
 
 page.start();
