@@ -1,13 +1,13 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 
-const guestLinks = html `
+const guestLinks = html`
     <div class="guest">
         <a href="/login">Login</a>
         <a href="/logout">Register</a>
     </div>
 `;
 
-const userLinks = html `
+const userLinks = html`
     <div class="user">
         <a href="/create">Add Motorcycle</a>
         <a href="/logout">Logout</a>
@@ -31,4 +31,4 @@ const navigationTemplate = (user) => html`
 
 export const navigationView = (ctx) => {
     return navigationTemplate(ctx.user);
-}
+};
