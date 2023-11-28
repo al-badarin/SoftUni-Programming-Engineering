@@ -12,11 +12,7 @@ export const edit = (motorcycleId, motorcycleData) => request.put(`${baseUrl}/${
 
 export const remove = (motorcycleId) => request.del(`${baseUrl}/${motorcycleId}`);
 
-export const search = (searchText) => {
-    const query = encodeURIComponent(`name LIKE "${searchText}"`);
-
-    return request.get(`${baseUrl}?where=${query}`);
-};
+export const search = (searchText) => request.get(`${baseUrl}/data/motorcycles?where=model%20LIKE%20%22${searchText}%22`);
 
 // about: "The Kawasaki ER6n 2016 boasts a well-engineered package, combining a responsive parallel-twin engine, comfortable ergonomics, and a modern design, making it a capable and practical choice for both everyday riding and spirited adventures."
 // contact: "0886714523"

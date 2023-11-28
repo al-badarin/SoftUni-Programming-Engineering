@@ -36,13 +36,16 @@ export const registerView = (ctx) => {
         }
 
         userService.register(email, password)
-            // .then(res => {
-            //     if (res.status == '200') {
-            //         ctx.page.redirect('/');
-            //     } else {
-            //         alert('Failed register!');
-            //         return;
-            //     }
+            .then(res => {
+                if (res.status == '200') {
+                    ctx.page.redirect('/');
+                } else {
+                    alert('Failed register!');
+                    return;
+                }
+            })
+            // .then(() => {
+            //     ctx.page.redirect('/');
             // })
             .catch(err => {
                 alert(err);

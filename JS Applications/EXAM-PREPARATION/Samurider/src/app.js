@@ -10,6 +10,7 @@ import { homeView } from "./views/homeView.js";
 import { loginView } from "./views/loginView.js";
 import { logoutView } from "./views/logoutView.js";
 import { registerView } from "./views/registerView.js";
+import { searchView } from "./views/searchView.js";
 
 page(authMiddleware);
 page(renderContentMiddleware);
@@ -24,5 +25,6 @@ page('/create', createView);
 page('/motors/:motorId', detailsView);
 page('/motors/:motorId/edit', editView);
 page('/motors/:motorId/delete', deleteView);
+page('/search', searchView);
 
 page.start();

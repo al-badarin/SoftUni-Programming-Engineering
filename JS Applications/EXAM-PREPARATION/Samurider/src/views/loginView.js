@@ -29,20 +29,20 @@ export const loginView = (ctx) => {
         }
 
         userService.login(email, password)
-        // .then(res => {
-        //     if (res.status == 200) {
-        //         ctx.page.redirect('/');
-        //     } else {
-        //         alert('Failed login!');
-        //         return;
-        //     }
-        // })
+            // .then(res => {
+            //     if (res.status == 200) {
+            //         ctx.page.redirect('/');
+            //     } else {
+            //         alert('Failed login!');
+            //         return;
+            //     }
+            // })
             .then(() => {
                 ctx.page.redirect('/');
             })
             .catch(err => {
                 alert(err.message);
-                throw(err);
+                throw (err);
             });
     }
 
