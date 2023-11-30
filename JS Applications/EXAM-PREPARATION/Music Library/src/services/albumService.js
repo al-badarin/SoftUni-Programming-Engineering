@@ -17,3 +17,13 @@ export const remove = (albumId) => request.del(`${baseUrl}/${albumId}`);
 
 //     return request.get(`${baseUrl}?where=${query}`);
 // };
+
+// album: "The Wall"
+// imageUrl: "/images/pink-floyd-the-wall.jpeg"
+// label: "Columbia"
+// release: "1979"
+// sales: "18 million (30 million claimed)"
+// singer: "Pink Floyd"
+// _createdOn: 1617194295480
+// _id: "136777f5-3277-42ad-b874-76d043b069cb"
+// _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a"
