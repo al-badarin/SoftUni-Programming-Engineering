@@ -1,10 +1,19 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import * as userService from '../services/userService.js';
 
-// @submit=${submitHandler}
-//TODO: ADD THE TEMPLATE
 const registerTemplate = (submitHandler) => html`
-        
+    <section id="register">
+    <div class="form">
+        <h2>Register</h2>
+        <form class="login-form" @submit=${submitHandler}>
+        <input type="text" name="email" id="register-email" placeholder="email" />
+        <input type="password" name="password" id="register-password" placeholder="password" />
+        <input type="password" name="re-password" id="repeat-password" placeholder="repeat password" />
+        <button type="submit">register</button>
+        <p class="message">Already registered? <a href="#">Login</a></p>
+        </form>
+    </div>
+    </section>
 `;
 
 
@@ -13,7 +22,7 @@ export const registerView = (ctx) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        const { email, password, ['conf-pass']: repass } = Object.fromEntries(formData);
+        const { email, password, ['re-password']: repass } = Object.fromEntries(formData);
 
         if (email == '' ||
             password == '' ||
@@ -37,7 +46,7 @@ export const registerView = (ctx) => {
             //     }
             // })
             .then(() => {
-                ctx.page.redirect('/');
+                ctx.page.redirect('/catalog');
             })
             .catch(err => {
                 alert(err);
