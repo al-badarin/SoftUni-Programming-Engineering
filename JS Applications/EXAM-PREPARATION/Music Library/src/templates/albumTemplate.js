@@ -6,7 +6,7 @@ const albumDetails = (albumId) => html`
 
 export const albumTemplate = (album, withDetails = true) => html`
     <li class="card">
-      <img src="./images/BackinBlack.jpeg" alt="travis" />
+      <img src=${album.imageUrl} alt="travis" />
       <p>
         <strong>Singer/Band: </strong><span class="singer">${album.singer}</span>
       </p>

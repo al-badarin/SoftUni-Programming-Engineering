@@ -1,30 +1,46 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import * as albumService from '../services/albumService.js';
 
-//TODO: ADD THE TEMPLATE
-// @submit=${submitHandler}
 const createTemplate = (submitHandler) => html`
-    
+    <section id="create">
+    <div class="form">
+        <h2>Add Album</h2>
+        <form class="create-form" @submit=${submitHandler}>
+        <input type="text" name="singer" id="album-singer" placeholder="Singer/Band" />
+        <input type="text" name="album" id="album-album" placeholder="Album" />
+        <input type="text" name="imageUrl" id="album-img" placeholder="Image url" />
+        <input type="text" name="release" id="album-release" placeholder="Release date" />
+        <input type="text" name="label" id="album-label" placeholder="Label" />
+        <input type="text" name="sales" id="album-sales" placeholder="Sales" />
+
+        <button type="submit">post</button>
+        </form>
+    </div>
+    </section>
 `;
 
 export const createView = (ctx) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        let albumData = new FormData(e.currentTarget);
-        //TODO: CHECK THE "name" fields in the template
-        const { model, imageUrl, year, mileage, contact, about } = Object.fromEntries(albumData);
+        let albumData = Object.fromEntries(new FormData(e.currentTarget));
 
-        if (model == '' ||
-            imageUrl == '' ||
-            year == '' ||
-            mileage == '' ||
-            contact == '' ||
-            about == '') {
+        if (albumData.singer == '' ||
+            albumData.album == '' ||
+            albumData.imageUrl == '' ||
+            albumData.release == '' ||
+            albumData.label == '' ||
+            albumData.sales == '') {
             alert('All fields must be filled!');
             return;
         }
-        albumService.create(model, imageUrl, year, mileage, contact, about)
+
+        // if (albumIsInvalid(albumData)) {
+        //     alert('All fields should be filled!');
+        //     return;
+        // }
+
+        albumService.create(albumData)
             .then(() => {
                 ctx.page.redirect('/catalog');
             })
