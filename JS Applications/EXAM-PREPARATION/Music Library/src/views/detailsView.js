@@ -22,7 +22,10 @@ const detailsTemplate = (album, isOwner, isLogged) => html`
 
     <!--Edit and Delete are only for creator-->
     <div id="action-buttons">
-      <a href="" id="like-btn">Like</a>
+      ${isLogged && !isOwner
+        ? html`<a href="#" id="like-btn">Like</a>`
+        : nothing
+      }
       ${isOwner
         ? html`<a href="/albums/${album._id}/edit" id="edit-btn">Edit</a>
         <a href="/albums/${album._id}/delete" id="delete-btn">Delete</a>`
@@ -42,4 +45,6 @@ export const detailsView = (ctx) => {
 
             ctx.render(detailsTemplate(album, isOwner, isLogged));
         });
+
+    // const onLike 
 };

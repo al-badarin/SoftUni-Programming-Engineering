@@ -12,6 +12,9 @@ import { logoutView } from './views/logoutView.js';
 import { registerView } from './views/registerView.js';
 // import { searchView } from './views/searchView.js';
 
+// import * as services from './services/albumService.js';
+// window.services = services;
+
 page(authMiddleware);
 page(renderContentMiddleware);
 page(renderNavigationMiddleware);

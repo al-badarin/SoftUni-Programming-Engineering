@@ -19,6 +19,9 @@ const request = (method, url, data) => {
 
     // return fetch(url, options).then(res => res.json());
 
+    // const response = await fetch(url);
+    // const data = await response.json();
+
     return fetch(url, options)
         .then(res => {
             if (res.url.endsWith('logout')) {
