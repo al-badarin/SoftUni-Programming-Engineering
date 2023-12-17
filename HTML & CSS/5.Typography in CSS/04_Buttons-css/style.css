@@ -1,0 +1,39 @@
+@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);
+/* https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css */
+
+body {
+  background-color: rgb(226, 226, 226);
+}
+
+button {
+  border-radius: 20px;
+  padding: 5px 8px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.normal-buttons-ctr button {
+  background-color: rgb(226, 226, 226);
+}
+
+.filled-buttons-ctr button,
+.icon-buttons-ctr button {
+  color: white;
+  background-color: rgb(51, 51, 51);
+  border: 1px solid rgb(51, 51, 51);
+}
+
+.icon-buttons-ctr button:hover {
+  background-color: rgb(0, 102, 0);
+  border: 1px solid rgb(0, 102, 0);
+}
+
+/* .hover:hover,
+.hover:hover {
+  background-color: rgb(0, 102, 0);
+  border: 1px solid rgb(0, 102, 0);
+} */
+
+i {
+  margin-right: 5px;
+}
