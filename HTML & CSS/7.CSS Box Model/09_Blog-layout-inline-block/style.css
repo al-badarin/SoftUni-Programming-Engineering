@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Helvetica, sans-serif;
   background-color: rgb(238, 238, 238);
@@ -5,11 +9,17 @@ body {
 }
 
 article {
-  width: 65%;
+  display: inline-block;
+  width: 70%;
 }
-/* aside{
-    display: inline-block;
-} */
+
+aside {
+  display: inline-block;
+  margin-left: 10px;
+  /* width: calc(25%-10px); */
+  width: 28%;
+  vertical-align: top;
+}
 
 img {
   width: 300px;
