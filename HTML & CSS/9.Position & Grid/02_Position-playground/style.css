@@ -1,0 +1,96 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.viewport {
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.viewport:nth-child(1) {
+  background: linear-gradient(to right, #013a91, #00ffb7);
+}
+
+.viewport:nth-child(2) {
+  background: linear-gradient(to right, #960146, #fba462);
+}
+
+.viewport.portrait .card {
+  width: auto;
+  height: 80%;
+}
+
+.viewport.portrait .card img {
+  width: auto;
+  height: 100%;
+}
+
+.viewport.landscape .card {
+  width: auto;
+  height: 80%;
+}
+
+.viewport.landscape .card img {
+  width: auto;
+  height: 100%;
+}
+
+.card {
+  display: block;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+}
+
+.card:after {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in;
+}
+
+.card:hover:after {
+  opacity: 0;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card .icons {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  position: absolute;
+  /* align-items: end;
+    justify-content: end; */
+}
+
+.card .icons i {
+  color: #fff;
+  width: 2em;
+  display: block;
+  position: absolute;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  width: auto;
+}
