@@ -77,6 +77,10 @@ hr {
   margin-bottom: 3rem;
 }
 
+.article-one h1 {
+  font-size: 21px;
+}
+
 .article-one img {
   float: right;
 }
@@ -87,6 +91,49 @@ hr {
 .article-two {
   margin-bottom: 3rem;
 }
+
+.article-two div {
+  position: relative;
+  display: grid;
+  grid-template-areas: "para blockquote";
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+}
+
+.article-two div p {
+  grid-area: para;
+  border-right: 4px solid lightgrey;
+  padding-right: 50px;
+}
+
+.article-two div blockquote {
+  grid-area: blockquote;
+  font-style: italic;
+  /* border-left: 4px solid lightgray;
+  padding-left: 20px;
+  margin-bottom: 40px; */
+}
+
+.article-two div blockquote span {
+  display: block;
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+}
+
+/* .article-two p:nth-child(2){
+  margin-top: 30px;
+} */
+
+/* .article-two div p{
+  display: inline-block;
+  width: 50%;
+}
+
+.article-two div blockquote{
+  display: inline-block;
+  width: 45%;
+} */
 
 /* ------------------
       ARTICLE THREE
