@@ -10,3 +10,9 @@
   padding: 20px;
   font-size: 30px;
 }
+
+#box1,
+#box2,
+#box3 {
+  flex-basis: 120px;
+}
