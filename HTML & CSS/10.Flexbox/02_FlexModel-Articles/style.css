@@ -13,9 +13,12 @@ section {
   display: flex;
   justify-content: space-between;
   max-width: 70vh;
+  gap: 2em;
+  margin: 4em auto;
 }
 
 h2 {
   font-family: Georgia, serif;
   line-height: 1.2;
+  margin-bottom: 0.5em;
 }
