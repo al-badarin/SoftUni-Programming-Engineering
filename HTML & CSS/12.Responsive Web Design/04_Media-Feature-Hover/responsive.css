@@ -1,3 +1,10 @@
+@media (hover: hover) {
+  code:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
 /* code:hover {
   color: white;
   background-color: black;

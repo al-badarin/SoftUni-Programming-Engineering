@@ -1,0 +1,12 @@
+body {
+    width: 95vw;
+    margin: 0 auto; /* Optional: Center the body horizontally */
+}
+
+/* img {
+    width: 95vw;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} */

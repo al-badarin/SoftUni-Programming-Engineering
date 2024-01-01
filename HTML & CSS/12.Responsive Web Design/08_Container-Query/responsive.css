@@ -5,3 +5,10 @@
 .post {
   container-type: inline-size;
 }
+
+@container (min-width: 20em) {
+  .card h2 {
+      font-size: 10em;
+  }
+}
+
