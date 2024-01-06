@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2em;
+  font-family: sans-serif;
+  background-color: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+body > * {
+  border-radius: 0.3em;
+}
+
+.header {
+  flex: 1 1 100%;
+  background: rgb(181, 216, 255);
+  padding: 1em;
+}
+
+.site-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  align-items: stretch;
+}
+
+.site-content > * {
+  border-radius: 0.3em;
+}
+
+.left-section {
+  display: flex;
+}
+
+.left-section ul,
+.right-section ul {
+  list-style-type: none;
+  background: rgb(181, 216, 255);
+  padding: 1em;
+}
+
+.left-section li,
+.right-section li {
+  margin-bottom: 0.3em;
+}
+
+.left-section a,
+.right-section a {
+  text-decoration: none;
+}
+
+.right-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.right-section > * {
+  border-radius: 0.3em;
+}
+
+.right-section h2 {
+  flex: 1 1 100%;
+  background: rgb(181, 216, 255);
+  padding: 1em;
+}
+
+.right-section div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.right-section div ul,
+.right-section div p {
+  background: rgb(181, 216, 255);
+  padding: 1em;
+}
+
+.right-section div p {
+  line-height: 1.3em;
+}

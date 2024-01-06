@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  gap: 1em;
+}
+
+body > * {
+  background: rgb(181, 216, 255);
+  padding: 1em;
+  border-radius: 0.3em;
+}
+
+header,
+footer {
+  flex: 1 1 100%;
+}
+
+main {
+  flex: 1 1 80%;
+}
+
+main ul {
+  margin: 1em;
+  margin-left: 2em;
+  padding: 5px;
+}
+
+aside {
+  flex: 1 1 15%;
+}
+
+aside ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+
+aside li a {
+  display: block;
+  padding: 5px 0px;
+  color: rgb(86, 40, 129);
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  body {
+    flex-direction: column;
+  }
+}
