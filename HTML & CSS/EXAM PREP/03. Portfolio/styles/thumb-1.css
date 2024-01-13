@@ -1,0 +1,14 @@
+/* Full IMG */
+#thumb-1.page-section {
+  flex-direction: column; /* Stack items vertically */
+  padding: 0;
+  background-color: white;
+}
+
+#thumb-1 .section-info {
+  flex: 0 0 100%; /* Take full width */
+}
+
+#thumb-1 .section-img {
+  flex: 0 1 100%; /* Take full width */
+}

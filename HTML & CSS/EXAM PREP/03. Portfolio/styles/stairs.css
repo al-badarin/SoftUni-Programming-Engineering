@@ -1,0 +1,27 @@
+#stairs.page-section {
+  display: flex;
+  background-color: var(--gray-light);
+  max-width: 1880px;
+  margin: 1.5rem auto;
+  height: calc(100vh - 24px);
+  padding: 3rem 5rem;
+  /* justify-content: space-between; */
+  gap: 5rem;
+  align-items: center;
+  overflow: hidden;
+}
+
+#stairs.page-section .section-info {
+  flex: 0 0 35%;
+}
+
+#stairs.page-section .section-media .stairs-img {
+  flex: 0 1 60%;
+}
+
+#stairs .stairs-img {
+  /* position: absolute;
+  bottom: 0px;
+  right: 5rem; */
+  width: 80%;
+}

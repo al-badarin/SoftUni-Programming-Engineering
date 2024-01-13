@@ -1,0 +1,42 @@
+:root {
+  --gray-light: #efefef;
+  --gray-dark: #909090;
+  --gray-black: #222222;
+}
+
+.page-section {
+  background-color: var(--gray-light);
+  max-width: 1880px;
+  margin: 1.5rem auto;
+  height: calc(100vh - 24px);
+  padding: 3rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-section .section-info {
+  flex: 0 0 40%;
+}
+
+.page-section .section-img {
+  flex: 0 1 35%;
+}
+
+.page-section .title {
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.page-section .desc {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.page-section .divider.vertical {
+  height: 6rem;
+  width: 1px;
+  background-color: var(--gray-black);
+}

@@ -1,0 +1,44 @@
+/* Camera */
+
+#camera .socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 0;
+  margin-top: 3rem;
+}
+
+#camera .socials .social {
+  list-style: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--gray-dark);
+  position: relative;
+}
+
+#camera .socials .social a {
+  text-decoration: none;
+}
+
+#camera .socials .social a span {
+  display: none;
+}
+
+#camera .socials .social a i {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#camera.page-section .section-info {
+  flex: 0 0 50%;
+}
+
+/* #camera .page-section .divider.horizontal {
+    height: 6rem;
+    width: 1px;
+    background-color: var(--gray-black);
+  } */
