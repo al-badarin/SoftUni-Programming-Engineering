@@ -1,0 +1,82 @@
+.contacts-form-section {
+  background-color: var(--gray-light);
+  max-width: 1880px;
+  margin: 1.5rem 4rem;
+  height: calc(100vh - 24px);
+  padding: 1rem 20rem;
+  flex-direction: column;
+  /* gap: 0; */
+}
+
+#gallery {
+  display: flex;
+}
+
+.contacts-form-section .form {
+  /* max-width: 100%; */
+  margin: 0 auto;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "email subject"
+    "msg msg"
+    "submit submit";
+}
+
+.contacts-form-section .form input,
+.contacts-form-section .form textarea {
+  background: transparent;
+  border: 1px solid var(--gray-black);
+  padding: 0.35rem;
+  width: 100%;
+}
+
+.contacts-form-section .form textarea {
+  resize: none;
+}
+
+.contacts-form-section .form .email {
+  grid-area: email;
+}
+
+.contacts-form-section .form .subject {
+  grid-area: subject;
+}
+
+.contacts-form-section .form .msg {
+  grid-area: msg;
+}
+
+.contacts-form-section .form .btn {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--gray-black);
+  background-color: var(--gray-black);
+  color: white;
+  grid-area: submit;
+}
+
+.footer {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+#contacts .title,
+#contacts .desc {
+  margin: 0;
+  text-align: center;
+}
+
+#contacts .title {
+  margin-bottom: 1.5rem;
+}
+
+.contacts-form-section.page-section .section-info {
+  margin-bottom: 0; /* Adjusted margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 0 6rem;
+}

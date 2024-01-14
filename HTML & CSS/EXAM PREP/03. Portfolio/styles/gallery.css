@@ -1,0 +1,31 @@
+.gallery-page-section {
+  background-color: var(--gray-light);
+  max-width: 1880px;
+  margin: 1.5rem 4rem;
+  height: calc(100vh - 24px);
+  padding: 3rem 5rem;
+}
+
+#gallery {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+#gallery .list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  list-style: none;
+}
+
+#gallery .list .picture:nth-child(2) {
+  transform: scale(1.5);
+}
+
+#gallery .list .picture img {
+  width: 100%; /* Ensure the images take the full width of their containers */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Set the maximum width to 100% of the container */
+  max-height: 100%; /* Set the maximum height to 100% of the container */
+}

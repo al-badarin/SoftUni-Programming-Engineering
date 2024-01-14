@@ -2,9 +2,8 @@
   display: flex;
   background-color: var(--gray-light);
   max-width: 1880px;
-  margin: 1.5rem auto;
   height: calc(100vh - 24px);
-  padding: 3rem 5rem;
+  padding: 3rem 8rem;
   /* justify-content: space-between; */
   gap: 5rem;
   align-items: center;
@@ -23,5 +22,6 @@
   /* position: absolute;
   bottom: 0px;
   right: 5rem; */
-  width: 80%;
+  width: 100%;
+  /* height: auto; */
 }
