@@ -41,3 +41,22 @@
   width: 1px;
   background-color: var(--gray-black);
 }
+
+.page-section .title-container {
+  display: flex;
+  align-items: center;
+}
+
+.page-section .title {
+  font-size: 3rem;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+}
+
+.page-section .divider.horizontal {
+  height: 1px; /* Adjusted height */
+  width: 4rem; /* Set to 100% width */
+  background-color: var(--gray-black);
+  margin: 0 1rem; /* Adjusted margin */
+  margin-left: 0;
+}
