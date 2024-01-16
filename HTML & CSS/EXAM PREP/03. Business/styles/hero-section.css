@@ -1,0 +1,18 @@
+.hero {
+  color: white;
+  background-image: url(../images/background.jpg);
+}
+
+.hero-container {
+  padding: 2em 0 10em 6em;
+}
+
+.hero-title {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.hero-desc {
+  width: 37em;
+  padding-right: 14em;
+}

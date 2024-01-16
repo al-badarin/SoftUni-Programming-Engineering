@@ -1,0 +1,17 @@
+@import url(reset.css);
+
+@import url(typography.css);
+
+@import url(general-styles.css);
+
+@import url(navigation.css);
+
+@import url(hero-section.css);
+
+@import url(middle-cnt.css);
+
+@import url(stairs.css);
+
+@import url(gallery.css);
+
+@import url(contact-form.css);
