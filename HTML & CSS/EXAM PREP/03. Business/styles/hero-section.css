@@ -1,18 +1,24 @@
 .hero {
   color: white;
   background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the background image covers the entire container */
+  background-position: center; /* Centers the background image */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
 }
 
 .hero-container {
-  padding: 2em 0 10em 6em;
+  padding: 2em 0 10em 10em;
 }
 
 .hero-title {
-  font-size: 2em;
-  margin-bottom: 1em;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
 }
 
 .hero-desc {
-  width: 37em;
+  width: 47em;
   padding-right: 14em;
 }

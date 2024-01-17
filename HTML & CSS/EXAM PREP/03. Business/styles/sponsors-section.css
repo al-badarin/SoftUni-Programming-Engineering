@@ -1,0 +1,37 @@
+.sponsors-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4em 6em;
+  gap: 3em;
+}
+
+.sponsors-section h2 {
+  color: #b0825c;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+.sponsors,
+.partners {
+  text-align: center;
+}
+
+.sponsors p {
+  text-align: center;
+  /* padding-right: 10em; */
+}
+
+.sponsors-section .animal-logos {
+  display: flex;
+}
+
+.animal-logos img {
+  width: 90px;
+  margin: 1.5em;
+  background-color: #dddddd;
+  padding: 1em;
+  border-radius: 100%;
+}

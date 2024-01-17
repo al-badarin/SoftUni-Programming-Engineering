@@ -1,4 +1,33 @@
-.middle-cnt{
-    background-color: white;
-    width: 100%;
+.middle-cnt {
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  border-width: 100%;
+  display: flex;
+  padding: 4em 6em;
+  /* gap: 1em; */
+}
+
+.middle-cnt article {
+  padding: 3em;
+}
+
+.middle-cnt h2 {
+  color: #37282b;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+.middle-cnt p {
+  margin-bottom: 2em;
+}
+
+.btn {
+  font-size: 0.8em;
+  padding: 0.8em 1em;
+  color: #b0825c;
+  border: 2px solid #b0825c;
+  font-weight: bold;
 }

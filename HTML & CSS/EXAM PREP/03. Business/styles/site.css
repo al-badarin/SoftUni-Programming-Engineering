@@ -10,8 +10,6 @@
 
 @import url(middle-cnt.css);
 
-@import url(stairs.css);
+@import url(sponsors-section.css);
 
-@import url(gallery.css);
-
-@import url(contact-form.css);
+@import url(footer.css);
