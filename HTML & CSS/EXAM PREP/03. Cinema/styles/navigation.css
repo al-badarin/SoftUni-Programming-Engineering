@@ -1,0 +1,51 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.site-header .title-container {
+  display: flex;
+  gap: 1em;
+}
+
+.site-header .title-container .title {
+  justify-content: center;
+  align-items: center;
+}
+
+.site-header .title-container .divider-vertical {
+  height: 2.3em;
+  width: 1px;
+  background-color: #dbdbdb;
+}
+
+.site-header .title-container .subtitle {
+  color: gray;
+  margin-top: 1.6em;
+  margin-left: 0.5em;
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: 0.1em;
+}
+
+.site-header nav ul li {
+  border: 0px solid black;
+  padding: 0.8em 1em;
+  background-color: var(--gray-bg-box);
+  font-size: 0.8em;
+}
+
+.site-header nav ul li.hovered {
+  background-color: var(--sea-green);
+}
+
+.site-header nav ul li a {
+  color: var(--gray-text);
+}
+
+.site-header nav ul li.hovered a {
+  color: black;
+}

@@ -1,0 +1,29 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+:root {
+  --sea-green: #56dbb1;
+  --gray-text: #9b9b9b;
+  --gray-bg-box: #ececec;
+  --black-section-bg: #353434;
+  --black-section-p: #5b5956;
+  --btn: #974d1b;
+  --footer-green: #1b9772;
+}
+
+/* body {
+  padding: 2em;
+} */
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

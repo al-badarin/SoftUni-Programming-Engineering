@@ -1,0 +1,6 @@
+.hero p {
+  background-color: var(--sea-green);
+  padding: 4em 10em;
+  text-align: center;
+  /* font-size: 12px; */
+}

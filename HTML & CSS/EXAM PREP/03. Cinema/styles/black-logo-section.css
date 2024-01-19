@@ -1,0 +1,34 @@
+.black-section {
+  background-color: var(--black-section-bg);
+  color: var(--black-section-p);
+  display: flex;
+  padding: 2em 9em;
+  /* gap: 1em; */
+}
+
+.black-section article {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.black-section i {
+  color: white;
+  background-color: var(--sea-green);
+  padding: 0.3em;
+}
+
+.logo-title {
+  color: white;
+  margin: 1.3em 0em;
+}
+
+.logo-desc {
+  border-top: 1px solid #dddddd;
+  padding: 1em;
+  text-align: center;
+}
+
+/* TODO: 
+-add horziontal divider */
