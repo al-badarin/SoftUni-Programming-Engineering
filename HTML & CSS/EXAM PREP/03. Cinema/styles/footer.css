@@ -1,0 +1,14 @@
+.site-footer {
+  background-color: var(--footer-green);
+  padding: 4em;
+}
+
+.site-footer p {
+  color: var(--sea-green);
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.site-footer p span {
+  color: #d2efc9;
+}

@@ -1,0 +1,13 @@
+.second.black-section article {
+  padding: 0 1.5em;
+}
+
+.second.black-section .logo-title {
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
+
+.second.black-section .logo-desc {
+  line-height: 2em;
+  font-size: 0.9em;
+}

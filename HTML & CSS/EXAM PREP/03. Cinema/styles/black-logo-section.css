@@ -2,7 +2,7 @@
   background-color: var(--black-section-bg);
   color: var(--black-section-p);
   display: flex;
-  padding: 2em 9em;
+  padding: 5em 9em;
   /* gap: 1em; */
 }
 
@@ -25,10 +25,17 @@
 }
 
 .logo-desc {
-  border-top: 1px solid #dddddd;
+  /* border-top: 1px solid #dddddd; */
   padding: 1em;
   text-align: center;
+  line-height: 2em;
 }
 
-/* TODO: 
--add horziontal divider */
+.divider-horizontal {
+  height: 1px; /* Adjusted height */
+  width: 21em; /* Set to 100% width */
+  background-color: #dddddd;
+  margin: 0 1rem; /* Adjusted margin */
+}
+
+
