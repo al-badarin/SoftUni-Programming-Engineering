@@ -1,0 +1,11 @@
+:root {
+  --clr-red: #e30914;
+  --clr-gray: #222222;
+  --clr-li-gray: #303030;
+  --clr-footer-text: #686c6e;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--clr-gray);
+}

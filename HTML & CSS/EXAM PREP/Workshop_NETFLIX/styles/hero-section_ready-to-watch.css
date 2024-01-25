@@ -1,0 +1,101 @@
+/* HERO 
+    &
+READY TO WATCH
+*/
+#hero {
+  height: 100vh;
+  position: relative;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0.7;
+}
+
+#hero .hero-bg {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#hero .wrapper,
+#ready-to-watch .wrapper {
+  width: 90%;
+  position: relative;
+}
+
+#hero .title {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+#hero .subtitle,
+#ready-to-watch .subtitle {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  color: white;
+}
+
+#hero .form,
+#ready-to-watch .form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#hero .form input,
+#ready-to-watch .form input {
+  border: 1px solid var(--clr-gray);
+  padding: 0.75rem 1.25rem;
+  width: 100%;
+  border: 4px;
+}
+
+#hero .form .btn,
+#ready-to-watch .form .btn {
+  padding: 0.75rem 1.25rem;
+}
+
+#hero .desc {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+/* READY TO WATCH */
+#ready-to-watch {
+  color: white;
+  text-align: center;
+  background-color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

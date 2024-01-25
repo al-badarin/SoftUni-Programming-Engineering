@@ -1,0 +1,27 @@
+/* FOOTER */
+.footer {
+  margin-top: 0.25rem;
+  padding: 2.5rem;
+  background-color: black;
+  color: var(--clr-footer-text);
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.footer-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+  margin-top: 2.2rem;
+  margin-bottom: 2.8rem;
+  font-size: 12px;
+}
+
+.footer-end-desc {
+  font-size: 12px;
+}
