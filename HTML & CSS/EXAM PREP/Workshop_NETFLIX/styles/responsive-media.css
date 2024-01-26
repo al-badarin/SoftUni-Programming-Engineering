@@ -111,6 +111,19 @@
   #ready-to-watch.form {
     margin-bottom: 2rem;
   }
+
+  /* QUESTIONS */
+  #questions {
+    padding: 1.5rem 20rem;
+  }
+
+  #questions .title {
+    font-size: 2rem;
+  }
+
+  #questions .questions-list {
+    font-size: 1.25rem;
+  }
 }
 
 @media screen and (min-width: 1600px) {
