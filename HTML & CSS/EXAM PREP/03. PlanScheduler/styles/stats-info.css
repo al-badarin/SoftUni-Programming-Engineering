@@ -1,29 +1,29 @@
-.stats-info{
-    background-color: white;
-    display: flex;
-    padding: 4em 6em;
-    gap: 2em;
+.stats-info {
+  background-color: white;
+  display: flex;
+  padding: 4em 6em;
+  gap: 2em;
 }
 
-.stat-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.stat-info h3{
-    color: #ff7c4c;
-    font-size: 3em;
-    margin-bottom: 1.2em;
+.stat-info h3 {
+  color: #ff7c4c;
+  font-size: 3em;
+  margin-bottom: 1.2em;
 }
 
-.stat-info h4{
-    font-size: 1.2em;
-    font-weight: 400;
-    margin-bottom: 0.8em;
+.stat-info h4 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 0.8em;
 }
 
-.stat-info p{
-    font-size: 0.9em;
-    font-weight: 300;
+.stat-info p {
+  font-size: 0.9em;
+  font-weight: 300;
 }
