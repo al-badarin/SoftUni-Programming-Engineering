@@ -1,0 +1,131 @@
+@media (width <= 600px) {
+  /* MAIN */
+  .site-main {
+    margin: 0;
+  }
+
+  /* NAVIGATION */
+  .site-navigation {
+    display: none;
+  }
+
+  /* HERO SECTION */
+  .entry-header {
+    background-position: center;
+    border-radius: 0;
+    /* height: auto; 
+        width: 100%; */
+  }
+
+  .button.button-primary {
+    width: 130px;
+    height: 90px;
+  }
+
+  /* SITE LOGOS */
+  .site-logos {
+    /* display: flex;
+    align-items: flex-start; */
+    display: inline-block;
+    width: 100%;
+  }
+
+  .site-logos-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0px;
+    padding-right: 30em;
+  }
+
+  .site-logo {
+    flex: 0 0 35%;
+    box-sizing: border-box;
+    margin-right: 0px;
+    width: 60px;
+  }
+
+  .site-logo:not(:last-child) {
+    margin-right: 0rem;
+  }
+
+  /* SITE INFORMATION */
+  .site-information {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-form {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .entry-description {
+    text-align: center;
+    width: 89%;
+    padding-left: 3em;
+  }
+
+  .site-information .button.button-primary {
+    font-size: 12px;
+    padding: 10px 18px;
+    width: 90px;
+    height: 60px;
+  }
+
+  /* .site-form-container{
+  display: flex;
+  flex-direction: column;
+} */
+
+  .site-form .entry-title {
+    font-size: 8px;
+  }
+
+  .site-form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-form-container form p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-form-container form p input {
+    width: 100%;
+    padding: 0.8rem 9.5rem;
+  }
+
+  .site-form-container form .button.button-primary {
+    margin: 0;
+    text-align: center;
+    padding: 12px 45px;
+    height: auto;
+  }
+
+  /* SITE BLOG */
+  .site-blog-container {
+    margin: 0;
+  }
+
+  .site-blog-container .entry-title {
+    display: inline-block;
+    align-items: center;
+    max-width: 10ch;
+    /* margin-left: 2em; */
+  }
+
+  .site-blog-container .site-posts {
+    flex-direction: column;
+    padding: 0 4em;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
