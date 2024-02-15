@@ -1,0 +1,20 @@
+.site-nav {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 2em 1.5em 4em;
+}
+
+.site-nav ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.btn {
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+}
