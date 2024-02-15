@@ -1,0 +1,44 @@
+.blog {
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 4em 3em 4em 4em;
+  color: #595959;
+}
+
+.blog article {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog .media img {
+  width: 600px;
+}
+
+.blog .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em;
+  gap: 2em;
+}
+
+.blog h5 {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.blog h3 {
+  font-size: 2em;
+  color: black;
+}
+
+.blog a {
+  margin-top: -2em;
+  font-weight: 500;
+}
+
+.blog .text {
+  font-size: 1.2em;
+}
