@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16;
+  line-height: 1.15;
+  font-family: "Inter";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6em;
+  margin-left: auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-section {
+  background-color: #85dcff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2em;
+  padding: 5em 0em 4em 0em;
+  margin: 4em;
+  max-width: 1024px;
+  height: 70vh;
+  /* width: 100%;
+    height: 100vh; */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.title {
+  margin-bottom: 0.8em;
+  font-size: 2.5em;
+  max-width: 16ch;
+}
+
+.desc {
+  font-size: 0.85em;
+  width: 100%;
+}
+
+.desc:nth-of-type(2) {
+  margin-bottom: 3.5em;
+}
+
+.btn {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 1em 2em;
+  font-size: 0.9em;
+}
+
+.btn.hover-btn {
+  background-color: #42aa59;
+  border: 1px solid black;
+  overflow: hidden;
+  margin-right: 0.75em;
+}
+
+.btn.hover-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.media-container {
+  width: 37%;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
+}

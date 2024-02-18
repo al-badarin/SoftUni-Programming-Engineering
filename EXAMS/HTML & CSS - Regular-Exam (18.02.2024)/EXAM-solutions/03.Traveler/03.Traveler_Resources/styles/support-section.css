@@ -1,0 +1,21 @@
+.support {
+  background-color: #e14747;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 6.5em;
+}
+
+.support h3 {
+  font-size: 1.6em;
+  margin-bottom: 2em;
+}
+
+.support p {
+  /* width: 15%; */
+  width: 25ch;
+  text-align: center;
+  font-size: 1.1em;
+}

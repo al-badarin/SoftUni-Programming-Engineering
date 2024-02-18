@@ -1,0 +1,19 @@
+.testimonial {
+  background-color: #f8f0e9;
+  padding: 2em 25em 5.5em 25em;
+}
+
+.testimonial h5 {
+  font-weight: 400;
+  padding-bottom: 3.3em;
+  font-size: 1.1em;
+}
+
+.testimonial p {
+  font-size: 3.1em;
+  font-family: "Cormorant Infant";
+  font-style: italic;
+  letter-spacing: -0.03em;
+  font-weight: bold;
+  line-height: 0.9;
+}

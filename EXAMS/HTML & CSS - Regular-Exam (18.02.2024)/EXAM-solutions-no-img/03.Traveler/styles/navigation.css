@@ -1,0 +1,30 @@
+.site-header {
+  padding: 1em 2em;
+  z-index: 30;
+  color: white;
+  position: relative;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-ul li {
+  margin-right: 2em;
+}
+
+.nav-ul li a {
+  color: white;
+  font-size: 1em;
+}
+
+.logo {
+  width: 100px;
+  margin-left: 2em;
+}

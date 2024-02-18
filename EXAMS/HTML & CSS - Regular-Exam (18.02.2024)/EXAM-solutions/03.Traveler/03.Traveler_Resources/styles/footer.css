@@ -1,0 +1,22 @@
+.site-footer {
+  background-color: #352b2a;
+  padding: 3em 20em 3em 6em;
+}
+
+.site-footer .logo {
+  margin-left: 0;
+  margin-bottom: 2em;
+  width: 70px;
+}
+
+.footer-desc {
+  color: white;
+  font-size: 0.95em;
+  margin-bottom: 1.5em;
+  width: 33%;
+}
+
+.footer-copyright {
+  color: #766961;
+  font-size: 0.75em;
+}

@@ -1,0 +1,19 @@
+@import url(reset.css);
+
+@import url(typography.css);
+
+@import url(general-styles.css);
+
+@import url(navigation.css);
+
+@import url(hero-section.css);
+
+@import url(testimonial.css);
+
+@import url(support-section.css);
+
+@import url(mind-section.css);
+
+@import url(guide-section.css);
+
+@import url(footer.css);

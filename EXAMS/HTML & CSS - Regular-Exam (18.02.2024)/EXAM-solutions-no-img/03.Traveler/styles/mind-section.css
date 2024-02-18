@@ -1,0 +1,41 @@
+.mind {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2em;
+  background-color: #f8f0e9;
+  padding: 2em 30em;
+}
+
+.mind .media {
+  width: 45%;
+}
+
+.mind h2 {
+  font-family: "Cormorant Infant";
+  font-size: 2.5em;
+  width: 14ch;
+  text-align: center;
+  margin: 0.8em 0;
+}
+
+.mind p {
+  text-align: left;
+  width: 64%;
+  margin-bottom: 1.2em;
+}
+
+.mind .btn {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 0.5em 1.5em;
+  font-size: 0.8em;
+}
+
+.mind .btn:nth-of-type(1) {
+  align-self: baseline;
+  margin-left: 10.5em;
+  margin-bottom: 2em;
+}
