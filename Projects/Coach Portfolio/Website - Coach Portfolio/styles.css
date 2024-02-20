@@ -1,0 +1,182 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1{
+  margin-top: 2em;
+}
+
+/* Default styles for the navigation */
+/* Default styles for the navigation */
+nav {
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0; /* Position at the top right corner */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.nav-toggle {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+/* Fixed navigation for screens larger than 768px */
+@media (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: #333; /* Adjust background color as needed */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 30px;
+  }
+
+  nav ul li a {
+    font-size: 18px; /* Increase font size for better readability on larger screens */
+  }
+}
+
+
+
+main {
+  padding: 20px;
+  margin-top: 70px; /* Adjust this value to match the height of your fixed navigation */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Add styles for social media icons */
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons li {
+  margin: 0 10px;
+}
+
+.social-icons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+/* Specific hover styles for Instagram */
+.social-icons a[href*="instagram"]:hover {
+  color: #e4405f; /* Instagram logo color */
+}
+
+/* Specific hover styles for YouTube */
+.social-icons a[href*="youtu.be"]:hover {
+  color: red; /* Red color */
+}
+
+/* Specific hover styles for Email */
+.social-icons a[href*="mailto"]:hover {
+  color: #d14836; /* Gmail red color */
+}
+
+/* Specific hover styles for Phone */
+.social-icons a[href*="tel"]:hover {
+  color: green; /* Green color */
+}
+
+
+/* COACH EXPERIENCE */
+.experience-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.experience-list li {
+  margin-bottom: 20px;
+}
+
+.experience-list h3 {
+  margin-top: 0;
+}
+
+.experience-list p {
+  margin-bottom: 5px;
+}
+
+.experience-list ul {
+  list-style-type: circle;
+  margin-top: 5px;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+/* CSS for responsive navigation */
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.nav-menu_visible {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1em 8em;
+}
+
+.nav-toggle{
+  display: inline-block;
+}
+
+.nav-toggle span{
+  padding: 0.85em;
+}
+
+.nav-toggle span:hover {
+  color: #007bff;  
+  cursor: pointer;
+}
+
+/* FIXED NAVIGATION */
+
