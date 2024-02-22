@@ -1,0 +1,24 @@
+@import url(reset.css);
+
+@import url(general-styles.css);
+
+@import url(navigation.css);
+
+@import url(gallery.css);
+
+@import url(about.css);
+
+@import url(philosophy.css);
+
+@import url(coach-exp.css);
+
+/* @import url(player-exp.css); */
+
+@import url(contact.css);
+
+@import url(social-media-icons.css);
+
+@import url(footer.css);
+
+@import url(go-top-btn.css);
+

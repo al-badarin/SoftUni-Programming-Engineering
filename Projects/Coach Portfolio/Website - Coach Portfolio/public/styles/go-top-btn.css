@@ -1,0 +1,18 @@
+#goToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+  /* background-color: #4c6e93; */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+#goToTopBtn:hover {
+  background-color: #228dff;
+}
