@@ -21,6 +21,8 @@
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
+  padding: 0 20px;
+  text-align: center;
 }
 
 #philosophy .quote {
@@ -68,13 +70,40 @@
   text-align: center;
 }
 
-#philosophy a:hover{
+#philosophy a:hover {
   text-decoration: underline;
 }
 
 /* Media query for responsiveness */
 @media (max-width: 768px) {
-  #philosophy .highlight {
-    width: 100%;
+  #philosophy p {
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  #philosophy h2 {
+    font-size: 28px;
+  }
+
+  #philosophy p {
+    font-size: 16px; 
+  }
+
+  #philosophy a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  #philosophy p {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  #philosophy h2 {
+    font-size: 20px;
+  }
+  #philosophy a {
+    font-size: 12px;
   }
 }

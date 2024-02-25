@@ -12,7 +12,7 @@
 
 @import url(coach-exp.css);
 
-/* @import url(player-exp.css); */
+@import url(player-exp.css);
 
 @import url(contact.css);
 
@@ -21,4 +21,6 @@
 @import url(footer.css);
 
 @import url(go-top-btn.css);
+
+@import url(responsive-330px.css);
 

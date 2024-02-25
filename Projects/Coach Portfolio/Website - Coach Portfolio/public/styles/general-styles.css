@@ -6,7 +6,7 @@ body {
 
 main {
   padding: 20px;
-  margin-top: 70px; /* Adjust this value to match the height of your fixed navigation */
+  margin-top: 25px;
 }
 
 a {
@@ -22,4 +22,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+img.club-logo {
+  margin-left: 8px;
 }

@@ -36,3 +36,22 @@
 .gallery-nav.next {
   right: 10px;
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .gallery-slide {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-slide {
+    height: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery-slide {
+    height: 150px;
+  }
+}

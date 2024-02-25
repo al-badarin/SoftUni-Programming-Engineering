@@ -77,3 +77,25 @@
     margin: 10px;
   }
 }
+
+@media (max-width: 540px) {
+  /* #contact{
+    font-size: 10px;
+  } */
+
+  #contact .social-icons li {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 470px) {
+  #contact .social-icons li {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+    margin-right: 20px;
+  }
+}
+
+
