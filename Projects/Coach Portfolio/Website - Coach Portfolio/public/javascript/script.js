@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (scrollPosition > 0) {
       navToggle.style.color = "#007bff"; // Change to your desired color
     } else {
-      navToggle.style.color = ""; // Empty string to revert to default color
+      navToggle.style.color = "#fff"; // Empty string to revert to default color
     }
 
     const goToTopBtn = document.getElementById("goToTopBtn");

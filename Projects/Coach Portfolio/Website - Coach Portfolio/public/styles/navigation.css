@@ -158,14 +158,35 @@ nav ul li a:hover {
 
   .nav-toggle {
     position: absolute;
-    top: 35px; /* Adjust as needed */
+    top: 15px; /* Adjust as needed */
     right: 5px; /* Adjust as needed */
   }
 }
 
 @media (max-width: 430px) {
-  .nav-menu.nav-menu.nav-menu_visible li {
-    font-size: 8px;
+  .nav-menu.nav-menu.nav-menu_visible li a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav-toggle {
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    right: 0px; /* Adjust as needed */
+  }
+
+  .nav-toggle span {
+    font-size: 22px;
+  }
+
+  .nav-menu.nav-menu.nav-menu_visible {
+    padding: 10px 20px;
+  }
+
+  .nav-menu.nav-menu.nav-menu_visible li a {
+    display: block;
+    font-size: 12px;
   }
 }
 
