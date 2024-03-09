@@ -52,7 +52,13 @@
 
       <div class="new-theme-buttons">
         <button class="cancel">Cancel</button>
-        <button class="public" [disabled]="form.invalid">Post</button>
+        <button
+          class="public"
+          (click)="addTheme($event, inputName.value, textAreaInput.value)"
+          [disabled]="form.invalid"
+        >
+          Post
+        </button>
       </div>
     </form>
   </div>

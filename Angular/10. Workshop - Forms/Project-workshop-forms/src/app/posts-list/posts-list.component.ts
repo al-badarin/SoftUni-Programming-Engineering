@@ -22,7 +22,7 @@ export class PostsListComponent implements OnInit {
 
     this.api.getPosts(5).subscribe({
       next: (posts) => {
-        console.log(posts);
+        console.log('posts: ', posts);
         this.posts = posts;
         this.isLoading = false;
       },

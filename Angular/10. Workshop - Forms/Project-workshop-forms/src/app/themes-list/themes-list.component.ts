@@ -18,6 +18,10 @@ export class ThemesListComponent implements OnInit {
     return this.userService.isLogged;
   }
 
+  get userId(): string {
+    return this.userService.user?.id || '';
+  }
+
   ngOnInit(): void {
     // this.api.getThemes().subscribe((themes) => {
     //   console.log(themes);
@@ -27,7 +31,7 @@ export class ThemesListComponent implements OnInit {
 
     this.api.getThemes().subscribe({
       next: (themes) => {
-        console.log(themes);
+        console.log('themes: ', themes);
         this.themes = themes;
         this.isLoading = false;
       },
@@ -37,5 +41,12 @@ export class ThemesListComponent implements OnInit {
         console.error('Error: ', err);
       },
     });
+  }
+
+  isSubscribed(theme: Theme) {
+    const isSubscribedUser = theme.subscribers.find((s) => {
+      return s === this.userService.user?.id;
+    });
+    return !!isSubscribedUser;
   }
 }
