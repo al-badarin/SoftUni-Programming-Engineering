@@ -17,13 +17,20 @@ export abstract class HtmlUtil {
 
   private static addEventListeners(rootDiv: HTMLElement) {
     // capture elements
+    const homeBtn: HTMLElement | null = document.getElementById("home");
     const usersBtn: HTMLElement | null = document.getElementById("users");
     const postsBtn: HTMLElement | null = document.getElementById("posts");
 
     // attach events
+    if (homeBtn) {
+      homeBtn.addEventListener("click", () => {
+        HtmlUtil.navigate(rootDiv, "/");
+      });
+    }
+
     if (usersBtn) {
       usersBtn.addEventListener("click", () => {
-        HtmlUtil.navigate(rootDiv, "/");
+        HtmlUtil.navigate(rootDiv, "/user");
       });
     }
 
