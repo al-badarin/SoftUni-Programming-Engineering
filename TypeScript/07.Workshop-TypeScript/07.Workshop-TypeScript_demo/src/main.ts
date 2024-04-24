@@ -3,6 +3,7 @@ import { PostService } from "./services/postService";
 import { UserService } from "./services/userService";
 import "./style.css";
 import { UserDetails } from "./types/user";
+import { HtmlUtil } from "./utils/html";
 
 /** Handling the data */
 const { baseUrl } = CONFIG;
@@ -32,7 +33,7 @@ userService.getOne(userId).then((data) => {
 });
 
 const user: UserDetails = {
-  id: 33,
+  id: 3,
   name: "Jamal Al Badarin",
   username: "al.badarin22",
   email: "Pesho@april.biz",
@@ -58,6 +59,9 @@ userService.create(user).then((res) => {
 });
 
 /** Update */
+userService.update(user).then((user) => {
+  console.log("user data updated: ", user);
+});
 
 /** Delete */
 userService.delete(userId).then((user) => {
@@ -65,15 +69,5 @@ userService.delete(userId).then((user) => {
 });
 
 /** Rendering of the views */
-// TODO:
-// const root = document.querySelector<HTMLDivElement>("#root");
-// HtmlUtil.render(root);
-
-const root = document.querySelector<HTMLDivElement>("#app");
-if (root) {
-  root!.innerHTML = `
-  <div>
-  <h1>Hello, workshop!</div>
-  </div>
-  `;
-}
+const root = document.querySelector<HTMLDivElement>("#root");
+HtmlUtil.render(root);
