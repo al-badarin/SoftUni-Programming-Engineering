@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,15 @@
     <title>Workshop</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="wrapper">
+      <nav id="main-nav" class="sidebar">
+        <a id="users">Users</a>
+        <a id="posts">Posts</a>
+      </nav>
+
+      <div id="root"></div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
