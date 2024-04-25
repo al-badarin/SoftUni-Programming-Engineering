@@ -1,13 +1,11 @@
 import { Cloth } from "./Cloth";
 
 export class Magazine {
-  constructor(
-    private clothes: Cloth[],
-    private type: string,
-    private capacity: number
-  ) {
+  clothes: Cloth[];
+  constructor(private type: string, private capacity: number) {
     this.type = type;
     this.capacity = capacity;
+    this.clothes = [];
   }
 
   addCloth(cloth: Cloth): void {
@@ -47,7 +45,10 @@ export class Magazine {
   }
 
   report(): string {
-    //
-    return ``;
+    const sortedClothes = this.clothes.slice().sort((a, b) => a.size - b.size);
+    const reportString = sortedClothes
+      .map((cloth) => cloth.toString())
+      .join("\n");
+    return `${this.type} magazine contains:\n${reportString}`;
   }
 }
