@@ -9,4 +9,31 @@ export class Magazine {
     this.type = type;
     this.capacity = capacity;
   }
+
+  addCloth(cloth: Cloth): void {
+    //
+  }
+
+  removeCloth(color: string): boolean {
+    //
+    return true;
+  }
+
+  getSmallestCloth(): Cloth {
+    //
+  }
+
+  getCloth(color: string): Cloth {
+    //
+  }
+
+  getClothCount(): number {
+    //
+    return 2;
+  }
+
+  report(): string {
+    //
+    return ``;
+  }
 }
