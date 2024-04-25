@@ -1,7 +1,7 @@
 export class Cloth {
   constructor(
     public color: string,
-    private size: number,
+    public size: number,
     private type: string
   ) {
     this.color = color;
