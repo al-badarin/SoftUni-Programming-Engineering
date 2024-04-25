@@ -38,8 +38,8 @@ export class Magazine {
     return smallestCloth;
   }
 
-  getCloth(color: string): Cloth {
-    //
+  getCloth(color: string): Cloth | undefined {
+    return this.clothes.find((cloth) => cloth.color === color);
   }
 
   getClothCount(): number {
