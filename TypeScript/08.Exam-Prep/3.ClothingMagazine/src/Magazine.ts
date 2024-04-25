@@ -43,8 +43,7 @@ export class Magazine {
   }
 
   getClothCount(): number {
-    //
-    return 2;
+    return this.clothes.length;
   }
 
   report(): string {
