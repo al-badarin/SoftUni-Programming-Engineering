@@ -17,8 +17,12 @@ export class Magazine {
   }
 
   removeCloth(color: string): boolean {
-    //
-    return true;
+    const index = this.clothes.findIndex((cloth) => cloth.color === color);
+    if (index !== -1) {
+      this.clothes.splice(index, 1);
+      return true;
+    }
+    return false;
   }
 
   getSmallestCloth(): Cloth {

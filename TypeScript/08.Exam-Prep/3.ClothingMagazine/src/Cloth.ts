@@ -1,6 +1,6 @@
 export class Cloth {
   constructor(
-    private color: string,
+    public color: string,
     private size: number,
     private type: string
   ) {
