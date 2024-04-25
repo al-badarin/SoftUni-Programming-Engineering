@@ -5,13 +5,18 @@ function lowestPrices(input) {
     input.forEach((entry) => {
         const [town, product, priceStr] = entry.split(" | ");
         const price = Number(priceStr);
-        if (!products[product] || price < products[product].price) {
-            products[product] = { price: price, town };
+        if (!(product in products)) {
+            products[product] = [{ product, price, town }];
+        }
+        else {
+            products[product].push({ product, price, town });
         }
     });
     // Output lowest prices
     for (const product in products) {
-        console.log(`${product} -> ${products[product].price} (${products[product].town})`);
+        const lowestPriceTowns = products[product].sort((a, b) => a.price - b.price);
+        const lowestPrice = lowestPriceTowns[0];
+        console.log(`${product} -> ${lowestPrice.price} (${lowestPrice.town})`);
     }
 }
 // Test case
