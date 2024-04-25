@@ -11,7 +11,9 @@ export class Magazine {
   }
 
   addCloth(cloth: Cloth): void {
-    //
+    if (this.clothes.length < this.capacity) {
+      this.clothes.push(cloth);
+    }
   }
 
   removeCloth(color: string): boolean {
