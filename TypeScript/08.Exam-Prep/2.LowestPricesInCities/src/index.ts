@@ -1,26 +1,32 @@
 interface ProductInfo {
+  product: string;
   price: number;
   town: string;
 }
 
-function lowestPrices(input: string[]) {
-  const products: { [productName: string]: ProductInfo } = {};
+function lowestPrices(input: string[]): void {
+  const products: { [productName: string]: ProductInfo[] } = {};
 
   // Parse input
   input.forEach((entry) => {
     const [town, product, priceStr] = entry.split(" | ");
-    const price = Number(priceStr);
+    const price: number = Number(priceStr);
 
-    if (!products[product] || price < products[product].price) {
-      products[product] = { price: price, town };
+    if (!(product in products)) {
+      products[product] = [{ product, price, town }];
+    } else {
+      products[product].push({ product, price, town });
     }
   });
 
   // Output lowest prices
   for (const product in products) {
-    console.log(
-      `${product} -> ${products[product].price} (${products[product].town})`
+    const lowestPriceTowns: ProductInfo[] = products[product].sort(
+      (a, b) => a.price - b.price
     );
+    const lowestPrice: ProductInfo = lowestPriceTowns[0];
+
+    console.log(`${product} -> ${lowestPrice.price} (${lowestPrice.town})`);
   }
 }
 
