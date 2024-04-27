@@ -14,7 +14,7 @@ function main() {
     const mocha = new Drink_1.Drink("Mocha", 2.1, 150);
     const herbalTea = new Drink_1.Drink("Herbal Tea", 1.75, 300);
     //Get Count
-    console.log(vendingMachine.getCount);
+    console.log(vendingMachine.getCount());
     //0
     //Add Drinks
     vendingMachine.addDrink(tea);
@@ -26,7 +26,7 @@ function main() {
     //Try to add drinks when the capacity is full
     vendingMachine.addDrink(herbalTea);
     //Get Count
-    console.log(vendingMachine.getCount);
+    console.log(vendingMachine.getCount());
     //6
     //Remove Drink
     console.log(vendingMachine.removeDrink("Herbal Tea"));

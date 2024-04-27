@@ -15,7 +15,7 @@ function main() {
   const herbalTea = new Drink("Herbal Tea", 1.75, 300);
 
   //Get Count
-  console.log(vendingMachine.getCount);
+  console.log(vendingMachine.getCount());
   //0
 
   //Add Drinks
@@ -30,7 +30,7 @@ function main() {
   vendingMachine.addDrink(herbalTea);
 
   //Get Count
-  console.log(vendingMachine.getCount);
+  console.log(vendingMachine.getCount());
   //6
 
   //Remove Drink
