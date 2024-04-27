@@ -35,13 +35,19 @@ export class VendingMachine {
 
   getCheapest(): string {
     const cheapestDrink = this.drinks.reduce((prev, current) =>
-        prev.price < current.price ? prev : current
-      );
-      return cheapestDrink.toString();
+      prev.price < current.price ? prev : current
+    );
+    return cheapestDrink.toString();
   }
 
   buyDrink(name: string): string {
-    //
+    const drinkToBuy = this.drinks.find((drink) => drink.name === name);
+    if (drinkToBuy) {
+      this.removeDrink(name);
+      return drinkToBuy.toString();
+    } else {
+      return `Error: The drink '${name}' is not found in the vending machine.`;
+    }
   }
 
   getCount(): number {
