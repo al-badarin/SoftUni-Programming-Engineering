@@ -56,6 +56,7 @@ export class VendingMachine {
   }
 
   report(): string {
-    //
+    const drinksInfo = this.drinks.map((drink) => drink.toString()).join("\n");
+    return `Drinks available:\n${drinksInfo}`;
   }
 }
