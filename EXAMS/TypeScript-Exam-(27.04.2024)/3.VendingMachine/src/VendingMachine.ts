@@ -26,8 +26,11 @@ export class VendingMachine {
     return false;
   }
 
-  getLongest() {
-    //
+  getLongest(): string {
+    const longestDrink = this.drinks.reduce((prev, current) =>
+      prev.volume > current.volume ? prev : current
+    );
+    return longestDrink.toString();
   }
 
   getCheapest() {
