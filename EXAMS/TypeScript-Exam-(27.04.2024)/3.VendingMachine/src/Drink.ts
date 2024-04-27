@@ -10,6 +10,6 @@ export class Drink {
   }
 
   toString(): string {
-    return `Name: ${this.name}, Price: $${this.price}, Volume: ${this.volume} ml`;
+    return `Name: ${this.name}, Price: $${(this.price).toFixed(1)}, Volume: ${this.volume} ml`;
   }
 }
