@@ -33,19 +33,22 @@ export class VendingMachine {
     return longestDrink.toString();
   }
 
-  getCheapest() {
+  getCheapest(): string {
+    const cheapestDrink = this.drinks.reduce((prev, current) =>
+        prev.price < current.price ? prev : current
+      );
+      return cheapestDrink.toString();
+  }
+
+  buyDrink(name: string): string {
     //
   }
 
-  buyDrink(name: string) {
+  getCount(): number {
     //
   }
 
-  getCount() {
-    //
-  }
-
-  report() {
+  report(): string {
     //
   }
 }
