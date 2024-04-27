@@ -43,7 +43,8 @@ export class VendingMachine {
   buyDrink(name: string): string {
     const drinkToBuy = this.drinks.find((drink) => drink.name === name);
     if (drinkToBuy) {
-      this.removeDrink(name);
+      // !this logic is not applied because it changes the expected output from the task description
+      //  this.removeDrink(name);
       return drinkToBuy.toString();
     } else {
       return `Error: The drink '${name}' is not found in the vending machine.`;
