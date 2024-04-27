@@ -51,7 +51,8 @@ export class VendingMachine {
   }
 
   getCount(): number {
-    //
+    let availableDrinks: number = this.drinks.length;
+    return availableDrinks;
   }
 
   report(): string {
