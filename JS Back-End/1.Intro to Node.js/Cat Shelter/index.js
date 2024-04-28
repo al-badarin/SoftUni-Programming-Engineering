@@ -48,17 +48,7 @@ const server = http.createServer((req, res) => {
 
     res.write(siteCss);
     res.end();
-  }
-  //   TODO:
-  //   else if (req.url === "/images/pawprint.ico") {
-  //     res.writeHead(200, {
-  //       "content-type": "text/css",
-  //     });
-
-  //     res.write(siteCss);
-  //     res.end();
-  //   }
-  else if (req.url === "/cats/add-cat") {
+  } else if (req.url === "/cats/add-cat") {
     res.writeHead(200, {
       "content-type": "text/html",
     });
