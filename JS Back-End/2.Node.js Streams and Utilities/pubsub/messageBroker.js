@@ -1,8 +1,16 @@
 const events = {};
 
-function subscribe(eventType, eventHandler) {}
+function subscribe(eventType, eventHandler) {
+  if (!events[eventType]) {
+    events[eventType] = [];
+  }
 
-function publish() {}
+  events[eventType].push(eventHandler);
+}
+
+function publish(eventType, data) {
+  events[eventType]?.forEach((handler) => handler(data));
+}
 
 module.exports = {
   subscribe,
