@@ -1,9 +1,16 @@
 const http = require("http");
-const logger = require("./logger");
+const messageBroker = require("./messageBroker");
+// Initialize services
+require("./logger");
+require("./reportingService");
 
 const server = http.createServer((req, res) => {
-  logger(`URL: ${req.url}; METHOD: ${req.method}`);
+  messageBroker.publish("request", `URL: ${req.url}; METHOD: ${req.method}`);
 
+  if (req.url === "/register") {
+    messageBroker.publish("user-register", { username: "Jimmy" });
+  }
+  
   // TODO: Handle request
 
   res.end();
