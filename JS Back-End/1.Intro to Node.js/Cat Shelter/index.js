@@ -1,6 +1,6 @@
 const http = require("http");
 const fs = require("fs");
-const { parse } = require("querystring");
+const querystring = require("querystring");
 
 const cats = [
   {
@@ -40,17 +40,20 @@ const views = {
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    fs.readFile(views.home, { encoding: "utf-8" }, (err, result) => {
+    render(views.cat, cats, (err, catResult) => {
       if (err) {
         res.statusCode = 404;
         return res.end();
       }
 
-      res.writeHead(200, {
-        "content-type": "text/html",
+      render(views.home, [{ cats: catResult }], (err, result) => {
+        res.writeHead(200, {
+          "content-type": "text/html",
+        });
+
+        res.write(result);
+        res.end();
       });
-      res.write(result);
-      res.end();
     });
   } else if (req.url === "/styles/site.css") {
     fs.readFile(views.style, "utf-8", (err, result) => {
@@ -78,31 +81,30 @@ const server = http.createServer((req, res) => {
     });
   } else if (req.url === "/cats/add-cat" && req.method === "POST") {
     let body = "";
+
     req.on("data", (chunk) => {
-      body += chunk.toString(); // Convert Buffer to string
+      body += chunk;
     });
-    req.on("end", () => {
-      const formData = parse(body);
-      console.log("Form Data:", formData); // Check form data
-      const newCat = {
-        id: cats.length + 1,
-        name: formData.name,
-        imageUrl: formData.image,
-        breed: formData.breed,
-        description: formData.description,
-      };
-      console.log("New Cat:", newCat); // Check new cat object
-      cats.push(newCat);
-      res.writeHead(302, { Location: "/" }); // Redirect to home page after adding cat
+
+    req.on("close", () => {
+      const formData = querystring.parse(body);
+      formData.id = cats[cats.length - 1].id + 1;
+
+      console.log(formData);
+      cats.push(formData);
+
+      // const newCat = {
+      //   id: cats.length + 1,
+      //   name: formData.name,
+      //   imageUrl: formData.image,
+      //   breed: formData.breed,
+      //   description: formData.description,
+      // };
+      // console.log("New Cat:", newCat); // Check new cat object
+      // cats.push(newCat);
+      res.writeHead(302, { location: "/" }); // Redirect to home page after adding cat
       res.end();
     });
-  } else if (req.url === "/cats/add-cat") {
-    // Handle GET request to /cats/add-cat
-    res.writeHead(200, {
-      "content-type": "text/html",
-    });
-    res.write(addCatTemplate);
-    res.end();
   } else if (req.url === "/cats/add-breed") {
     // Handle request to /cats/add-breed
     res.writeHead(200, {
@@ -111,10 +113,10 @@ const server = http.createServer((req, res) => {
     res.write(addBreedTemplate);
     res.end();
   } else {
-    // Handle other requests (404)
     res.writeHead(404, {
       "content-type": "text/html",
     });
+
     res.write("<h1>404 Not Found</h1>");
     res.end();
   }
