@@ -120,5 +120,25 @@ const server = http.createServer((req, res) => {
   }
 });
 
+function render(view, dataArr, callback) {
+  fs.readFile(view, "utf-8", (err, result) => {
+    if (err) {
+      return callback(err);
+    }
+
+    const htmlResult = dataArr
+      .map((data) => {
+        return Object.keys(data).reduce((acc, key) => {
+          const pattern = new RegExp(`{{${key}}}`, "g");
+
+          return acc.replace(pattern, data[key]);
+        }, result);
+      })
+      .join("\n");
+
+    callback(null, htmlResult);
+  });
+}
+
 server.listen(5000);
 console.log("Server is listening on port 5000...");
