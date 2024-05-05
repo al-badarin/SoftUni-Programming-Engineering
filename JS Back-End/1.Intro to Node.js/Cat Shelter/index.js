@@ -1,10 +1,6 @@
 const http = require("http");
+const fs = require("fs");
 const { parse } = require("querystring");
-
-const homeTemplate = require("./views/home.html");
-const addCatTemplate = require("./views/addCat.html");
-const addBreedTemplate = require("./views/addBreed.html");
-const siteCss = require("./views/site.css");
 
 const cats = [
   {
@@ -35,19 +31,51 @@ const cats = [
   },
 ];
 
+const views = {
+  home: "./views/home.html",
+  style: "./views/site.css",
+  addCat: "./views/addCat.html",
+  cat: "./views/partials/cat.html",
+};
+
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    res.writeHead(200, {
-      "content-type": "text/html",
+    fs.readFile(views.home, { encoding: "utf-8" }, (err, result) => {
+      if (err) {
+        res.statusCode = 404;
+        return res.end();
+      }
+
+      res.writeHead(200, {
+        "content-type": "text/html",
+      });
+      res.write(result);
+      res.end();
     });
-    res.write(homeTemplate(cats));
-    res.end();
   } else if (req.url === "/styles/site.css") {
-    res.writeHead(200, {
-      "content-type": "text/css",
+    fs.readFile(views.style, "utf-8", (err, result) => {
+      if (err) {
+        res.statusCode = 404;
+        return res.end();
+      }
+
+      res.writeHead(200, {
+        "content-type": "text/css",
+      });
+      res.write(result);
+      res.end();
     });
-    res.write(siteCss);
-    res.end();
+  } else if (req.url === "/cats/add-cat" && req.method === "GET") {
+    fs.readFile(views.addCat, "utf-8", (err, result) => {
+      // TODO: Error handling
+
+      res.writeHead(200, {
+        "content-type": "text/html",
+      });
+
+      res.write(result);
+      res.end();
+    });
   } else if (req.url === "/cats/add-cat" && req.method === "POST") {
     let body = "";
     req.on("data", (chunk) => {
