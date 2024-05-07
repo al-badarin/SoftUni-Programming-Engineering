@@ -6,6 +6,7 @@ const qs = require("querystring");
 const cats = require("../data/cats");
 const breeds = require("../data/breeds");
 
+//**USING CREATEREADSTREAM FUNCTION */
 module.exports = (req, res) => {
   const pathname = url.parse(req.url).pathname;
 
@@ -44,17 +45,18 @@ module.exports = (req, res) => {
       console.log(err);
     });
   } else {
-    return true;
+    return true; 
   }
 };
 
+//**USING READFILE FUNCTION */
 // module.exports = (req, res) => {
-//     const pathname = url.parse(req.url).pathname;
-  
-// if (pathname === "/cats/add-cat" && req.method === "GET") {
+//   const pathname = url.parse(req.url).pathname;
+
+//   if (pathname === "/cats/add-cat" && req.method === "GET") {
 //     let filePath = path.normalize(path.join(__dirname, "../views/addCat.html"));
-    
-// fs.readFile(filePath, (err, data) => {
+
+//     fs.readFile(filePath, (err, data) => {
 //       if (err) {
 //         console.log(err);
 
