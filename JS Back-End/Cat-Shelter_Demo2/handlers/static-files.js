@@ -58,7 +58,6 @@ module.exports = (req, res) => {
         return;
       }
 
-      console.log('Pathname: ', pathname);
       res.writeHead(200, { "Content-Type": getContentType(pathname) });
 
       res.write(data);
