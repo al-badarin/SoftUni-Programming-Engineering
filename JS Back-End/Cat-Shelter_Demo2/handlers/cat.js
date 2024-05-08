@@ -2,7 +2,6 @@ const url = require("url");
 const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
-// const formidable = require("formidable");
 const cats = require("../data/cats.json");
 const breeds = require("../data/breeds.json");
 
@@ -39,6 +38,57 @@ module.exports = (req, res) => {
 
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(modifiedData);
+      });
+    });
+  } else if (pathname === "/cats/add-cat" && req.method === "POST") {
+    let formData = "";
+
+    req.on("data", (chunk) => {
+      formData += chunk.toString();
+    });
+
+    req.on("end", () => {
+      const fields = qs.parse(formData);
+
+      // Read the existing cats data
+      const catsFilePath = path.join(__dirname, "../data/cats.json");
+      fs.readFile(catsFilePath, "utf-8", (err, data) => {
+        if (err) {
+          console.error("Failed to read cats file:", err);
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Internal Server Error: Unable to load cats data.");
+          return;
+        }
+
+        // Add new cat to the array
+        let cats = JSON.parse(data);
+        let newCat = {
+          id: cats.length + 1,
+          name: fields.name,
+          description: fields.description,
+          image: fields.image,
+          breed: fields.breed,
+        };
+        cats.push(newCat);
+
+        // Save the updated cats array back to the file
+        fs.writeFile(
+          catsFilePath,
+          JSON.stringify(cats, null, 2),
+          "utf-8",
+          (err) => {
+            if (err) {
+              console.error("Failed to save the new cat:", err);
+              res.writeHead(500, { "Content-Type": "text/plain" });
+              res.end("Internal Server Error: Unable to save new cat.");
+              return;
+            }
+
+            console.log("New cat added successfully");
+            res.writeHead(302, { Location: "/" });
+            res.end();
+          }
+        );
       });
     });
   } else if (pathname === "/cats/add-breed" && req.method === "GET") {
