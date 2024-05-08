@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
 // const formidable = require("formidable");
-const cats = require("../data/cats");
-const breeds = require("../data/breeds");
+const cats = require("../data/cats.json");
+const breeds = require("../data/breeds.json");
 
 //**USING CREATEREADSTREAM FUNCTION */
 module.exports = (req, res) => {
@@ -24,7 +24,9 @@ module.exports = (req, res) => {
     });
 
     index.on("error", (err) => {
-      console.log(err);
+      console.error("Failed to read the file:", err);
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error: Unable to load the form.");
     });
   } else if (pathname === "/cats/add-breed" && req.method === "GET") {
     let filePath = path.normalize(
@@ -42,10 +44,49 @@ module.exports = (req, res) => {
     });
 
     index.on("error", (err) => {
-      console.log(err);
+      console.error("Failed to read the file:", err);
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error: Unable to load the form.");
+    });
+  } else if (pathname === "/cats/add-breed" && req.method === "POST") {
+    let formData = "";
+
+    req.on("data", (data) => {
+      formData += data;
+    });
+
+    req.on("end", () => {
+      let body = qs.parse(formData);
+
+      const breedsFilePath = path.join(__dirname, "../data/breeds.json");
+
+      fs.readFile(breedsFilePath, "utf-8", (err, data) => {
+        if (err) {
+          console.error("Error reading the file:", err);
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Failed to read breeds data");
+          return;
+        }
+
+        let breeds = JSON.parse(data);
+        breeds.push(body.breed);
+        let json = JSON.stringify(breeds);
+
+        fs.writeFile(breedsFilePath, json, "utf-8", (err) => {
+          if (err) {
+            console.error("Failed to write to file:", err);
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end("Failed to save breed");
+            return;
+          }
+          console.log("The breed was uploaded successfully");
+          res.writeHead(302, { Location: "/" });
+          res.end();
+        });
+      });
     });
   } else {
-    return true; 
+    return true;
   }
 };
 
