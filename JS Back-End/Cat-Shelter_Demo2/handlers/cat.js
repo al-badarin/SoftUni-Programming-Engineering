@@ -12,21 +12,34 @@ module.exports = (req, res) => {
 
   if (pathname === "/cats/add-cat" && req.method === "GET") {
     let filePath = path.normalize(path.join(__dirname, "../views/addCat.html"));
+    fs.readFile(filePath, "utf-8", (err, data) => {
+      if (err) {
+        console.error("Failed to read the file:", err);
+        res.writeHead(500, { "Contnent-Type": "text/plain" });
+        res.end("Internal Server Error: Unable to load the form.");
+        return;
+      }
 
-    const index = fs.createReadStream(filePath);
+      // Read breeds.json to generate options for the breed selector
+      const breedsFilePath = path.join(__dirname, "../data/breeds.json");
+      fs.readFile(breedsFilePath, "utf-8", (err, breedsData) => {
+        if (err) {
+          console.error("Failed to read breeds file:", err);
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Internal Server Error: Unable to load breeds.");
+          return;
+        }
 
-    index.on("data", (data) => {
-      res.write(data);
-    });
+        // Generate HTML string for breed options
+        let breeds = JSON.parse(breedsData);
+        let breedOptions = breeds
+          .map((breed) => `<option value="${breed}">${breed}</option>`)
+          .join("");
+        let modifiedData = data.replace(`{{catBreeds}}`, breedOptions);
 
-    index.on("end", () => {
-      res.end();
-    });
-
-    index.on("error", (err) => {
-      console.error("Failed to read the file:", err);
-      res.writeHead(500, { "Content-Type": "text/plain" });
-      res.end("Internal Server Error: Unable to load the form.");
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(modifiedData);
+      });
     });
   } else if (pathname === "/cats/add-breed" && req.method === "GET") {
     let filePath = path.normalize(
