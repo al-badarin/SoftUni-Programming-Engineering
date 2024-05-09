@@ -2,8 +2,9 @@ const url = require("url");
 const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
-const cats = require("../data/cats.json");
-const breeds = require("../data/breeds.json");
+const formidable = require("formidable");
+// const cats = require("../data/cats.json");
+// const breeds = require("../data/breeds.json");
 
 //**USING CREATEREADSTREAM FUNCTION */
 module.exports = (req, res) => {
@@ -41,14 +42,18 @@ module.exports = (req, res) => {
       });
     });
   } else if (pathname === "/cats/add-cat" && req.method === "POST") {
-    let formData = "";
+    const form = new formidable.IncomingForm();
 
-    req.on("data", (chunk) => {
-      formData += chunk.toString();
-    });
+    // Parse the form
+    form.parse(req, (err, fields, files) => {
+      if (err) {
+        console.error("Error parsing the form:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Internal Server Error: Unable to process the form.");
+        return;
+      }
 
-    req.on("end", () => {
-      const fields = qs.parse(formData);
+      console.log("Parsed fields:", fields);
 
       // Read the existing cats data
       const catsFilePath = path.join(__dirname, "../data/cats.json");
@@ -69,6 +74,7 @@ module.exports = (req, res) => {
           image: fields.image,
           breed: fields.breed,
         };
+
         cats.push(newCat);
 
         // Save the updated cats array back to the file
