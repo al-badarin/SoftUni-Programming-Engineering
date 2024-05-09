@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": 1,
+    "name": ["Sisi"],
+    "description": ["We love you Sisi!!!"],
+    "image": [
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
+    ],
+    "breed": ["American Shorthair"]
+  },
+
+  {
+    "id": 3,
+    "name": ["сфдсбжд"],
+    "description": ["дбдб"],
+    "image": ["ьжбдг"],
+    "breed": ["Siamese cat"]
+  }
+]
