@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
 const formidable = require("formidable");
-// const cats = require("../data/cats.json");
-// const breeds = require("../data/breeds.json");
+const cats = require("../data/cats.json");
+const breeds = require("../data/breeds.json");
 
 //**USING CREATEREADSTREAM FUNCTION */
 module.exports = (req, res) => {
@@ -154,6 +154,63 @@ module.exports = (req, res) => {
         });
       });
     });
+  } else if (pathname.includes("/cats-edit") && req.method === "GET") {
+    const catId = pathname.split("/")[2];
+    console.log(catId);
+    const cat = cats.find((c) => c.id == catId);
+
+    if (!cat) {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Cat not found");
+      return;
+    }
+
+    fs.readFile(
+      path.join(__dirname, "../views/editCat.html"),
+      "utf-8",
+      (err, data) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Failed to load the edit page");
+          return;
+        }
+
+        let modifiedData = data
+          .replace("{{id}}", cat.id)
+          .replace("{{name}}", cat.name)
+          .replace("{{description}}", cat.description)
+          .replace("{{image}}", cat.image)
+          .replace(
+            "{{catBreeds}}",
+            breeds
+              .map(
+                (b) =>
+                  `<option value="${b}"${
+                    b === cat.breed ? " selected" : ""
+                  }>${b}</option>`
+              )
+              .join("")
+          );
+
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write(modifiedData);
+        res.end();
+      }
+    );
+  } else if (pathname.includes("/cats-edit") && req.method === "POST") {
+    // TODO: ...
+
+    
+
+
+
+  } else if (pathname.includes("/cats-find-new-home") && req.method === "GET") {
+    // TODO: ...
+  } else if (
+    pathname.includes("/cats-find-new-home") &&
+    req.method === "POST"
+  ) {
+    // TODO: ...
   } else {
     return true;
   }
