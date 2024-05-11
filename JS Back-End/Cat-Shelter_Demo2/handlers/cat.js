@@ -156,7 +156,6 @@ module.exports = (req, res) => {
     });
   } else if (pathname.includes("/cats-edit") && req.method === "GET") {
     const catId = pathname.split("/")[2];
-    console.log(catId);
     const cat = cats.find((c) => c.id == catId);
 
     if (!cat) {
@@ -198,12 +197,64 @@ module.exports = (req, res) => {
       }
     );
   } else if (pathname.includes("/cats-edit") && req.method === "POST") {
-    // TODO: ...
+    const form = new formidable.IncomingForm();
 
-    
+    form.parse(req, (err, fields, files) => {
+      if (err) {
+        console.error("Error parsing the form:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Internal Server Error: Unable to process the form.");
+        return;
+      }
 
+      // Log fields to make sure they are parsed correctly
+      console.log("Parsed fields:", fields);
 
+      // Logic to find and update the cat
+      const catId = pathname.split("/")[2]; // Extract cat ID from URL
+      const catsFilePath = path.join(__dirname, "../data/cats.json");
 
+      fs.readFile(catsFilePath, "utf-8", (err, data) => {
+        if (err) {
+          console.error("Failed to read cats file:", err);
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Internal Server Error: Unable to load cats data.");
+          return;
+        }
+
+        let cats = JSON.parse(data);
+        const catIndex = cats.findIndex((c) => c.id.toString() === catId);
+
+        if (catIndex === -1) {
+          console.log("Cat not found with ID:", catId);
+          res.writeHead(404, { "Content-Type": "text/plain" });
+          res.end("Cat not found");
+          return;
+        }
+
+        // Update the cat with new data
+        cats[catIndex] = {
+          ...cats[catIndex],
+          name: fields.name,
+          description: fields.description,
+          image: fields.image,
+          breed: fields.breed,
+        };
+
+        // Save the updated data
+        fs.writeFile(catsFilePath, JSON.stringify(cats, null, 2), (err) => {
+          if (err) {
+            console.error("Failed to save the new cat data:", err);
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end("Failed to save cat data");
+            return;
+          }
+
+          res.writeHead(302, { Location: "/" });
+          res.end();
+        });
+      });
+    });
   } else if (pathname.includes("/cats-find-new-home") && req.method === "GET") {
     // TODO: ...
   } else if (
