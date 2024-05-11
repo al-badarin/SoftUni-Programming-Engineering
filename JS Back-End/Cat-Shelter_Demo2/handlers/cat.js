@@ -256,12 +256,53 @@ module.exports = (req, res) => {
       });
     });
   } else if (pathname.includes("/cats-find-new-home") && req.method === "GET") {
-    // TODO: ...
+    const catId = pathname.split("/")[2];
+
+    const catsFilePath = path.join(__dirname, "../data/cats.json");
+    fs.readFile(catsFilePath, "utf-8", (err, data) => {
+      if (err) {
+        console.error("Failed to read cats file:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Internal Server Error: Unable to load cats data.");
+        return;
+      }
+
+      let cats = JSON.parse(data);
+      const catIndex = cats.findIndex((c) => c.id.toString() === catId);
+
+      if (catIndex === -1) {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("Cat not found");
+        return;
+      }
+
+      // Remove the cat from the array
+      cats.splice(catIndex, 1);
+
+      // Save the updated cats array back to the file
+      fs.writeFile(
+        catsFilePath,
+        JSON.stringify(cats, null, 2),
+        "utf-8",
+        (err) => {
+          if (err) {
+            console.error("Failed to save the updated cat list:", err);
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end("Internal Server Error: Unable to save updated cat data.");
+            return;
+          }
+
+          console.log("Cat removed successfully");
+          res.writeHead(302, { Location: "/" }); // Redirect to the home page
+          res.end();
+        }
+      );
+    });
   } else if (
     pathname.includes("/cats-find-new-home") &&
     req.method === "POST"
   ) {
-    // TODO: ...
+    // TODO: ... ???
   } else {
     return true;
   }
