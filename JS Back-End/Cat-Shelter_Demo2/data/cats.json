@@ -1,19 +1,47 @@
 [
   {
     "id": 1,
-    "name": ["Sisi"],
-    "description": ["We love you Sisi!!!"],
+    "name": [
+      "Sisi"
+    ],
+    "description": [
+      "We love you Sisi!!!"
+    ],
     "image": [
       "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
     ],
-    "breed": ["American Shorthair"]
+    "breed": [
+      "American Shorthair"
+    ]
   },
-
+  {
+    "id": 2,
+    "name": [
+      "edit"
+    ],
+    "description": [
+      "edit"
+    ],
+    "image": [
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
+    ],
+    "breed": [
+      "Scottish Fold"
+    ]
+  },
   {
     "id": 3,
-    "name": ["сфдсбжд"],
-    "description": ["дбдб"],
-    "image": ["ьжбдг"],
-    "breed": ["Siamese cat"]
+    "name": [
+      "EDIT"
+    ],
+    "description": [
+      "EDITTTTTTT"
+    ],
+    "image": [
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
+    ],
+    "breed": [
+      "Persian cat"
+    ]
   }
 ]
