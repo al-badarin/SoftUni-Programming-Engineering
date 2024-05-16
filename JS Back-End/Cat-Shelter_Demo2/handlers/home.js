@@ -5,7 +5,7 @@ const cats = require("../data/cats");
 // const breeds = require("../data/breeds");
 
 module.exports = (req, res) => {
-  const pathname = url.parse(req.url).pathname;
+  const { pathname, query } = url.parse(req.url, true);
 
   if (pathname === "/" && req.method === "GET") {
     let filePath = path.normalize(
@@ -20,14 +20,28 @@ module.exports = (req, res) => {
         res.end();
         return;
       }
+
+      let filteredCats = cats;
+      if (query.search) {
+        console.log("Cats before filtering:", cats);
+        console.log("Search query received:", query.search);
+        filteredCats = cats.filter(
+          (cat) =>
+            cat.name &&
+            Array.isArray(cat.name) &&
+            cat.name[0].toLowerCase().includes(query.search.trim().toLowerCase())
+        );
+        console.log("Filtered cats:", filteredCats);
+      }
+
       // Generate HTML for each cat
-      let modifiedCats = cats
+      let modifiedCats = filteredCats
         .map((cat) => {
           return `<li>
-        <img src="${cat.image}" alt="${cat.name}">
-        <h3>${cat.name}</h3>
-        <p><span>Breed: </span>${cat.breed}</p>
-        <p><span>Description: </span>${cat.description}</p>
+        <img src="${cat.image[0]}" alt="${cat.name[0]}">
+        <h3>${cat.name[0]}</h3>
+        <p><span>Breed: </span>${cat.breed[0]}</p>
+        <p><span>Description: </span>${cat.description[0]}</p>
         <ul class="buttons">
           <li class="btn edit"><a href="/cats-edit/${cat.id}">Change Info</a></li>
           <li class="btn delete"><a href="/cats-find-new-home/${cat.id}">New Home</a></li>
@@ -36,7 +50,9 @@ module.exports = (req, res) => {
         })
         .join("");
 
-      let modifiedData = data.replace("{{cats}}", modifiedCats);
+      let modifiedData = data
+        .replace("{{cats}}", modifiedCats)
+        .replace("{{searchQuery}}", query.search || "");
 
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(modifiedData);
