@@ -1,7 +1,7 @@
 const movies = [
   {
     _id: 1,
-    title: "Jungle Cuise",
+    title: "Jungle Cruise",
     genre: "Adventure",
     director: "Spilberg",
     date: "2019",
