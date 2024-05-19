@@ -59,6 +59,8 @@ exports.search = (title, genre, year) => {
   if (year) {
     result = result.filter((movie) => movie.year === year);
   }
+
+  return result;
 };
 
 exports.getOne = (movieId) => {
