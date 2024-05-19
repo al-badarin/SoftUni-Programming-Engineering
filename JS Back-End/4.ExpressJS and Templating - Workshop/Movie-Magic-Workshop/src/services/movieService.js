@@ -1,5 +1,6 @@
 const movies = [
   {
+    _id: 1,
     title: "Jungle Cuise",
     genre: "Adventure",
     director: "Spilberg",
@@ -17,5 +18,7 @@ exports.getAll = () => {
 };
 
 exports.create = (movieData) => {
+  movieData._id = movies[movies.length - 1]._id + 1;
+  
   movies.push(movieData);
 };
