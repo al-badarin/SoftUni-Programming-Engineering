@@ -38,13 +38,11 @@ const movies = [
   },
 ];
 
-exports.getAll = () => {
-  return movies.slice();
-  // return [...movies]
-};
+exports.getAll = () => Movie.find();
 
-exports.search = (title, genre, year) => {
-  let result = movies.slice();
+// TODO: Filter result in mongoDB
+exports.search = async (title, genre, year) => {
+  let result = await Movie.find().lean();
 
   if (title) {
     result = result.filter((movie) =>
@@ -65,14 +63,6 @@ exports.search = (title, genre, year) => {
   return result;
 };
 
-exports.getOne = (movieId) => {
-  const movie = movies.find((movie) => movie._id == movieId);
+exports.getOne = (movieId) => Movie.findById(movieId);
 
-  return movie;
-};
-
-exports.create = async (movieData) => {
-  const result = await Movie.create(movieData);
-
-  return result;
-};
+exports.create = (movieData) => Movie.create(movieData);

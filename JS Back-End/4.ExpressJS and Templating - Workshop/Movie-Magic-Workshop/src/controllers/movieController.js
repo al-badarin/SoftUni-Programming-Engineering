@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-const e = require("express");
 const movieService = require("../services/movieService");
 
 router.get("/create", (req, res) => {
@@ -12,6 +11,7 @@ router.post("/create", async (req, res) => {
 
   try {
     await movieService.create(newMovie);
+
     res.redirect("/");
   } catch (err) {
     console.log(err.message);
@@ -19,9 +19,9 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.get("/movies/:movieId", (req, res) => {
+router.get("/movies/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
-  const movie = movieService.getOne(movieId);
+  const movie = await movieService.getOne(movieId).lean();
 
   // TODO: This is not perfect, use handlebars helpers
   movie.rating = new Array(Number(movie.rating)).fill(true);
