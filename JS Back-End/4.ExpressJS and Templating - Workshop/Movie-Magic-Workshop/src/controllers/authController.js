@@ -9,9 +9,13 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   const userData = req.body;
 
-  await authService.register(userData);
-
-  res.redirect("/auth/login");
+  try {
+    await authService.register(userData);
+    res.redirect("/auth/login");
+  } catch (error) {
+    console.error("Error during registration:", error.message);
+    res.status(500).send("Registration failed");
+  }
 });
 
 router.get("/login", (req, res) => {
@@ -21,11 +25,14 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const token = await authService.login(email, password);
-
-  console.log(token);
-
-  res.redirect("/");
+  try {
+    const token = await authService.login(email, password);
+    console.log(token);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error during login:", error.message);
+    res.status(401).send("Login failed: " + error.message);
+  }
 });
 
 module.exports = router;
