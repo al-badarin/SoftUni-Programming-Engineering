@@ -27,12 +27,13 @@ router.post("/create", isAuth, async (req, res) => {
 router.get("/movies/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
   const movie = await movieService.getOne(movieId).lean();
+  const isOwner = movie.owner && movie.owner == req.user._id;
   // const casts = await castService.getByIds(movie.casts).lean();
 
   // TODO: This is not perfect, use handlebars helpers
   movie.rating = new Array(Number(movie.rating)).fill(true);
 
-  res.render("movie/details", { movie });
+  res.render("movie/details", { movie, isOwner });
 });
 
 router.get("/movies/:movieId/attach", isAuth, async (req, res) => {
