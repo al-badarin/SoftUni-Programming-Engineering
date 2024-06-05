@@ -67,4 +67,8 @@ router.post("/movies/:movieId/edit", isAuth, async (req, res) => {
   res.redirect(`/movies/${req.params.movieId}`);
 });
 
+router.get("/movies/:movieId/delete", isAuth, async (req, res) => {
+  await movieService.delete(req.params.movieId);
+});
+
 module.exports = router;
