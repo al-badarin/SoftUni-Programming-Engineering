@@ -33,7 +33,7 @@ exports.attach = async (movieId, castId) => {
   const movie = await this.getOne(movieId);
 
   //** This is optional and we don't need it in this case */
-  // const cast = await Cast.findById(castId);
+  const cast = await Cast.findById(castId);
   // cast.movies.push(movie);
   // await cast.save();
 
