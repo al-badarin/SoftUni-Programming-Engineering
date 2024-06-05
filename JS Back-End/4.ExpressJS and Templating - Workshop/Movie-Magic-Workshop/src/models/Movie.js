@@ -8,7 +8,7 @@ const movieSchema = new mongoose.Schema({
   genre: {
     type: String,
     required: true,
-    lowercase: true
+    lowercase: true,
   },
   director: {
     type: String,
@@ -42,6 +42,10 @@ const movieSchema = new mongoose.Schema({
       ref: "Cast",
     },
   ],
+  owner: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
