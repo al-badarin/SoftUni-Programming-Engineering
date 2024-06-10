@@ -1,12 +1,14 @@
 const router = require("express").Router();
 
+const User = require("../models/User");
 const authService = require("../services/authService");
+const { getErrorMessage, validate } = require("../utils/errorUtils");
 
 router.get("/register", (req, res) => {
   res.render("auth/register");
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register", validate(User), async (req, res) => {
   const userData = req.body;
 
   try {
@@ -14,7 +16,10 @@ router.post("/register", async (req, res) => {
     res.redirect("/auth/login");
   } catch (error) {
     console.error("Error during registration:", error.message);
-    res.render("auth/register", { error: error.message });
+
+    const message = getErrorMessage(error);
+
+    res.render("auth/register", { ...userData, error: message });
   }
 });
 
@@ -31,7 +36,10 @@ router.post("/login", async (req, res) => {
     res.redirect("/");
   } catch (error) {
     console.error("Error during login:", error.message);
-    res.status(401).send("Login failed: " + error.message);
+
+    const message = getErrorMessage(err);
+
+    res.status(401).render("auth/login", { error: message });
   }
 });
 
