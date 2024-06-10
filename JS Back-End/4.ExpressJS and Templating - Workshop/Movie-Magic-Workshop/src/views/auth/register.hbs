@@ -1,3 +1,9 @@
+{{#if error}}
+  <div class="error-container">
+    <p>{{error}}</p>
+  </div>
+{{/if}}
+
 <section id="register-page">
   <div class="registerSection">
     <div class="info-register">
@@ -15,7 +21,12 @@
         </li>
         <li>
           <label for="password">Password:</label>
-          <input type="password" class="inputFields" id="password" name="password" />
+          <input
+            type="password"
+            class="inputFields"
+            id="password"
+            name="password"
+          />
         </li>
         <li>
           <label for="repeat-password">Repeat-Password:</label>
