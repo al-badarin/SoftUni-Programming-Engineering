@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     res.redirect("/auth/login");
   } catch (error) {
     console.error("Error during registration:", error.message);
-    res.status(500).send("Registration failed");
+    res.render("auth/register", { error: error.message });
   }
 });
 
