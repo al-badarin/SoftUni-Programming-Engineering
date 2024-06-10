@@ -7,10 +7,14 @@ const userSchema = new Schema({
     required: true,
     lowercase: true,
     unique: true,
+    match: [/@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/, "Invalid Email Address"],
+    minLength: [10, "Email should be at least 10 characters"],
   },
   password: {
     type: String,
     required: true,
+    minLength: [6, "Password should be at least 6 characters"],
+    match: [/^[a-zA-Z0-9]+$/, 'Password should be alphanumeric'],
   },
 });
 
