@@ -37,7 +37,7 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     console.error("Error during login:", error.message);
 
-    const message = getErrorMessage(err);
+    const message = getErrorMessage(error);
 
     res.status(401).render("auth/login", { error: message });
   }
