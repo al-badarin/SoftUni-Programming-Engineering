@@ -1,9 +1,20 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-exports.register = (userData) => User.create(userData);
+exports.register = async (userData) => {
+  if (userData.password !== userData.rePassword) {
+    throw new Error("Password missmatch");
+  }
 
-exports.register = async ({ email, password }) => {
+  const user = await User.find({ email: userData.email });
+  if (user) {
+    throw new Error("User already exists");
+  }
+
+  return User.create(userData);
+};
+
+exports.login = async ({ email, password }) => {
   const user = await User.findOne({ email });
 
   if (!user) {
