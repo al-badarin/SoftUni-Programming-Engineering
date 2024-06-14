@@ -25,6 +25,13 @@ router.post("/login", async (req, res) => {
   const token = await authService.login(loginData);
 
   res.cookie("auth", token);
+
+  // TODO: double check the tasks for potential change of the redirecrt!
+  res.redirect("/");
+});
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("auth");
   res.redirect("/");
 });
 
