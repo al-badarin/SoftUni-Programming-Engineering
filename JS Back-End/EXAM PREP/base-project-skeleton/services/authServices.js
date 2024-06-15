@@ -2,7 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("../lib/jsonwebtoken");
 
-const SECRET = "jfew8u4i3qhng09384gurh9308hfuwqgn";
+const { SECRET } = require("../config");
 
 exports.register = async (userData) => {
   if (userData.password !== userData.rePassword) {
