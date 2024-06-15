@@ -3,11 +3,13 @@ const handlebars = require("express-handlebars");
 const mongoose = require("mongoose");
 
 const routes = require("./routes");
+const { authMiddleware } = require("./middlewares/authMiddleware");
 
 const app = express();
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(authMiddleware);
 
 app.engine(
   "hbs",
