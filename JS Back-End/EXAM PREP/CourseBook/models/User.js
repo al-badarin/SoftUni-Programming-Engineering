@@ -22,6 +22,16 @@ const userSchema = new mongoose.Schema({
     minLength: [6, "Password should be at least 6 characters"],
     match: [/^[a-zA-Z0-9]+$/, "Password should be alphanumeric"],
   },
+  createdCourses: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+  signedUpCourses: {
+    type: mongoose.Types.ObjectId,
+    ref: "Course",
+  },
 });
 
 userSchema.pre("save", async function () {
