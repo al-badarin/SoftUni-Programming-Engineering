@@ -28,12 +28,12 @@ const courseSchema = new mongoose.Schema({
   },
   signUpList: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
     },
   ],
   owner: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Types.ObjectId,
     ref: "User",
     // required: [true, "Owner is required"],
   },
