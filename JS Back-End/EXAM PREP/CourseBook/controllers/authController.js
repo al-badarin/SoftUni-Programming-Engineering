@@ -32,10 +32,9 @@ router.post("/login", async (req, res) => {
 
     res.cookie("auth", token);
 
-    // TODO: double check the tasks for potential change of the redirecrt!
     res.redirect("/");
   } catch (err) {
-    res.render("auth/login", { error: getErrorMessage(err) });
+    res.render("auth/login", { ...loginData, error: getErrorMessage(err) });
   }
 });
 
