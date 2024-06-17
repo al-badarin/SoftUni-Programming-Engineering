@@ -4,8 +4,10 @@ const { getErrorMessage } = require("../utils/errorUtils");
 const courseService = require("../services/courseService");
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.render("courses/catalog");
+router.get("/", async (req, res) => {
+  const courses = await courseService.getAll().lean();
+
+  res.render("courses/catalog", { courses });
 });
 
 router.get("/create", isAuth, (req, res) => {
