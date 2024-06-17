@@ -4,6 +4,10 @@ const { getErrorMessage } = require("../utils/errorUtils");
 const courseService = require("../services/courseService");
 const router = require("express").Router();
 
+router.get("/", (req, res) => {
+  res.render("courses/catalog");
+});
+
 router.get("/create", isAuth, (req, res) => {
   res.render("courses/create");
 });
