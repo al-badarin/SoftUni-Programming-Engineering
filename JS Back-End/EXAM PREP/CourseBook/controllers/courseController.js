@@ -16,6 +16,12 @@ router.get("/:courseId/details", async (req, res) => {
   res.render("courses/details", { ...course });
 });
 
+router.get("/:courseId/sign-up", async (req, res) => {
+  await courseService.signUp(req.params.courseId, req.user._id);
+
+  res.redirect(`/courses/${req.params.courseId}/details`);
+});
+
 router.get("/create", isAuth, (req, res) => {
   res.render("courses/create");
 });

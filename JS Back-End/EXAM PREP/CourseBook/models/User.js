@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     required: [true, "Password is required"],
     //TODO: validations can be different!
     minLength: [6, "Password should be at least 6 characters"],
-    match: [/^[a-zA-Z0-9]+$/, "Password should be alphanumeric"],
+    // match: [/^[a-zA-Z0-9]+$/, "Password should be alphanumeric"],
   },
   createdCourses: [
     {
@@ -28,10 +28,12 @@ const userSchema = new mongoose.Schema({
       ref: "Course",
     },
   ],
-  signedUpCourses: {
-    type: mongoose.Types.ObjectId,
-    ref: "Course",
-  },
+  signedUpCourses: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
 });
 
 userSchema.pre("save", async function () {
