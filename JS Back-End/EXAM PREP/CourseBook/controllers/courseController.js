@@ -13,7 +13,9 @@ router.get("/", async (req, res) => {
 router.get("/:courseId/details", async (req, res) => {
   const course = await courseService.getOneDetailed(req.params.courseId).lean();
 
-  res.render("courses/details", { ...course });
+  const signUpUsers = course.signUpList.map((user) => user.username).join(", ");
+
+  res.render("courses/details", { ...course, signUpUsers });
 });
 
 router.get("/:courseId/sign-up", async (req, res) => {

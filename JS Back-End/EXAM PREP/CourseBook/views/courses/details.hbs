@@ -8,10 +8,11 @@
     <h3>Certificate: {{certificate}}</h3>
     <h3>Price: €{{price}}</h3>
     <h3>By: {{owner.email}}</h3>
-    <!--If there are sign up users-->
-    <h4>Signed By: cate.brown, nikolas.p</h4>
-    <!--If there are no sign up users-->
-    <h4>Nobody has signed in for this course yet</h4>
+    {{#if signUpList}}
+      <h4>Signed By: {{signUpUsers}}</h4>
+    {{else}}
+      <h4>Nobody has signed in for this course yet</h4>
+    {{/if}}
   </div>
   <div class="details-container-content">
     <p>{{description}}</p>
