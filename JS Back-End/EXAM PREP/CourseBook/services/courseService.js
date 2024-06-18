@@ -36,4 +36,8 @@ exports.create = async (userId, courseData) => {
   return createdCourse;
 };
 
+exports.edit = (courseId, courseData) => Course.findByIdAndUpdate(courseId, courseData, {runValidators: true})
+
 exports.delete = (courseId) => Course.findByIdAndDelete(courseId);
+
+

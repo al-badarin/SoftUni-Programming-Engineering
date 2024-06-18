@@ -53,6 +53,18 @@ router.get("/:courseId/edit", isCourseOwner, async (req, res) => {
   // res.render("course/edit", { ...req.course });
 });
 
+router.post("/:courseId/edit", isCourseOwner, async (req, res) => {
+  const courseData = req.body;
+
+  try {
+    await courseService.edit(req.params.courseId, courseData);
+
+    res.redirect(`/courses/${req.params.courseId}/details`);
+  } catch (err) {
+    res.render("courses/edit", { ...courseData, error: getErrorMessage(err) });
+  }
+});
+
 router.get("/:courseId/delete", isCourseOwner, async (req, res) => {
   await courseService.delete(req.params.courseId);
 
