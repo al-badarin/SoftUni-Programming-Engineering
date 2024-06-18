@@ -40,11 +40,20 @@ const courseSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  createdAt: {
+    type: Date,
+  },
   owner: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: [true, "Owner is required"],
   },
+});
+
+courseSchema.pre("save", function () {
+  if (!this.createdAt) {
+    this.createdAt = Date.now();
+  }
 });
 
 const Course = mongoose.model("Course", courseSchema);

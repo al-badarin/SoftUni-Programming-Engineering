@@ -9,6 +9,8 @@ exports.getOne = (courseId) => Course.findById(courseId);
 exports.getOneDetailed = (courseId) =>
   this.getOne(courseId).populate("owner").populate("signUpList");
 
+exports.getLatest = () => Course.find().sort({ createdAt: -1 }).limit(3);
+
 exports.signUp = async (courseId, userId) => {
   // await Course.findByIdAndUpdate(courseId, { $push: { signUpList: userId } });
   // await User.findByIdAndUpdate(userId, { $push: { signedUpCourses: courseId } })
@@ -36,8 +38,7 @@ exports.create = async (userId, courseData) => {
   return createdCourse;
 };
 
-exports.edit = (courseId, courseData) => Course.findByIdAndUpdate(courseId, courseData, {runValidators: true})
+exports.edit = (courseId, courseData) =>
+  Course.findByIdAndUpdate(courseId, courseData, { runValidators: true });
 
 exports.delete = (courseId) => Course.findByIdAndDelete(courseId);
-
-
