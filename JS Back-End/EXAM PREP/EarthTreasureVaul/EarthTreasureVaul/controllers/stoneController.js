@@ -14,8 +14,16 @@ router.get("/:stoneId/details", async (req, res) => {
   const stone = await stoneServices.getOne(req.params.stoneId).lean();
 
   const isOwner = stone.owner && stone.owner._id == req.user?._id;
+  const isLiked = stone.likedList.some((user) => user._id == req.user?._id);
 
-  res.render("stones/details", { ...stone, isOwner });
+  res.render("stones/details", { ...stone, isOwner, isLiked });
+});
+
+//TODO: guard who can like !(protection via link in browser)!
+router.get("/:stoneId/like", async (req, res) => {
+  await stoneServices.like(req.params.stoneId, req.user._id);
+
+  res.redirect(`/stones/${req.params.stoneId}/details`);
 });
 
 router.get("/create", isAuth, (req, res) => {
