@@ -15,4 +15,4 @@
 15. Add the third button functionality.
 16. Add extra functionality.
 17. Route guards.
-18. Mongoose schema validations.
+18. Mongoose schema validations. 
