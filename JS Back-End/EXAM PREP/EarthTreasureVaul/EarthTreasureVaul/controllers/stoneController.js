@@ -4,8 +4,10 @@ const { getErrorMessage } = require("../utils/errorUtils");
 const stoneServices = require("../services/stoneServices");
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.render("stones/dashboard");
+router.get("/", async (req, res) => {
+  const stones = await stoneServices.getAll().lean();
+
+  res.render("stones/dashboard", { stones });
 });
 
 router.get("/create", isAuth, (req, res) => {
