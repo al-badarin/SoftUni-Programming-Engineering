@@ -8,4 +8,8 @@ router.get("/", (req, res) => {
   res.render("stones/dashboard");
 });
 
+router.get("/create", (req, res) => {
+  res.render("stones/create");
+});
+
 module.exports = router;
