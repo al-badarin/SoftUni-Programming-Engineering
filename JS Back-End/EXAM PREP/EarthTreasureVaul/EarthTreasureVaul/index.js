@@ -23,8 +23,7 @@ app.set("view engine", "hbs");
 
 app.use(routes);
 
-//TODO: change url name
-mongoose.connect("mongodb://localhost:27017/course-book");
+mongoose.connect("mongodb://localhost:27017/earth-treasure-vaul");
 
 mongoose.connection.on("connected", () => console.log("DB is connected"));
 mongoose.connection.on("disconnected", () => console.log("DB is disconnected"));
