@@ -47,4 +47,4 @@ const stoneSchema = new mongoose.Schema(
 
 const Stone = mongoose.model("Stone", stoneSchema);
 
-module.exports = Course;
+module.exports = Stone;
