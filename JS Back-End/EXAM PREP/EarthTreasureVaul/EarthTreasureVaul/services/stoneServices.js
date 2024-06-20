@@ -1,3 +1,4 @@
+const { query } = require("express");
 const Stone = require("../models/Stone");
 const User = require("../models/User");
 
@@ -36,3 +37,8 @@ exports.edit = (stoneId, stoneData) =>
   Stone.findByIdAndUpdate(stoneId, stoneData, { runValidators: true });
 
 exports.delete = (stoneId) => Stone.findByIdAndDelete(stoneId);
+
+exports.search = (query) => {
+  const searchPattern = new RegExp(query, "i");
+  return Stone.find({ name: searchPattern });
+};
