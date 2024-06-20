@@ -1,7 +1,6 @@
 const router = require("express").Router();
-
-const { isGuest, isAuth } = require("../middlewares/authMiddleware");
 const authService = require("../services/authServices");
+const { isGuest, isAuth } = require("../middlewares/authMiddleware");
 const { getErrorMessage } = require("../utils/errorUtils");
 
 router.get("/register", isGuest, (req, res) => {

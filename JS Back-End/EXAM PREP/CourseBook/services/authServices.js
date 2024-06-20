@@ -6,7 +6,7 @@ const { SECRET } = require("../config");
 
 exports.register = async (userData) => {
   if (userData.password !== userData.rePassword) {
-    throw new Error("Password missmatch");
+    throw new Error("Passwords do not match");
   }
 
   const user = await User.findOne({ email: userData.email });
