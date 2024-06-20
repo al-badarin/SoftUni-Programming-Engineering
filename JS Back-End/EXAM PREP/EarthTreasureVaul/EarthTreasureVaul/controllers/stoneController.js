@@ -1,6 +1,7 @@
 const { isAuth } = require("../middlewares/authMiddleware");
-const likeGuard = require("../middlewares/likeGuard");
 const { getErrorMessage } = require("../utils/errorUtils");
+const likeGuard  = require("../middlewares/likeGuard");
+const { isStoneOwner } = require("../middlewares/stoneMiddlewares");
 
 const stoneServices = require("../services/stoneServices");
 const router = require("express").Router();
@@ -45,10 +46,10 @@ router.post("/create", isAuth, async (req, res) => {
   }
 });
 
-router.get('/:stoneId/delete', async(req,res)=>{
-  await stoneServices.delete(req.params.stoneId)
+router.get("/:stoneId/delete", isStoneOwner, async (req, res) => {
+  await stoneServices.delete(req.params.stoneId);
 
-  res.redirect('/stones')
-})
+  res.redirect("/stones");
+});
 
 module.exports = router;
