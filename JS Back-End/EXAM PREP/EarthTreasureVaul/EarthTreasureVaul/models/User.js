@@ -16,6 +16,12 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       minLength: [4, "Password should be at least 4 characters"],
     },
+    createdStones: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Stone",
+      },
+    ],
     likedStones: [
       {
         type: mongoose.Types.ObjectId,

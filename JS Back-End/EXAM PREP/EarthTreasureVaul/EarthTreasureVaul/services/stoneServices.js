@@ -25,10 +25,14 @@ exports.create = async (userId, stoneData) => {
     ...stoneData,
   });
 
+  await User.findByIdAndUpdate(userId, {
+    $push: { createdStones: createdStone._id },
+  });
+
   return createdStone;
 };
 
-// TODO:
-//exports.edit
+exports.edit = (stoneId, stoneData) =>
+  Stone.findByIdAndUpdate(stoneId, stoneData, { runValidators: true });
 
-exports.delete = async (stoneId) => Stone.findByIdAndDelete(stoneId);
+exports.delete = (stoneId) => Stone.findByIdAndDelete(stoneId);

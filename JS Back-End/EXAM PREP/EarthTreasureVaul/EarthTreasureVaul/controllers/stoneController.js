@@ -1,9 +1,10 @@
 const { isAuth } = require("../middlewares/authMiddleware");
 const { getErrorMessage } = require("../utils/errorUtils");
-const likeGuard  = require("../middlewares/likeGuard");
-const { isStoneOwner } = require("../middlewares/stoneMiddlewares");
+
+const likeGuard = require("../middlewares/likeGuard");
 
 const stoneServices = require("../services/stoneServices");
+const { isStoneOwner } = require("../middlewares/stoneMiddlewares");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
@@ -44,6 +45,12 @@ router.post("/create", isAuth, async (req, res) => {
       error: getErrorMessage(err),
     });
   }
+});
+
+router.get("/:stoneId/edit", isStoneOwner, async (req, res) => {
+  const stone = await stoneServices.getOne(req.params.stoneId).lean();
+
+  res.render("stones/edit", { ...stone });
 });
 
 router.get("/:stoneId/delete", isStoneOwner, async (req, res) => {
