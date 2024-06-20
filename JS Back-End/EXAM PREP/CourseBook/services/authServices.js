@@ -26,12 +26,12 @@ exports.login = async ({ email, password }) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Error("Email or passowrd is invalid");
+    throw new Error("Email or password is invalid");
   }
 
   const isValid = await bcrypt.compare(password, user.password);
   if (!isValid) {
-    throw new Error("Email or passowrd is invalid");
+    throw new Error("Email or password is invalid");
   }
 
   const token = await generateToken(user);
