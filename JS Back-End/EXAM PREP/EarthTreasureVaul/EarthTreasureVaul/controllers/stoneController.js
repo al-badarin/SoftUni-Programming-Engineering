@@ -45,4 +45,10 @@ router.post("/create", isAuth, async (req, res) => {
   }
 });
 
+router.get('/:stoneId/delete', async(req,res)=>{
+  await stoneServices.delete(req.params.stoneId)
+
+  res.redirect('/stones')
+})
+
 module.exports = router;

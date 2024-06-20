@@ -5,6 +5,9 @@ exports.getAll = () => Stone.find();
 
 exports.getOne = (stoneId) => Stone.findById(stoneId).populate("owner");
 
+// TODO:
+//exports.getLatest
+
 exports.like = async (stoneId, userId) => {
   const stone = await Stone.findById(stoneId);
   const user = await User.findById(userId);
@@ -24,3 +27,8 @@ exports.create = async (userId, stoneData) => {
 
   return createdStone;
 };
+
+// TODO:
+//exports.edit
+
+exports.delete = async (stoneId) => Stone.findByIdAndDelete(stoneId);
