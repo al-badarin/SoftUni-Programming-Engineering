@@ -1,4 +1,5 @@
 const { isAuth } = require("../middlewares/authMiddleware");
+const likeGuard = require("../middlewares/likeGuard");
 const { getErrorMessage } = require("../utils/errorUtils");
 
 const stoneServices = require("../services/stoneServices");
@@ -19,8 +20,7 @@ router.get("/:stoneId/details", async (req, res) => {
   res.render("stones/details", { ...stone, isOwner, isLiked });
 });
 
-//TODO: guard who can like !(protection via link in browser)!
-router.get("/:stoneId/like", async (req, res) => {
+router.get("/:stoneId/like", likeGuard, async (req, res) => {
   await stoneServices.like(req.params.stoneId, req.user._id);
 
   res.redirect(`/stones/${req.params.stoneId}/details`);
