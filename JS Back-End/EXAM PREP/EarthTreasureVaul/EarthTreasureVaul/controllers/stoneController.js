@@ -53,6 +53,18 @@ router.get("/:stoneId/edit", isStoneOwner, async (req, res) => {
   res.render("stones/edit", { ...stone });
 });
 
+router.post("/:stoneId/edit", isStoneOwner, async (req, res) => {
+  const stoneData = req.body;
+
+  try {
+    await stoneServices.edit(req.params.stoneId, stoneData);
+
+    res.redirect(`/stones/${req.params.stoneId}/details`);
+  } catch (err) {
+    res.render("stones/edit", { ...stoneData, error: getErrorMessage(err) });
+  }
+});
+
 router.get("/:stoneId/delete", isStoneOwner, async (req, res) => {
   await stoneServices.delete(req.params.stoneId);
 
