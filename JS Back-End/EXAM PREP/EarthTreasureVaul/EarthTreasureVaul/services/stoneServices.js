@@ -6,8 +6,7 @@ exports.getAll = () => Stone.find();
 
 exports.getOne = (stoneId) => Stone.findById(stoneId).populate("owner");
 
-// TODO:
-//exports.getLatest
+exports.getLatest = () => Stone.find().sort({ createdAt: -1 }).limit(3);
 
 exports.like = async (stoneId, userId) => {
   const stone = await Stone.findById(stoneId);

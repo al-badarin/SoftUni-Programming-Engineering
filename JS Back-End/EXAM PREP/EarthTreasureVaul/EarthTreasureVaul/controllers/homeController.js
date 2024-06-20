@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const stoneServices = require("../services/stoneServices");
 
-router.get("/", (req, res) => {
-  res.render("home");
+router.get("/", async (req, res) => {
+  const latestStones = await stoneServices.getLatest().lean();
+
+  res.render("home", { latestStones });
 });
 
 router.get("/search", async (req, res) => {
