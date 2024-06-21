@@ -8,7 +8,7 @@ const { authMiddleware } = require("./middlewares/authMiddleware");
 
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static("static"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(authMiddleware);
@@ -23,8 +23,7 @@ app.set("view engine", "hbs");
 
 app.use(routes);
 
-//TODO: change url name
-mongoose.connect("mongodb://localhost:27017/course-book");
+mongoose.connect("mongodb://localhost:27017/magma-haven");
 
 mongoose.connection.on("connected", () => console.log("DB is connected"));
 mongoose.connection.on("disconnected", () => console.log("DB is disconnected"));

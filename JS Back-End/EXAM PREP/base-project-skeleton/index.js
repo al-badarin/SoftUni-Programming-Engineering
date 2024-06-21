@@ -8,6 +8,7 @@ const { authMiddleware } = require("./middlewares/authMiddleware");
 
 const app = express();
 
+//TODO: change static folder name (if needed)!
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
