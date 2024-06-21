@@ -46,4 +46,12 @@ router.post("/create", isAuth, async (req, res) => {
   }
 });
 
+router.get("/:volcanoId/edit", async (req, res) => {
+  const volcano = await volcanoServices.getOne(req.params.volcanoId).lean();
+
+  res.render("volcanoes/edit", { ...volcano });
+});
+
+//TODO: *edit / *delete / *add isVolcanoOwner / *search
+
 module.exports = router;
