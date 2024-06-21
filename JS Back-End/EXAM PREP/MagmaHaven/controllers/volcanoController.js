@@ -67,6 +67,12 @@ router.post("/:volcanoId/edit", async (req, res) => {
   }
 });
 
-//TODO: *edit / *delete / *add isVolcanoOwner / *search
+router.get("/:volcanoId/delete", async (req, res) => {
+  await volcanoServices.delete(req.params.volcanoId);
+
+  res.redirect("/volcanoes");
+});
+
+//TODO: *delete / *add isVolcanoOwner / *search
 
 module.exports = router;
