@@ -52,6 +52,21 @@ router.get("/:volcanoId/edit", async (req, res) => {
   res.render("volcanoes/edit", { ...volcano });
 });
 
+router.post("/:volcanoId/edit", async (req, res) => {
+  const volcanoData = req.body;
+
+  try {
+    await volcanoServices.edit(req.params.volcanoId, volcanoData);
+
+    res.redirect(`/volcanoes/${req.params.volcanoId}/details`);
+  } catch (err) {
+    res.render("volcanoes/edit", {
+      ...volcanoData,
+      error: getErrorMessage(err),
+    });
+  }
+});
+
 //TODO: *edit / *delete / *add isVolcanoOwner / *search
 
 module.exports = router;
