@@ -17,7 +17,7 @@ router.post("/register", isGuest, async (req, res) => {
     res.cookie("auth", token);
     res.redirect("/");
   } catch (err) {
-    res.render("auth/register", { error: getErrorMessage(err) });
+    res.render("auth/register", { ...userData, error: getErrorMessage(err) });
   }
 });
 
@@ -33,10 +33,9 @@ router.post("/login", isGuest, async (req, res) => {
 
     res.cookie("auth", token);
 
-    // TODO: double check the tasks for potential change of the redirecrt!
     res.redirect("/");
   } catch (err) {
-    res.render("auth/login", { error: getErrorMessage(err) });
+    res.render("auth/login", { ...loginData, error: getErrorMessage(err) });
   }
 });
 
