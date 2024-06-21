@@ -10,4 +10,23 @@ router.get("/", async (req, res) => {
   res.render("volcanoes/catalog", { volcanoes });
 });
 
+router.get("/create", isAuth, (req, res) => {
+  res.render("volcanoes/create");
+});
+
+router.post("/create", isAuth, async (req, res) => {
+  const volcanoData = req.body;
+
+  try {
+    await volcanoServices.create(req.user._id, volcanoData);
+
+    res.redirect("/volcanoes");
+  } catch (err) {
+    res.render("volcanoes/create", {
+      ...volcanoData,
+      error: getErrorMessage(err),
+    });
+  }
+});
+
 module.exports = router;

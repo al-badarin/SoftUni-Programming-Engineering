@@ -5,8 +5,6 @@ exports.getAll = () => Volcano.find();
 
 exports.getOne = (volcanoId) => Volcano.findById(volcanoId);
 
-exports.getLatest = () => Volcano.find().sort({ createdAt: -1 }).limit(3);
-
 exports.vote = async (volcanoId, userId) => {
   const volcano = await Volcano.findById(volcanoId);
   const user = await User.findById(userId);
