@@ -21,15 +21,15 @@ exports.register = async (userData) => {
   return token;
 };
 
-exports.login = async ({ email, password }) => {
+exports.login = async (loginData) => {
   // Check if user exists
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email: loginData.email });
 
   if (!user) {
     throw new Error("Email or passowrd is invalid");
   }
 
-  const isValid = await bcrypt.compare(password, user.password);
+  const isValid = await bcrypt.compare(loginData.password, user.password);
   if (!isValid) {
     throw new Error("Email or passowrd is invalid");
   }
