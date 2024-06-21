@@ -3,7 +3,7 @@ const Volcano = require("../models/Volcano");
 
 exports.getAll = () => Volcano.find();
 
-exports.getOne = (volcanoId) => Volcano.findById(volcanoId);
+exports.getOne = (volcanoId) => Volcano.findById(volcanoId).populate("owner");;
 
 exports.vote = async (volcanoId, userId) => {
   const volcano = await Volcano.findById(volcanoId);
