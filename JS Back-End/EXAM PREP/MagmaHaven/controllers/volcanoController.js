@@ -3,6 +3,7 @@ const { getErrorMessage } = require("../utils/errorUtils");
 const volcanoServices = require("../services/volcanoServices");
 
 const voteGuard = require("../middlewares/voteGuard");
+const { isVolcanoOwner } = require("../middlewares/volcanoMiddleware");
 
 const router = require("express").Router();
 
@@ -46,13 +47,13 @@ router.post("/create", isAuth, async (req, res) => {
   }
 });
 
-router.get("/:volcanoId/edit", async (req, res) => {
+router.get("/:volcanoId/edit", isVolcanoOwner, async (req, res) => {
   const volcano = await volcanoServices.getOne(req.params.volcanoId).lean();
 
   res.render("volcanoes/edit", { ...volcano });
 });
 
-router.post("/:volcanoId/edit", async (req, res) => {
+router.post("/:volcanoId/edit", isVolcanoOwner, async (req, res) => {
   const volcanoData = req.body;
 
   try {
@@ -67,12 +68,10 @@ router.post("/:volcanoId/edit", async (req, res) => {
   }
 });
 
-router.get("/:volcanoId/delete", async (req, res) => {
+router.get("/:volcanoId/delete", isVolcanoOwner, async (req, res) => {
   await volcanoServices.delete(req.params.volcanoId);
 
   res.redirect("/volcanoes");
 });
-
-//TODO: *delete / *add isVolcanoOwner / *search
 
 module.exports = router;
