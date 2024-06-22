@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     username: {
       type: String,
       required: [true, "Username is required"],
-      minLength: [2, "Username should be at least 10 characters"],
+      minLength: [2, "Username should be at least 2 characters"],
     },
     email: {
       type: String,
@@ -37,7 +37,9 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function () {
-  this.password = await bcrypt.hash(this.password, 12);
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 12);
+  }
 });
 
 const User = mongoose.model("User", userSchema);
