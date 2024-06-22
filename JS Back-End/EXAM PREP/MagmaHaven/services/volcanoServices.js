@@ -3,7 +3,7 @@ const Volcano = require("../models/Volcano");
 
 exports.getAll = () => Volcano.find();
 
-exports.getOne = (volcanoId) => Volcano.findById(volcanoId).populate("owner");;
+exports.getOne = (volcanoId) => Volcano.findById(volcanoId).populate("owner");
 
 exports.vote = async (volcanoId, userId) => {
   const volcano = await Volcano.findById(volcanoId);
@@ -33,3 +33,22 @@ exports.edit = (volcanoId, volcanoData) =>
   Volcano.findByIdAndUpdate(volcanoId, volcanoData, { runValidators: true });
 
 exports.delete = (volcanoId) => Volcano.findByIdAndDelete(volcanoId);
+
+exports.search = (searchString, type) => {
+  const searchPattern = new RegExp(searchString, "i");
+
+  const query = {
+    $or: [
+      { name: { $regex: searchPattern } },
+      { typeVolcano: { $regex: searchPattern } },
+    ],
+  };
+
+  if (type) {
+    query.typeVolcano = type; 
+  }
+
+  const volcanoes = Volcano.find(query);
+
+  return volcanoes;
+};
