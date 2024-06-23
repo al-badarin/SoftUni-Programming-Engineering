@@ -13,8 +13,16 @@ router.get("/", async (req, res) => {
   res.render("recipes/catalog", { recipes });
 });
 
-//TODO: get - details
-//TODO: post - details
+router.get("/:recipeId/details", async (req, res) => {
+  const recipe = await recipeServices.getOne(req.params.recipeId).lean();
+
+  const isOwner = recipe.owner && recipe.owner._id == req.user?._id;
+  const isRecommended = recipe.recommendList.some(
+    (user) => user._id == req.user?._id
+  );
+
+  res.render("recipes/details", { ...recipe, isOwner, isRecommended });
+});
 
 router.get("/add-recipe", isAuth, (req, res) => {
   res.render("recipes/create");
