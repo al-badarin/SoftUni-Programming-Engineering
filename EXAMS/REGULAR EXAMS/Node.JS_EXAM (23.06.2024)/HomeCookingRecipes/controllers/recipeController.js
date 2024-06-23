@@ -21,18 +21,18 @@ router.get("/add-recipe", isAuth, (req, res) => {
 });
 
 router.post("/add-recipe", isAuth, async (req, res) => {
-    const recipeData = req.body;
-  
-    try {
-      await recipeServices.create(req.user._id, recipeData);
-  
-      res.redirect("/recipes");
-    } catch (err) {
-      res.render("recipes/create", {
-        ...recipeData,
-        error: getErrorMessage(err),
-      });
-    }
-  });
+  const recipeData = req.body;
+
+  try {
+    await recipeServices.create(req.user._id, recipeData);
+
+    res.redirect("/recipes");
+  } catch (err) {
+    res.render("recipes/create", {
+      ...recipeData,
+      error: getErrorMessage(err),
+    });
+  }
+});
 
 module.exports = router;
