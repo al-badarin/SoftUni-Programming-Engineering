@@ -8,7 +8,7 @@ const { authMiddleware } = require("./middlewares/authMiddleware");
 
 const app = express();
 
-app.use(express.static("static"));
+app.use(express.static("styles"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(authMiddleware);
