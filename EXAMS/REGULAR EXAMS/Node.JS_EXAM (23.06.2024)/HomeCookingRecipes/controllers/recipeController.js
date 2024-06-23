@@ -67,4 +67,10 @@ router.post("/:recipeId/edit", isRecipeOwner, async (req, res) => {
   }
 });
 
+router.get("/:recipeId/delete", isRecipeOwner, async (req, res) => {
+  await recipeServices.delete(req.params.recipeId);
+
+  res.redirect("/recipes");
+});
+
 module.exports = router;
