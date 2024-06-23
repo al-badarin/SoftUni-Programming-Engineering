@@ -7,4 +7,10 @@ router.get("/", async (req, res) => {
   res.render("home", { latestRecipes });
 });
 
+router.get("/search", async (req, res) => {
+  const query = req.query.search || "";
+  const recipes = await recipeServices.search(query).lean();
+  res.render("search", { recipes, query });
+});
+
 module.exports = router;
