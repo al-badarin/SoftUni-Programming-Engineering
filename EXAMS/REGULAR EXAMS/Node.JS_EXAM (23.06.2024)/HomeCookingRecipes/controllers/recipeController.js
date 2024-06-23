@@ -16,8 +16,23 @@ router.get("/", async (req, res) => {
 //TODO: get - details
 //TODO: post - details
 
-router.get("/add-recipes", isAuth, (req, res) => {
+router.get("/add-recipe", isAuth, (req, res) => {
   res.render("recipes/create");
 });
+
+router.post("/add-recipe", isAuth, async (req, res) => {
+    const recipeData = req.body;
+  
+    try {
+      await recipeServices.create(req.user._id, recipeData);
+  
+      res.redirect("/recipes");
+    } catch (err) {
+      res.render("recipes/create", {
+        ...recipeData,
+        error: getErrorMessage(err),
+      });
+    }
+  });
 
 module.exports = router;
