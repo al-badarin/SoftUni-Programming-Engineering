@@ -1,6 +1,8 @@
+import Footer from "./components/Footer";
+
 function App() {
   return (
-    <>
+    <div>
       <div className="hero_area">
         <header className="header_section">
           <div className="container-fluid">
@@ -25,13 +27,13 @@ function App() {
                 id="navbarSupportedContent"
               >
                 <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                  <ul className="navbar-nav  ">
+                  <ul className="navbar-nav">
                     <li className="nav-item active">
                       <a className="nav-link" href="index.html">
                         Home <span className="sr-only">(current)</span>
                       </a>
                     </li>
-                    <li className="nav-item ">
+                    <li className="nav-item">
                       <a className="nav-link" href="why.html">
                         {" "}
                         Why us{" "}
@@ -64,8 +66,9 @@ function App() {
           </div>
         </header>
       </div>
-
-      <section className=" slider_section position-relative">
+      
+      //TODO: (slider_section position-relative) is not showing
+      <section className="slider_section position-relative">
         <div
           id="carouselExampleIndicators"
           className="carousel slide"
@@ -334,7 +337,7 @@ function App() {
             <div className="col-lg-4 col-md-6 mx-auto">
               <div className="box">
                 <div className="name">
-                  <h5>Jean Doe</h5>
+                  <h5>Yordan Zhelev</h5>
                 </div>
                 <div className="img-box">
                   <img src="images/t2.jpg" alt="" />
@@ -377,7 +380,7 @@ function App() {
         </div>
       </section>
 
-      <section className="contact_section ">
+      <section className="contact_section">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 px-0">
@@ -454,13 +457,8 @@ function App() {
         </div>
       </section>
 
-      <footer className="container-fluid footer_section">
-        <p>
-          &copy; 2020 All Rights Reserved. Design by
-          <a href="https://html.design/">Free Html Templates</a>
-        </p>
-      </footer>
-    </>
+      <Footer/>
+    </div>
   );
 }
 
