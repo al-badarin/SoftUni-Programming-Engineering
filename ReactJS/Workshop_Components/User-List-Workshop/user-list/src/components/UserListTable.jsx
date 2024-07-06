@@ -135,7 +135,8 @@ const UserListTable = () => {
 
       <button className="btn-add btn">Add new user</button>
 
-      <div className="pagination position">
+      {/* PAGINATION */}
+      {/* <div className="pagination position">
         <div class="limits">
           <span>Items per page:</span>
           <select name="limit" class="limit" value="5">
@@ -218,7 +219,7 @@ const UserListTable = () => {
             </svg>
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

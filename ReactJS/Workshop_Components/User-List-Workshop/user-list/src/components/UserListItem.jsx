@@ -1,3 +1,5 @@
+import { formatDate } from "../utils/dataUtils";
+
 const UserListItem = ({
   userId,
   firstName,
@@ -74,3 +76,5 @@ const UserListItem = ({
     </tr>
   );
 };
+
+export default UserListItem;
