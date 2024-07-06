@@ -1,18 +1,18 @@
-const CreateUserModal = ({onClose}) => {
+const CreateUserModal = ({ onClose, onCreate }) => {
   return (
-    <div class="overlay">
-      <div class="backdrop" onClick={onClose}></div>
-      <div class="modal">
-        <div class="user-container">
-          <header class="headers">
+    <div className="overlay">
+      <div className="backdrop" onClick={onClose}></div>
+      <div className="modal">
+        <div className="user-container">
+          <header className="headers">
             <h2>Edit User/Add User</h2>
-            <button class="btn close" onClick={onClose}>
+            <button className="btn close" onClick={onClose}>
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="xmark"
-                class="svg-inline--fa fa-xmark"
+                className="svg-inline--fa fa-xmark"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
@@ -24,107 +24,108 @@ const CreateUserModal = ({onClose}) => {
               </svg>
             </button>
           </header>
-          <form>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First name</label>
-                <div class="input-wrapper">
+
+          <form onSubmit={onCreate}>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First name</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                   </span>
                   <input id="firstName" name="firstName" type="text" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="lastName">Last name</label>
-                <div class="input-wrapper">
+              <div className="form-group">
+                <label htmlFor="lastName">Last name</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                   </span>
                   <input id="lastName" name="lastName" type="text" />
                 </div>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <div class="input-wrapper">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-envelope"></i>
+                    <i className="fa-solid fa-envelope"></i>
                   </span>
                   <input id="email" name="email" type="text" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="phoneNumber">Phone number</label>
-                <div class="input-wrapper">
+              <div className="form-group">
+                <label htmlFor="phoneNumber">Phone number</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-phone"></i>
+                    <i className="fa-solid fa-phone"></i>
                   </span>
                   <input id="phoneNumber" name="phoneNumber" type="text" />
                 </div>
               </div>
             </div>
 
-            <div class="form-group long-line">
-              <label for="imageUrl">Image Url</label>
-              <div class="input-wrapper">
+            <div className="form-group long-line">
+              <label htmlFor="imageUrl">Image Url</label>
+              <div className="input-wrapper">
                 <span>
-                  <i class="fa-solid fa-image"></i>
+                  <i className="fa-solid fa-image"></i>
                 </span>
                 <input id="imageUrl" name="imageUrl" type="text" />
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="country">Country</label>
-                <div class="input-wrapper">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="country">Country</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-map"></i>
+                    <i className="fa-solid fa-map"></i>
                   </span>
                   <input id="country" name="country" type="text" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <div class="input-wrapper">
+              <div className="form-group">
+                <label htmlFor="city">City</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-city"></i>
+                    <i className="fa-solid fa-city"></i>
                   </span>
                   <input id="city" name="city" type="text" />
                 </div>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="street">Street</label>
-                <div class="input-wrapper">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="street">Street</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-map"></i>
+                    <i className="fa-solid fa-map"></i>
                   </span>
                   <input id="street" name="street" type="text" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="streetNumber">Street number</label>
-                <div class="input-wrapper">
+              <div className="form-group">
+                <label htmlFor="streetNumber">Street number</label>
+                <div className="input-wrapper">
                   <span>
-                    <i class="fa-solid fa-house-chimney"></i>
+                    <i className="fa-solid fa-house-chimney"></i>
                   </span>
                   <input id="streetNumber" name="streetNumber" type="text" />
                 </div>
               </div>
             </div>
             <div id="form-actions">
-              <button id="action-save" class="btn" type="submit">
+              <button id="action-save" className="btn" type="submit">
                 Save
               </button>
               <button
                 id="action-cancel"
-                class="btn"
+                className="btn"
                 type="button"
                 onClick={onClose}
               >
