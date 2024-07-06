@@ -1,13 +1,13 @@
 const Search = () => {
   return (
-    <form class="search-form">
+    <form className="search-form">
       <h2> 
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="user"
-          class="svg-inline--fa fa-user SearchBar_icon__cXpTg"
+          className="svg-inline--fa fa-user SearchBar_icon__cXpTg"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -19,7 +19,7 @@ const Search = () => {
         </svg>
         <span>Users</span>
       </h2>
-      <div class="search-input-container">
+      <div className="search-input-container">
         <input
           type="text"
           placeholder="Please, select the search criteria"
@@ -27,18 +27,18 @@ const Search = () => {
         />
 
         {/* <!-- Show the clear button only if input field length !== 0 --> */}
-        <button class="btn close-btn">
-          <i class="fa-solid fa-xmark"></i>
+        <button className="btn close-btn">
+          <i className="fa-solid fa-xmark"></i>
         </button>
 
-        <button class="btn" title="Please, select the search criteria">
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <button className="btn" title="Please, select the search criteria">
+          <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <div class="filter">
+      <div className="filter">
         <span>Search Criteria:</span>
-        <select name="criteria" class="criteria">
+        <select name="criteria" className="criteria">
           <option value="">Not selected</option>
           <option value="">First Name</option>
           <option value="">Last Name</option>
