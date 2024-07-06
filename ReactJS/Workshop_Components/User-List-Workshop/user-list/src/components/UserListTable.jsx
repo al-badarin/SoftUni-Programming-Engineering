@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import * as userService from "../services/userService";
 
 import UserListItem from "./UserListItem";
+import CreateUserModal from "./CreateUserModal";
 
 const UserListTable = () => {
   const [users, setUsers] = useState([]);
+  const [showCreate, setshowCreate] = useState(false);
 
   useEffect(() => {
     userService
@@ -15,8 +17,18 @@ const UserListTable = () => {
     // .finally
   });
 
+  const createUserClickHandler = () => {
+    setshowCreate(true);
+  };
+
+  const hideCreateUserModal = () => {
+    setshowCreate(false);
+  };
+
   return (
-    <div>
+    <div class="table-wrapper">
+      {showCreate && (<CreateUserModal onClose={hideCreateUserModal} />)}
+      
       <table class="table">
         <thead>
           <tr>
@@ -133,7 +145,9 @@ const UserListTable = () => {
         </tbody>
       </table>
 
-      <button className="btn-add btn">Add new user</button>
+      <button className="btn-add btn" onClick={createUserClickHandler}>
+        Add new user
+      </button>
 
       {/* PAGINATION */}
       {/* <div className="pagination position">
