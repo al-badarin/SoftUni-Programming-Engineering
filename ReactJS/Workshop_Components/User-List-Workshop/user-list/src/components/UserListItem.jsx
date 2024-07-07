@@ -9,9 +9,14 @@ const UserListItem = ({
   createdAt,
   imageUrl,
   onInfoClick,
+  onDeleteClick,
 }) => {
   const infoClickHandler = () => {
     onInfoClick(userId);
+  };
+
+  const deleteClickHandler = () => {
+    onDeleteClick(userId);
   };
 
   return (
@@ -46,7 +51,11 @@ const UserListItem = ({
         </button>
 
         {/* DELETE BTN */}
-        <button className="btn delete-btn" title="Delete">
+        <button
+          className="btn delete-btn"
+          title="Delete"
+          onClick={deleteClickHandler}
+        >
           <svg
             aria-hidden="true"
             focusable="false"

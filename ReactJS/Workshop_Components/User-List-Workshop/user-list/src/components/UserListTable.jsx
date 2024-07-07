@@ -5,29 +5,33 @@ import * as userService from "../services/userService";
 import UserListItem from "./UserListItem";
 import CreateUserModal from "./CreateUserModal";
 import UserInfoModal from "./UserInfoModal";
+import Spinner from "./Spinner";
+import UserDeleteModal from "./UserDeleteModal";
 
 const UserListTable = () => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
 
     userService
       .getAll()
       .then((result) => setUsers(result))
-      .catch((err) => console.log(err));
-    // .finally(() => setIsLoading(false));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, []);
 
   const createUserClickHandler = () => {
-    setshowCreate(true);
+    setShowCreate(true);
   };
 
   const hideCreateUserModal = () => {
-    setshowCreate(false);
+    setShowCreate(false);
   };
 
   const userCreateHandler = async (e) => {
@@ -52,6 +56,22 @@ const UserListTable = () => {
     setShowInfo(true);
   };
 
+  const deleteUserClickHandler = (userId) => {
+    setSelectedUser(userId);
+    setShowDelete(true);
+  };
+
+  const deleteUserHandler = async () => {
+    // Remove user from server
+    await userService.remove(selectedUser);
+
+    // Remove user from state
+    setUsers((state) => state.filter((user) => user._id !== selectedUser));
+
+    // Close the delete modal
+    setShowDelete(false);
+  };
+
   return (
     <div className="table-wrapper">
       {showCreate && (
@@ -67,6 +87,15 @@ const UserListTable = () => {
           userId={selectedUser}
         />
       )}
+
+      {showDelete && (
+        <UserDeleteModal
+          onClose={() => setShowDelete(false)}
+          onDelete={deleteUserHandler}
+        />
+      )}
+
+      {isLoading && <Spinner />}
 
       <table className="table">
         <thead>
@@ -178,7 +207,7 @@ const UserListTable = () => {
               lastName={user.lastName}
               phoneNumber={user.phoneNumber}
               onInfoClick={userInfoClickHandler}
-              // onDeleteClick={deleteUserClickHandler}
+              onDeleteClick={deleteUserClickHandler}
             />
           ))}
         </tbody>
