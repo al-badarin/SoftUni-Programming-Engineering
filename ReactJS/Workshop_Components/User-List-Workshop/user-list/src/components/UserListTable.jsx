@@ -4,18 +4,23 @@ import * as userService from "../services/userService";
 
 import UserListItem from "./UserListItem";
 import CreateUserModal from "./CreateUserModal";
+import UserInfoModal from "./UserInfoModal";
 
 const UserListTable = () => {
   const [users, setUsers] = useState([]);
-  const [showCreate, setshowCreate] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
+    // setIsLoading(true);
+
     userService
       .getAll()
       .then((result) => setUsers(result))
       .catch((err) => console.log(err));
-    // .finally
-  });
+    // .finally(() => setIsLoading(false));
+  }, []);
 
   const createUserClickHandler = () => {
     setshowCreate(true);
@@ -36,10 +41,15 @@ const UserListTable = () => {
     const newUser = await userService.create(data);
 
     // Add newly created user to the local state
-    setUsers(state => [...state, newUser]);
+    setUsers((state) => [...state, newUser]);
 
     // Close the modal
     setShowCreate(false);
+  };
+
+  const userInfoClickHandler = async (userId) => {
+    setSelectedUser(userId);
+    setShowInfo(true);
   };
 
   return (
@@ -48,6 +58,13 @@ const UserListTable = () => {
         <CreateUserModal
           onClose={hideCreateUserModal}
           onCreate={userCreateHandler}
+        />
+      )}
+
+      {showInfo && (
+        <UserInfoModal
+          onClose={() => setShowInfo(false)}
+          userId={selectedUser}
         />
       )}
 
@@ -160,7 +177,7 @@ const UserListTable = () => {
               imageUrl={user.imageUrl}
               lastName={user.lastName}
               phoneNumber={user.phoneNumber}
-              // onInfoClick={userInfoClickHandler}
+              onInfoClick={userInfoClickHandler}
               // onDeleteClick={deleteUserClickHandler}
             />
           ))}

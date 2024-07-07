@@ -8,7 +8,12 @@ const UserListItem = ({
   phoneNumber,
   createdAt,
   imageUrl,
+  onInfoClick,
 }) => {
+  const infoClickHandler = () => {
+    onInfoClick(userId);
+  };
+
   return (
     <tr>
       <td>
@@ -55,7 +60,11 @@ const UserListItem = ({
             ></path>
           </svg>
         </button>
-        <button className="btn info-btn" title="Info">
+        <button
+          className="btn info-btn"
+          title="Info"
+          onClick={infoClickHandler}
+        >
           <svg
             aria-hidden="true"
             focusable="false"
