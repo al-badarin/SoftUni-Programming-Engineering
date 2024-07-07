@@ -26,6 +26,7 @@ const UserListItem = ({
       <td>{formatDate(createdAt)}</td>
 
       <td className="actions">
+        {/* EDIT BTN */}
         <button className="btn edit-btn" title="Edit">
           <svg
             aria-hidden="true"
@@ -43,6 +44,8 @@ const UserListItem = ({
             ></path>
           </svg>
         </button>
+
+        {/* DELETE BTN */}
         <button className="btn delete-btn" title="Delete">
           <svg
             aria-hidden="true"
@@ -60,6 +63,8 @@ const UserListItem = ({
             ></path>
           </svg>
         </button>
+
+        {/* INFO BTN */}
         <button
           className="btn info-btn"
           title="Info"
