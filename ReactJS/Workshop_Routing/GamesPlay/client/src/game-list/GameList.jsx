@@ -1,4 +1,16 @@
+import { useEffect, useState } from 'react';
+
+import * as gameService from '../services/gameService';
+
 export default function GameList() {
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    gameService.getAll().then((result) => setGames(result));
+  }, []);
+
+  console.log(games);
+
   return (
     <section id="catalog-page">
       <h1>All Games</h1>
@@ -13,6 +25,7 @@ export default function GameList() {
           </a>
         </div>
       </div>
+
       <div className="allGames">
         <div className="allGames-info">
           <img src="./images/avatar-1.jpg" />
@@ -23,6 +36,7 @@ export default function GameList() {
           </a>
         </div>
       </div>
+
       <div className="allGames">
         <div className="allGames-info">
           <img src="./images/avatar-1.jpg" />
