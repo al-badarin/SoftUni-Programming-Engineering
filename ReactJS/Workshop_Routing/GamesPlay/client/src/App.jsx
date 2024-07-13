@@ -1,3 +1,5 @@
+import {Routes, Route} from 'react-router-dom'
+
 import Header from "./header/Header";
 
 function App() {
@@ -6,6 +8,10 @@ function App() {
       <div id="box">
         <Header />
       </div>
+
+      <Routes>
+        
+      </Routes>
     </>
   );
 }
