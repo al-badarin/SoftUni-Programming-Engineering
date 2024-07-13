@@ -6,10 +6,13 @@ import * as commentService from '../services/commentService';
 
 export default function GameDetails() {
   const [game, setGame] = useState({});
+  const [comments, setComments] = useState([]);
   const { gameId } = useParams();
 
   useEffect(() => {
     gameService.getOne(gameId).then(setGame);
+
+    commentService.getAll(gameId).then(setComments);
   }, [gameId]);
 
   const addCommentHandler = async (e) => {
@@ -23,7 +26,7 @@ export default function GameDetails() {
       formData.get('comment')
     );
 
-    console.log(newComment);
+    setComments((state) => [...state, newComment]);
   };
 
   return (
@@ -39,27 +42,26 @@ export default function GameDetails() {
 
         <p className="text">{game.summary}</p>
 
-        {/* <!-- Bonus ( for Guests and Users ) -->
-    <div className="details-comments">
-      <h2>Comments:</h2>
-      <ul>
-        <!-- list all comments htmlFor current game (If any) -->
-        <li className="comment">
-          <p>Content: I rate this one quite highly.</p>
-        </li>
-        <li className="comment">
-          <p>Content: The best game.</p>
-        </li>
-      </ul>
-      <!-- Display paragraph: If there are no games in the database -->
-      <p className="no-comment">No comments.</p>
-    </div>
+        <div className="details-comments">
+          <h2>Comments:</h2>
+          <ul>
+            {comments.map(({ _id, username, text }) => (
+              <li key={_id} className="comment">
+                <p>
+                  {username}: {text}
+                </p>
+              </li>
+            ))}
+          </ul>
 
-    <!-- Edit/Delete buttons ( Only htmlFor creator of this game )  -->
-    <div className="buttons">
+          {comments.length === 0 && <p className="no-comment">No comments.</p>}
+        </div>
+
+        {/* <!-- Edit/Delete buttons ( Only htmlFor creator of this game )  --> */}
+        {/* <div className="buttons">
       <a href="#" className="button">Edit</a>
       <a href="#" className="button">Delete</a>
-    </div> */}
+    </div>  */}
       </div>
 
       {/* <!-- Add Comment ( Only htmlFor logged-in users, which is not creators of the current game ) --> */}
