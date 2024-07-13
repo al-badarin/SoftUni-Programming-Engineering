@@ -1,7 +1,11 @@
+import Header from "./header/Header";
+
 function App() {
   return (
     <>
-      <h2>Routing Workshop</h2>
+      <div id="box">
+        <Header />
+      </div>
     </>
   );
 }
