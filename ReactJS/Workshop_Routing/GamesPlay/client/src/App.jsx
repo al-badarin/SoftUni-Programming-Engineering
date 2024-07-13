@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import GameList from "./game-list/GameList";
 import GameCreate from "./game-create/GameCreate";
 import Login from "./login/Login";
+import Register from "./register/Register";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/games" element={<GameList />} />
         <Route path="/games/create" element={<GameCreate />} />
         <Route path="/login" element={<Login />} />
-        <Route path="" element={<xxx />} />
+        <Route path="/register" element={<Register />} />
         <Route path="" element={<xxx />} />
       </Routes>
     </>
