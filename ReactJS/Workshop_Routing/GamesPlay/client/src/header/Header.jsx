@@ -1,21 +1,33 @@
-export default function Header(){
-    return(
-        <header>
-        {/* <!-- Navigation --> */}
-        <h1><a className="home" href="/">GamesPlay</a></h1>
-        <nav>
-          <a href="/games">All games</a>
-          {/* <!-- Logged-in users --> */}
+import { useContext } from 'react';
+import Path from '../paths';
+import AuthContext from '../contexts/authContext';
+
+export default function Header() {
+  const { isAuthenticated, username } = useContext(AuthContext);
+
+  return (
+    <header>
+      <h1>
+        <a className="home" href={Path.Home}>
+          GamesPlay
+        </a>
+      </h1>
+      <nav>
+        <a href="/games">All games</a>
+        {isAuthenticated && (
           <div id="user">
             <a href="/games/create">Create Game</a>
             <a href="/logout">Logout</a>
+            <span>| {username}</span>
           </div>
-          {/* <!-- Guest users --> */}
+        )}
+        {!isAuthenticated && (
           <div id="guest">
             <a href="/login">Login</a>
             <a href="/register">Register</a>
           </div>
-        </nav>
-      </header>
-    )
+        )}
+      </nav>
+    </header>
+  );
 }
