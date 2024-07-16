@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 import Path from '../../paths';
 import AuthContext from '../../contexts/authContext';
 
@@ -8,23 +10,23 @@ export default function Header() {
   return (
     <header>
       <h1>
-        <a className="home" href={Path.Home}>
+        <Link className="home" to={Path.Home}>
           GamesPlay
-        </a>
+        </Link>
       </h1>
       <nav>
-        <a href="/games">All games</a>
+        <Link to="/games">All games</Link>
         {isAuthenticated && (
           <div id="user">
-            <a href="/games/create">Create Game</a>
-            <a href="/logout">Logout</a>
+            <Link to="/games/create">Create Game</Link>
+            <Link to="/logout">Logout</Link>
             <span>| {username}</span>
           </div>
         )}
         {!isAuthenticated && (
           <div id="guest">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </div>
         )}
       </nav>
