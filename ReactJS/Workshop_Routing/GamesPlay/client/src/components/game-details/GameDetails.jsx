@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import * as gameService from '../services/gameService';
-import * as commentService from '../services/commentService';
+import * as gameService from '../../services/gameService';
+import * as commentService from '../../services/commentService';
 
 export default function GameDetails() {
   const [game, setGame] = useState({});
