@@ -27,6 +27,8 @@ function App() {
 
     setAuth(result);
 
+    localStorage.setItem('accessToken', result.accessToken);
+
     navigate(Path.Home);
   };
 
@@ -34,6 +36,8 @@ function App() {
     const result = await authService.register(values.email, values.password);
 
     setAuth(result);
+
+    localStorage.setItem('accessToken', result.accessToken);
 
     navigate(Path.Home);
   };
@@ -50,7 +54,7 @@ function App() {
     logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   };
 
   return (
