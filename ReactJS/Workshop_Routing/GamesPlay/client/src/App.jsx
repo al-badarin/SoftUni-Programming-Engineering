@@ -5,13 +5,13 @@ import * as authService from './services/authService';
 import AuthContext from './contexts/authContext';
 import Path from './paths';
 
-import Header from './header/Header';
-import Home from './home/Home';
-import GameList from './game-list/GameList';
-import GameCreate from './game-create/GameCreate';
-import Login from './login/Login';
-import Register from './register/Register';
-import GameDetails from './game-details/GameDetails';
+import Header from './components/header/Header';
+import Home from './components/home/Home';
+import GameList from './components/game-list/GameList';
+import GameCreate from './components/game-create/GameCreate';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import GameDetails from './components/game-details/GameDetails';
 
 function App() {
   const navigate = useNavigate();
