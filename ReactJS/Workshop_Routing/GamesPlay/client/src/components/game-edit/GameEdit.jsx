@@ -1,7 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Form, useNavigate, useParams } from 'react-router-dom';
 
 import * as gameService from '../../services/gameService';
-import useForm from '../../hooks/useForm';
 import { useEffect, useState } from 'react';
 
 export default function GameEdit() {
@@ -21,7 +20,11 @@ export default function GameEdit() {
     });
   }, [gameId]);
 
-  const editGameSubmitHandler = async (values) => {
+  const editGameSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const values = Object.fromEntries(new FormData(e.currentTarget));
+
     try {
       await gameService.edit(gameId, values);
 
@@ -31,12 +34,17 @@ export default function GameEdit() {
       console.log(err);
     }
   };
-  
-  const { values, onChange, onSubmit } = useForm(editGameSubmitHandler, game);
+
+  const onChange = (e) => {
+    setGame((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   return (
     <section id="edit-page" className="auth">
-      <form id="edit" onSubmit={onSubmit}>
+      <form id="edit" onSubmit={editGameSubmitHandler}>
         <div className="container">
           <h1>Edit Game</h1>
           <label htmlFor="leg-title">Legendary title:</label>
@@ -44,7 +52,7 @@ export default function GameEdit() {
             type="text"
             id="title"
             name="title"
-            value={values.title}
+            value={game.title}
             onChange={onChange}
           />
 
@@ -53,7 +61,7 @@ export default function GameEdit() {
             type="text"
             id="category"
             name="category"
-            value={values.category}
+            value={game.category}
             onChange={onChange}
           />
 
@@ -63,7 +71,7 @@ export default function GameEdit() {
             id="maxLevel"
             name="maxLevel"
             min="1"
-            value={values.maxLevel}
+            value={game.maxLevel}
             onChange={onChange}
           />
 
@@ -72,14 +80,14 @@ export default function GameEdit() {
             type="text"
             id="imageUrl"
             name="imageUrl"
-            value={values.imageUrl}
+            value={game.imageUrl}
             onChange={onChange}
           />
 
           <label htmlFor="summary">Summary:</label>
           <textarea
             name="summary"
-            value={values.summary}
+            value={game.summary}
             onChange={onChange}
             id="summary"
           ></textarea>
